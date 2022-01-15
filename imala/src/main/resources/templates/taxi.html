@@ -1,62 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-    <link rel="icon" href="..\image\jeba1.png" type="image/png" >
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
+    <link rel="icon" href="../static/images/icon.jpg" th:href="/images/icon.jpg" type="image/png">
 </head>
+
 <body>
     <header>
-        <nav class="navbar bg-primary fixed-top p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex" >
-            <div class="col-3 "><img src="../images/imala.png" class="img-fluid" alt="imala logo"></div>
-            
+        <nav class="navbar bg-dark fixed-top p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex">
+            <div class="col-3 ">
+                <h1 class="text-light">IMALA</h1>
+            </div>
+
             <div class="navbar-expand text-end float-end">
                 <a href="" class="mx-3 p-0 m-2"><i class="fas fa-user text-light mb-2"></i></a>
                 <ul class="navbar-nav mb-2 pb-0">
                     <li class="nav-item">
-                        <a class="nav-link btn btn-info mx-1  p-0 px-2 text-light" href="">LOGIN</a>
+                        <a class="nav-link btn  mx-1  p-0 px-2 text-light" href="">LOGIN</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-info mx-1  p-0 px-2 text-light" href="">ABOUT</a>
+                        <a class="nav-link btn  mx-1  p-0 px-2 text-light" href="">ABOUT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-info mx-1  p-0 px-2 text-light p-0 " href="">HELP</a>
+                        <a class="nav-link btn  mx-1  p-0 px-2 text-light p-0 " href="">HELP</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
-    <p class="my-5">Lorem, ipsum dolor sit amet tibus ut officia. Vero blanditiis laboriosam, eius minus exercitationem quibusdam voluptas necessitatibus.</p>
+    <main class="mx-3 p-3 bg-ligth text-center">
+        <img src="/images/taxi.gif" alt="" class="img-fluid rounded-2">
+        <article class="mx-4 p-3 border border-success bg-ligth shadow text-center rounded-3 shadow-lg m-lg-5 p-lg-5 ">
 
-    <article class=" mx-4 p-3 bg-secondary shadow text-center">
-        <p>Lorem, ipsum dolor dustshsuus  Obcaecati, ipsum.</p>
-        <form action="">
-            <label for="startingPoint"><i class="fas fa-dot-circle text-primary"></i></label>
-            <input type="text" class="p-2 alert bg-warning rounded-pill" placeholder="Choose starting point..."> <br>
-            <label for="destination"><i class="fas fa-map-marker-alt text-primary lead"></i> </label>
-            <input type="text" class="p-2 alert bg-warning rounded-pill" placeholder="Choose destination...">
-            <br>
-            <label for="destination"><i class="fas fa-road text-primary"></i></label>
-            <input type="button" class="btn w-70 btn-primary rounded-pill" value="Search">
-        </form><br>
-        <div class="container border  border-warning p-2 px-3">
-            <h3 class="text-primary container border border-warning p-1 mb-4 ">Tarrif</h3>
-            <p class="text-start container border border-warning p-1 m-0 px-4 ">Lorem ipsum </p>
-            <p class="text-start container border border-warning p-1 px-4 ">Lorem ipsum </p>
-            <p class="text-start container border border-warning p-1 "><i class="fas fa-hand-holding-usd text-small text-primary px-2"></i>5 Birr</p>
-        </div>
-</article>
-    <footer class="bg-primary p-3 rounded-top mt-4">
+            <p class="text-dark justify-content-center font-monospace">Enter your starting station and your destination</p>
+            <form action="">
+
+
+                <label for="destination"><i class="fas fa-map-marker-alt text-dark lead w-75"></i> </label>
+                <input type="text" class="p-2 alert bg-dark bg-opacity-25  rounded-pill w-75" list="start" placeholder="Choose starting point..."> <br>
+                <datalist id="start">
+                    <option value="megenagna"></option>
+                    <option value="merkato"></option>
+                    <option value="Adama"></option>
+                    <option value="Dera"></option>
+                </datalist>
+
+                <label for="destination"><i class="fas fa-map-marker-alt text-dark lead w-75"></i> </label>
+                <input type="text" class="p-2 alert bg-dark bg-opacity-25  rounded-pill w-75" placeholder="Choose destination..." list="destinations"> <br>
+                <datalist id="destinations">
+                    <option value="megenagna"></option>
+                    <option value="merkato"></option>
+                    <option value="Adama"></option>
+                    <option value="Dera"></option>
+                </datalist>
+                </div>
+                <input type="button" class="btn w-75 btn-dark rounded-pill" value="Search">
+
+            </form><br>
+            <div class="container  border-dark bg-dark bg-opacity-10 rounded-3 p-2 px-3 shadow ">
+                <h3 class="text-dark w-75 container border-bottom border-success rounded-3 p-1 mb-4 ">Tarrif</h3>
+                <p class="text-dark w-50 container border border-success  rounded-3 p-1">6kilo
+                </p>
+                <p class="text-dark">to</p>
+                <p class="text-dark w-50 container border border-success rounded-3 p-1">Magenagna</p>
+                <p class="text-dark w-50 container border border-success rounded-3 p-1"><i class="fas fa-hand-holding-usd text-small text-dark px-2"></i>5 Birr</p>
+            </div>
+        </article>
+    </main>
+    <footer class="bg-dark p-3 rounded-top mt-4">
         <p class="text-light text-center py-0 my-0">copy right Lorem, ipsum dolor.</p>
     </footer>
-    
+    <script src="../static/js/signup.js" lang="javascript" th:src="@{/js/signup.js}"></script>
+    <script src="../static/js/scroll.js" lang="javascript" th:src="@{/js/scroll.js}"></script>
 
 </body>
+
 </html>

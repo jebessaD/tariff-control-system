@@ -6,28 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
-    <link rel="icon" href="..\image\jeba1.png" type="image/png">
+    <link rel="icon" href="../static/images/icon.jpg" th:href="@{/images/icon.jpg}" pe="image/png ">
 
 </head>
 
 <body>
-    <header id="header" class="position-fixed top-0 w-100" >
-        <nav class="navbar bg-dark p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex">
-            <!-- <div class="col-3 "><img src="../images/imala.png" th:attr="src=@{/images/imala.png},title=#{imala logo},alt=#{imala logo}" class="img-fluid" alt="imala logo" width="150"></div> -->
-            <div><h1 class="text-light p-2">IMALA</h1></div>
-            <div class="navbar-expand text-end float-end">
-                <a href="html/profile.html" th:href="@{/html/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
-                <ul class="navbar-nav mb-2 pb-0">
-                    <li class="nav-item mx-lg-3">
-                        <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light" href="../index.html" th:href="@{/html/login}">HOME</a>
+    <header id="header " class="position-fixed top-0 w-100 ">
+        <nav class="navbar bg-dark p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex ">
+            <div>
+                <h1 class="text-light p-2 ">IMALA</h1>
+            </div>
+            <div class="navbar-expand text-end float-end ">
+                <a href="./editprofile.html " th:href="@{/html/profile.html} " class="mx-3 p-0 m-2 mx-lg-5 "><i class="fas fa-user text-light mb-2 py-lg-3 "></i></a>
+                <ul class="navbar-nav mb-2 pb-0 ">
+                    <li class="nav-item mx-lg-3 ">
+                        <a class="nav-link btn btn-dark mx-1 p-0 px-2 text-light " href="./index.html " th:href="@{/html/login} ">HOME</a>
                     </li>
-                    <li class="nav-item mx-lg-3">
-                        <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light" href="html/about.html" th:href="@{/html/about}">ABOUT</a>
+                    <li class="nav-item mx-lg-3 ">
+                        <a class="nav-link btn btn-dark mx-1 p-0 px-2 text-light " href="./about.html " th:href="@{/html/about} ">ABOUT</a>
                     </li>
-                    <li class="nav-item mx-lg-3">
-                        <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light p-0 " href="html/help.html" th:href="@{/html/help}">HELP</a>
+                    <li class="nav-item mx-lg-3 ">
+                        <a class="nav-link btn btn-dark mx-1 p-0 px-2 text-light p-0 " href="./help.html " th:href="@{/html/help.html} ">HELP</a>
                     </li>
                 </ul>
             </div>
@@ -41,33 +42,32 @@
             <form class="form-login ">
 
                 <div class="form-group text-start small m-2 ">
-                    <label class="py-1" for="email">Email address or Phone Number</label>
-                    <input type="email" class="form-control rounded rounded-3 alert-secondary " id="email" placeholder="" required>
+                    <label class="py-1 " for="email ">Email address or Phone Number</label>
+                    <input type="email " class="form-control rounded rounded-3 alert-secondary " id="email " placeholder=" " required>
                 </div>
                 <div class="form-group text-start small m-2 ">
-                    <label class="py-1" for="psw_1">Password</label>
-                    <input type="password" class="form-control rounded rounded-3 alert-secondary " id="psw_1" aria-describedby="passwordHelp" placeholder="" minlength="4" required>
+                    <label class="py-1 " for="psw_1 ">Password</label>
+                    <input type="password " class="form-control rounded rounded-3 alert-secondary " id="psw_1 " aria-describedby="passwordHelp " placeholder=" " minlength="4 " required>
                 </div>
 
                 <div class="form-group text-start small m-2 my-4 py-2 ">
-                    <button type="submit" class="btn btn-dark w-100 rounded rounded-3 submit_form">Login</button>
+                    <button type="submit " class="btn btn-dark w-100 rounded rounded-3 submit_form ">Login</button>
                 </div>
-                <div class="login-error my-3 pb-4">
-                    <p class="text-danger text-start p-0 m-0 px-2 small"><i class="fas fa-exclamation-circle px-2"></i>Incorrect password or email</p>
+                <div class="login-error my-3 pb-4 ">
+                    <p class="text-danger text-start p-0 m-0 px-2 small "><i class="fas fa-exclamation-circle px-2 "></i>Incorrect password or email</p>
                 </div>
                 <div class="text-start m-2 my-4 ">
-                    <p class="text-start p-0 m-0 px-2 small">Don't have an account yet?<a href="signup.html" class="text-primary px-2">Sign up</a href="login.html"></p>
+                    <p class="text-start p-0 m-0 px-2 small ">Don't have an account yet?<a href="./signup.html" th:href="@{/html/signup.html}" class="text-primary px-2 ">Sign up</a href="login.html " th:href="@{/html/login.html}" ></p>
                 </div>
-                
                 
             </form>
         </div>
     </main>
-    <footer class="bg-dark p-3 rounded-top top-100">
-        <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
+    <footer class="bg-dark p-3 rounded-top top-100 ">
+        <p class="text-light text-center py-0 my-0 ">Copyright &copy; 2022 All rights reserved | Imala</p>
     </footer>
-    <script src="../js/login.js" lang="javascript" th:src="@{/js/login.js}"></script>
-    <script src="../js/scroll.js" lang="javascript" th:src="@{/js/scroll.js}"></script>
+    <script src="../static/js/login.js " lang="javascript " th:src="@{/js/login.js} "></script>
+    <script src="../static/js/scroll.js " lang="javascript " th:src="@{/js/scroll.js} "></script>
 </body>
 
 </html>

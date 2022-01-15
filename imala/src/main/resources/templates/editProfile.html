@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
     <title>Document</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
 </head>
 
-<header id="header" class="position-fixed top-0 w-100" >
+<header id="header" class="position-fixed top-0 w-100">
     <nav class="navbar bg-dark p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex">
         <!-- <div class="col-3 "><img src="../images/imala.png" th:attr="src=@{/images/imala.png},title=#{imala logo},alt=#{imala logo}" class="img-fluid" alt="imala logo" width="150"></div> -->
-        <div><h1 class="text-light p-2">IMALA</h1></div>
+        <div>
+            <h1 class="text-light p-2">IMALA</h1>
+        </div>
         <div class="navbar-expand text-end float-end">
             <a href="html/profile.html" th:href="@{/html/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
             <ul class="navbar-nav mb-2 pb-0">
                 <li class="nav-item mx-lg-3">
-                    <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light" href="../index.html" th:href="@{/html/login}">HOME</a>
+                    <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light" href="./index.html" th:href="@{/html/index.html}">HOME</a>
                 </li>
                 <li class="nav-item mx-lg-3">
-                    <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light" href="html/about.html" th:href="@{/html/about}">ABOUT</a>
+                    <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light" href="./about.html" th:href="@{/html/about.html}">ABOUT</a>
                 </li>
                 <li class="nav-item mx-lg-3">
-                    <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light p-0 " href="html/help.html" th:href="@{/html/help}">HELP</a>
+                    <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light p-0 " href="./help.html" th:href="@{/html/help.html}">HELP</a>
                 </li>
             </ul>
         </div>
@@ -34,19 +37,19 @@
 <main class="container text-center p-sm-5 my-5 mt-sm-6">
     <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
         <div class="text-start my-4 px-3">
-            <a class="text-start text-warning" href="index.html"><i class="fas fa-chevron-left "></i></a>
+            <a class="text-start text-warning" href="./index.html" th:href="@{/html/index.html}"><i class="fas fa-chevron-left "></i></a>
             <h2 class="text-start text-warning my-3  mb-5"><i class="far fa-user"></i> </i> Profile</h2>
         </div>
         <hr class="mx-2">
         <div id="password">
             <div class="d-flex container justify-content-between">
                 <p class="p-0 m-0"><i class="fas fa-unlock-alt text-primary px-2"> </i>Change Password</p>
-                <a  data-bs-toggle="collapse"data-bs-target="#changePassword" href="changePassword" ><i class="fas fa-angle-down"></i></a>
+                <a data-bs-toggle="collapse" data-bs-target="#changePassword" href="changePassword"><i class="fas fa-angle-down"></i></a>
             </div>
             <div>
-                
-                <form class="collapse  indent container my-3 px-5 text-start" id="changePassword"  data-parent="#password"  method="post" >
-                  
+
+                <form class="collapse  indent container my-3 px-5 text-start" id="changePassword" data-parent="#password" method="post">
+
                     <!-- <div class="form-group text-start small m-2">
                         <label for="old_psw">Old Password</label>
                         <input type="password" class="form-control rounded rounded-5 alert-secondary" id="old_psw" aria-describedby="oldPasswordHelp" placeholder="" minlength="4" required>
@@ -73,40 +76,43 @@
         <div id="username">
             <div class="d-flex container justify-content-between">
                 <p class="p-0 m-0"><i class="fas fa-user-edit text-primary px-2"></i>Edit Username</p>
-                <a  data-bs-toggle="collapse"data-bs-target="#editUsername" href="#editUsername" ><i class="fas fa-angle-down"></i></a>
+                <a data-bs-toggle="collapse" data-bs-target="#editUsername" href="#editUsername"><i class="fas fa-angle-down"></i></a>
             </div>
             <div>
-                
-                <form class="collapse  indent container my-3 px-5 text-start" id="editUsername"  data-parent="#username"  >
-                        <label  for="userName">User name</label>
-                    <div class="text-start small py-2 input-group" >
-                        
+
+                <form class="collapse  indent container my-3 px-5 text-start" id="editUsername" data-parent="#username">
+                    <label for="userName">User name</label>
+                    <div class="text-start small py-2 input-group">
+
                         <input type="text" class="form-control alert-secondary" id="userName" placeholder="" required>
                         <button type="submit" class="btn btn-dark ">Save</button>
                     </div>
-                        
+
                 </form>
                 <hr class="mx-2">
             </div>
         </div>
         <div class="text-start">
             <a class="text-decoration-none text-dark px-3" href=""><i class="fas fa-sign-out-alt text-primary px-2"></i>logout</a>
-        </div><hr class="mx-2">
+        </div>
+        <hr class="mx-2">
 
         <div class="text-start">
             <a class="text-decoration-none text-danger px-3" href=""><i class="fas fa-trash-alt text-danger px-2 "></i>Delete Account</a>
-        </div><hr class="mx-2"> <br>
-      
-        
+        </div>
+        <hr class="mx-2"> <br>
+
+
     </div>
 </main>
 
 <footer class="bg-dark p-3 rounded-top top-100">
     <p class="text-light text-center py-0 my-0">Copyright &copy; 2021 All rights reserved | Imala</p>
 </footer>
-<script src="./js/scroll.js" lang="javascript" th:src="@{/js/scroll.js}"></script>
-<script src="./js/editProfile.js" lang="javascript" th:src="@{/js/editProfile.js}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-<script src="js/bootstrap.bundle.js"></script>
+<script src="../static/js/scroll.js" lang="javascript" th:src="@{/js/scroll.js}"></script>
+<script src="../static/js/editProfile.js" lang="javascript" th:src="@{/js/editProfile.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js}"></script>
+<script src="../static/js/bootstrap.bundle.min.js" th:href="@{/js/bootstrap.bundle.js}"></script>
 </body>
+
 </html>
