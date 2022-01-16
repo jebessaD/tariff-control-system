@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ImalaApplication<imala>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.imala.imala.ImalaApplication",
+            "projectName": "imala",
+            "args": ""
+        }
+    ]
+}
