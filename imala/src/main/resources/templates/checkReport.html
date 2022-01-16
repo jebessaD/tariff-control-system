@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>checkReport</title>
-    <link rel="stylesheet" href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
-    <link rel="icon" href="../images/icon.jpg" type="image/png">
+    <link rel="icon" href="../static/images/icon.jpg" th:href="@{/images/icon.jpg}" ype="image/png">
 
 </head>
 
 <body>
-    <header id="header" class="position-fixed top-0 w-100" >
-        <nav class="navbar bg-primary p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex">
-                <div class="col-3 "><img src="../images/imala.png" th:attr="src=@{/images/imala.png},title=#{imala logo},alt=#{imala logo}" class="img-fluid" alt="imala logo" width="150"></div>
+    <header id="header" class="position-fixed top-0 w-100">
+        <nav class="navbar bg-dark p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex">
+            <div>
+                <h1 class="text-light p-2">IMALA</h1>
+            </div>
+            <div class="navbar-expand text-end float-end">
+                <a href="html/profile.html" th:href="@{/html/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
+                <ul class="navbar-nav mb-2 pb-0">
+                    <li class="nav-item mx-lg-3">
+                        <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light" href="./index.html" th:href="@{/html/index.html}">HOME</a>
+                    </li>
+                    <li class="nav-item mx-lg-3">
+                        <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light" href="./about.html" th:href="@{/html/about}">ABOUT</a>
+                    </li>
+                    <li class="nav-item mx-lg-3">
+                        <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light p-0 " href="./help.html" th:href="@{/html/help}">HELP</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <br><br><br>
+    <main class="container text-center p-sm-5 my-5 mt-sm-6">
+        <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
+                <h2 class="title text-primary my-5 ">CHECK REPORTS</h2>
+            <p class="text-dark">Enter plate number you want to check reports record</p>
+            <form class="form-report">
 
-                <div class="navbar-expand text-end float-end">
-                    <a href="html/profile.html" th:href="@{/html/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
-                    <ul class="navbar-nav mb-2 pb-0">
-                        <li class="nav-item mx-lg-3">
-                            <a class="nav-link btn btn-info mx-1  p-0 px-2 text-light" href="../index.html" th:href="@{/html/login}">HOME</a>
-                        </li>
-                        <li class="nav-item mx-lg-3">
-                            <a class="nav-link btn btn-info mx-1  p-0 px-2 text-light" href="html/about.html" th:href="@{/html/about}">ABOUT</a>
-                        </li>
-                        <li class="nav-item mx-lg-3">
-                            <a class="nav-link btn btn-info mx-1  p-0 px-2 text-light p-0 " href="html/help.html" th:href="@{/html/help}">HELP</a>
-                        </li>
-                    </ul>
+                <div class="form-group text-start small m-2">
+                    <label for="plateNo">Plate Number</label>
+                    <input type="text" class="form-control rounded rounded-3 alert-secondary" id="plateNo" placeholder="" required>
                 </div>
-            </nav>
-        </header>
 
-        <main class="container text-center p-sm-2 mt-md-7">
-            <div class="col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-7 alert-secondary px-4 my-4">
-                <h1 class="title text-primary my-3 ">REPORT</h1>
-                <p class="text-primary">Enter plate number you want to check reports record</p>
-                <form class="form-report">
-
-                    <div class="form-group text-start small m-2">
-                        <label for="plateNo">Plate Number</label>
-                        <input type="text" class="form-control rounded rounded-5 bg-secondary" id="plateNo" placeholder="" required>
-                    </div>
-                   
-                    <div class="form-group text-start small m-2 my-4 ">
-                        <button type="submit" class="btn btn-primary w-100 rounded rounded-5 submit_form">Check</button>
-                    </div>
+                <div class="form-group text-start small m-2 my-4 ">
+                    <button type="submit" class="btn btn-dark w-100 rounded rounded-3 submit_form">Check</button>
+                </div>
             </form>
             <div class="text-start m-2 my-4 ">
                 <p class="text-start p-0 m-0 px-2 small"><a href="report.html" class="text-primary text-decoration-none">Back to Report</a href="login.html"></p>
             </div>
         </div>
-        <div class="border col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-7 alert-secondary px-4 my-md-5 ">
+        <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
+        <!-- <div class="border col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-3 bg-light px-4 my-md-5 "> -->
             <table class="table ">
                 <tr class="text-center">
                   <th colspan="2" class="text-primary lead fw-bold">REPORTS</th>
@@ -66,20 +69,36 @@
                     <td class="text-start">12</td>
                 </tr>
             </table>
-            <div class="text-start mb-4 p-1 " >
-                <a  href="seeDetail.html">see detail</a>
-                
+            <div class="text-start mb-4 p-1">
+                <a data-bs-toggle="collapse" data-bs-target="#seeDetails" href="./seeDetail.html" th:href="@{/html/seeDetail}">see details</a>
             </div>
-            
-            
+            <div id="seeDetailParent">
+
+                
+                <table class="table collapse  indent container my-3 text-start" id="seeDetails" data-parent="#seeDetailParent">
+                    <tr>
+                      <th >Line or road</th>
+                      <th >Comment</th>
+                    </tr>
+                    <tr>
+                        <td>Plate Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore, molestias! Number</td> <!--th line road-->
+                        <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem! Plate Number</td>  <!--what do u observe-->
+                        
+                    </tr>
+                    
+                </table>
+            </div>
         </div>
-        
+        <br>
+
     </main>
 
-    <footer class="bg-primary p-3 rounded-top  mt-md-6">
+    <footer class="bg-dark p-3 rounded-top  mt-md-6">
         <p class="text-light text-center py-0 my-0">Copyright &copy; 2021 All rights reserved | Imala</p>
     </footer>
-    <script src="../js/scroll.js" lang="javascript" th:src="@{/js/scroll.js}"></script>
+    <script src="../static/js/bootstrap.bundle.min.js" th:href="@{/js/bootstrap.bundle.js}"></script>
+
+    <script src="../static/js/scroll.js" lang="javascript" th:src="@{/js/scroll.js}"></script>
     <!-- <script src="../js/report.js" lang="javascript" th:src="@{/js/report.js}"></script> -->
 
 </body>

@@ -6,61 +6,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report</title>
-    <link rel="stylesheet" href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.css}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
-    <link rel="icon" href="../images/icon.jpg" type="image/png">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous" th:src="@{https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous" th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js}"></script>
+    <link rel="icon" href="../static/images/icon.jpg" th:href="@{/images/icon.jpg}" type="image/png">
 
 </head>
 
 <body>
-        <header>
-            <nav class="navbar bg-primary fixed-top p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex">
-                <div class="col-3 "><img src="../images/imala.png" th:attr="src=@{/images/imala.png},title=#{imala logo},alt=#{imala logo}" class="img-fluid" alt="imala logo" width="150"></div>
+    <header id="header" class="position-fixed top-0 w-100">
+        <nav class="navbar bg-dark p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex">
 
-                <div class="navbar-expand text-end float-end">
-                    <a href="html/profile.html" th:href="@{/html/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
-                    <ul class="navbar-nav mb-2 pb-0">
-                        <li class="nav-item mx-lg-3">
-                            <a class="nav-link btn btn-info mx-1  p-0 px-2 text-light" href="../index.html" th:href="@{/html/login}">HOME</a>
-                        </li>
-                        <li class="nav-item mx-lg-3">
-                            <a class="nav-link btn btn-info mx-1  p-0 px-2 text-light" href="html/about.html" th:href="@{/html/about}">ABOUT</a>
-                        </li>
-                        <li class="nav-item mx-lg-3">
-                            <a class="nav-link btn btn-info mx-1  p-0 px-2 text-light p-0 " href="html/help.html" th:href="@{/html/help}">HELP</a>
-                        </li>
-                    </ul>
+                <h1 class="text-light p-2 ">IMALA</h1>
+            </div>
+            <div class="navbar-expand text-end float-end ">
+                <a href="./editprofile.html " th:href="@{/html/profile.html} " class="mx-3 p-0 m-2 mx-lg-5 "><i class="fas fa-user text-light mb-2 py-lg-3 "></i></a>
+                <ul class="navbar-nav mb-2 pb-0 ">
+                    <li class="nav-item mx-lg-3 ">
+                        <a class="nav-link btn btn-dark mx-1 p-0 px-2 text-light " href="./index.html " th:href="@{/html/index.html} ">HOME</a>
+                    </li>
+                    <li class="nav-item mx-lg-3 ">
+                        <a class="nav-link btn btn-dark mx-1 p-0 px-2 text-light " href="./about.html " th:href="@{/html/about.html} ">ABOUT</a>
+                    </li>
+                    <li class="nav-item mx-lg-3 ">
+                        <a class="nav-link btn btn-dark mx-1 p-0 px-2 text-light p-0 " href="./help.html" th:href="@{/html/help.html} ">HELP</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <br><br><br><br>
+    <main class="container text-center p-sm-5 mb-5">
+        <div class="col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-3 bg-light px-4 my-4">
+            <h1 class="title text-primary my-3">REPORT</h1>
+
+            <form class="form-report ">
+
+                <div class="form-group text-start small m-2 ">
+                    <label for="plateNo ">Plate Number</label>
+                    <input type="text " class="form-control rounded rounded-3 alert-secondary " id="plateNo " placeholder=" " required>
                 </div>
-            </nav>
-        </header>
+                <div class="form-group text-start small m-2 ">
+                    <label for="road ">Line or road</label>
+                    <input type="text " class="form-control rounded rounded-3 alert-secondary " id="road " aria-describedby="roadHelp " placeholder=" " required>
+                </div>
+                <div class="form-group text-start small m-2 ">
+                    <label for="FormControlTextarea " class="form-label ">What do you observe?</label>
+                    <textarea class="form-control rounded rounded-3 alert-secondary " id="FormControlTextarea " rows="3 "></textarea>
+                </div>
 
-        <main class="container text-center p-sm-2 mt-md-7">
-            <div class="col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-7 alert-secondary px-4 my-4">
-                <h1 class="title text-primary my-3 ">REPORT</h1>
+                <div class="form-group text-start small m-2 my-4 ">
+                    <button type="submit " class="btn btn-dark w-100 rounded rounded-3 submit_form ">Report</button>
+                </div>
 
-                <form class="form-report">
-
-                    <div class="form-group text-start small m-2">
-                        <label for="plateNo">Plate Number</label>
-                        <input type="text" class="form-control rounded rounded-5 bg-secondary" id="plateNo" placeholder="" required>
-                    </div>
-                    <div class="form-group text-start small m-2">
-                        <label for="road">Line or road</label>
-                        <input type="text" class="form-control rounded rounded-5 bg-secondary" id="road" aria-describedby="roadHelp" placeholder="" required>
-                    </div>
-                    <div class="form-group text-start small m-2">
-                        <label for="FormControlTextarea" class="form-label">What do you observe?</label>
-                        <textarea class="form-control rounded rounded-5 bg-secondary" id="FormControlTextarea" rows="3"></textarea>
-                    </div>
-
-                    <div class="form-group text-start small m-2 my-4 ">
-                        <button type="submit" class="btn btn-primary w-100 rounded rounded-5 submit_form">Report</button>
-                    </div>
-
-                    <div class="text-start m-2 my-4 ">
-                        <p class="text-start p-0 m-0 px-2 small"><a href="checkReport.html" class="text-primary text-decoration-none">CHECK REPORTS</a href="login.html"></p>
+                <div class="text-start m-2 my-4 ">
+                    <p class="text-start p-0 m-0 px-2 small "><a href="./checkReport.html " th:href="@{/html/checkReport.html}" class="text-primary text-decoration-none ">CHECK REPORTS</a href="./login.html "></p>
                     </div>
                 
                 
@@ -68,11 +68,12 @@
         </div>
     </main>
 
-    <footer class="bg-primary p-3 rounded-top fixed-bottom">
-        <p class="text-light text-center py-0 my-0">Copyright &copy; 2021 All rights reserved | Imala</p>
+    <footer class="bg-dark p-3 rounded-top">
+        <p class="text-light text-center py-0 my-0 ">Copyright &copy; 2021 All rights reserved | Imala</p>
     </footer>
-    <script src="../js/report.js" lang="javascript" th:src="@{/js/report.js}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js "></script>
+    <script src="../static/js/report.js " lang="javascript " th:src="@{/js/report.js} "></script>
+    <script src="../static/js/scroll.js " lang="javascript " th:src="@{/js/scroll.js} "></script>
+    <script src="@{https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js " th:src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js }"></script>
 </body>
 
 </html>
