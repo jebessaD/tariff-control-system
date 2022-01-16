@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Report</title>
-        <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.css}">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
-        <link rel="icon" href="../images/icon.jpg" type="image/png">
-    
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imala | Taxi fares</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
+    <link rel="icon" href="../images/icon.jpg" type="image/png">
+
+</head>
+
 <body>
     <header id="header" class="position-fixed top-0 w-100">
         <nav class="navbar bg-dark p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex">
@@ -34,62 +36,65 @@
     </header>
     <br><br><br><br>
     <main class="container text-center p-sm-5 mt-sm-6 mb-5">
-    <!-- <div class="col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-7 alert-secondary px-4 my-4"> -->
+        <!-- <div class="col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-7 alert-secondary px-4 my-4"> -->
 
-    <!-- <p class="container shadow py-4">Lorem, ipsum dolor sit amet tibus ut officia. Vero blanditiis laboriosam, eius minus exercitationem quibusdam voluptas necessitatibus.</p> -->
-    <article class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 py-3 ">
+        <!-- <p class="container shadow py-4">Lorem, ipsum dolor sit amet tibus ut officia. Vero blanditiis laboriosam, eius minus exercitationem quibusdam voluptas necessitatibus.</p> -->
+        <article class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 py-3 ">
 
-        <br>
-        <p class="text-dark justify-content-center ">Enter your starting station and your destination</p>
-        <form action="post">
+            <br>
+            <p class="text-dark justify-content-center ">Enter your starting station and your destination</p>
+            <form action="post">
 
 
-            <div class="form-group text-start small m-2 ">
-                <label class="py-1" for="Destination">Starting</label>
-                <input type="text" class="form-control rounded rounded-3 alert-secondary " list="places" placeholder="Choose starting point... ">  
-            </div>
-            
+                <div class="form-group text-start small m-2 ">
+                    <label class="py-1" for="Destination">Starting</label>
+                    <input type="text" class="form-control rounded rounded-3 alert-secondary " list="places" placeholder="Choose starting point... ">
+                </div>
 
-            <div class="form-group text-start small m-2 ">
-                <label class="py-1" for="Destination">Destination</label>
-                <input type="text" class="form-control rounded rounded-3 alert-secondary " list="places" placeholder="Choose starting point... ">  
-           
-            </div>            
-            <div class="form-group text-start small m-2 my-4 py-2 ">
-                <button type="submit" class="btn btn-dark w-100 rounded rounded-3 submit_form">Search</button>
-            </div>
-            
-            <datalist id="places">
+
+                <div class="form-group text-start small m-2 ">
+                    <label class="py-1" for="Destination">Destination</label>
+                    <input type="text" class="form-control rounded rounded-3 alert-secondary " list="places" placeholder="Choose starting point... ">
+
+                </div>
+                <div class="form-group text-start small m-2 my-4 py-2 ">
+                    <button type="submit" class="btn btn-dark w-100 rounded rounded-3 submit_form">Search</button>
+                </div>
+
+                <datalist id="places">
                 <option value="megenagna "></option>
                 <option value="merkato "></option>
                 <option value="Adama "></option>
                 <option value="Dera "></option>
             </datalist>
-        </form>
-    </article>
-    <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 py-3">
-        <table class="table ">
-            <tr class="text-center">
-              <th colspan="2" class="text-primary lead fw-bold">Tariff</th>
-            </tr>
-            <tr>
-                <td class="text-start px-4">6 kilo</td>
-                
-            </tr>
-            <tr>
-                <td class="text-start px-4">Megenagna</td>
-            </tr>
-            <tr>
-                <td></td> <!-- its just gap nothing to add here -->
-            </tr>
-            <tr>
-                <td class="text-start px-4">Tarrif </td>
-            </tr>
-        </table>    </div>
-</main>
-<footer class="bg-dark p-3 rounded-top top-100">
-    <p class="text-light text-center py-0 my-0">Copyright &copy; 2021 All rights reserved | Imala</p>
-</footer>
+            </form>
+        </article>
+        <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 py-3">
+            <table class="table ">
+                <tr class="text-center">
+                    <th colspan="2" class="text-primary lead fw-bold">Tariff</th>
+                </tr>
+                <tr>
+                    <td class="text-start px-4">6 kilo</td>
+
+                </tr>
+                <tr>
+                    <td class="text-start px-4">Megenagna</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <!-- its just gap nothing to add here -->
+                </tr>
+                <tr>
+                    <td class="text-start px-4">Tarrif </td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <footer class="bg-dark p-3 rounded-top top-100">
+        <p class="text-light text-center py-0 my-0">Copyright &copy; 2021 All rights reserved | Imala</p>
+    </footer>
 
 </body>
+
 </html>
