@@ -34,12 +34,10 @@
             </div>
         </nav>
     </header>
-
-    <main class="container text-center p-sm-2 mt-md-7">
-        <br>
-        <br>
-        <div class="col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-3 bg-light px-4 my-4">
-            <h1 class="title text-primary my-3 ">CHECK REPORTS</h1>
+    <br><br><br>
+    <main class="container text-center p-sm-5 my-5 mt-sm-6">
+        <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
+                <h2 class="title text-primary my-5 ">CHECK REPORTS</h2>
             <p class="text-dark">Enter plate number you want to check reports record</p>
             <form class="form-report">
 
@@ -56,7 +54,8 @@
                 <p class="text-start p-0 m-0 px-2 small"><a href="report.html" class="text-primary text-decoration-none">Back to Report</a href="login.html"></p>
             </div>
         </div>
-        <div class="border col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-3 bg-light px-4 my-md-5 ">
+        <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
+        <!-- <div class="border col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-3 bg-light px-4 my-md-5 "> -->
             <table class="table ">
                 <tr class="text-center">
                   <th colspan="2" class="text-primary lead fw-bold">REPORTS</th>
@@ -71,13 +70,23 @@
                 </tr>
             </table>
             <div class="text-start mb-4 p-1">
-                <a data-bs-toggle="collapse" data-bs-target="#editUsername" href="./seeDetail.html" th:href="@{/html/seeDetail}">see details</a>
+                <a data-bs-toggle="collapse" data-bs-target="#seeDetails" href="./seeDetail.html" th:href="@{/html/seeDetail}">see details</a>
             </div>
-            <div>
+            <div id="seeDetailParent">
 
-                <p class="collapse  indent container my-3 px-5 text-start" id="editUsername" data-parent="#username">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae nostrum soluta sed!
-                </p>
+                
+                <table class="table collapse  indent container my-3 text-start" id="seeDetails" data-parent="#seeDetailParent">
+                    <tr>
+                      <th >Line or road</th>
+                      <th >Comment</th>
+                    </tr>
+                    <tr>
+                        <td>Plate Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore, molestias! Number</td> <!--th line road-->
+                        <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem! Plate Number</td>  <!--what do u observe-->
+                        
+                    </tr>
+                    
+                </table>
             </div>
         </div>
         <br>
