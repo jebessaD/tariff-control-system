@@ -1,84 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-    <link rel="icon" href="../static/images/icon.jpg" th:href="/images/icon.jpg" type="image/png">
-</head>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Report</title>
+        <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.css}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
+        <link rel="icon" href="../images/icon.jpg" type="image/png">
+    
+    </head>
 <body>
-    <header>
-        <nav class="navbar bg-dark fixed-top p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex">
-            <div class="col-3 ">
-                <h1 class="text-light">IMALA</h1>
+    <header id="header" class="position-fixed top-0 w-100">
+        <nav class="navbar bg-dark p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex">
+            <div>
+                <h1 class="text-light p-2 ">IMALA</h1>
             </div>
-
             <div class="navbar-expand text-end float-end">
-                <a href="" class="mx-3 p-0 m-2"><i class="fas fa-user text-light mb-2"></i></a>
+                <a href="./editProfile.html" th:href="@{/html/editProfile.html}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2 py-lg-3"></i></a>
                 <ul class="navbar-nav mb-2 pb-0">
-                    <li class="nav-item">
-                        <a class="nav-link btn  mx-1  p-0 px-2 text-light" href="">LOGIN</a>
+                    <li class="nav-item mx-lg-3">
+                        <a class="nav-link btn btn-dark mx-1 p-0 px-2 text-light" href="./index.html" th:href="@{/html/index.html}">HOME</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn  mx-1  p-0 px-2 text-light" href="">ABOUT</a>
+                    <li class="nav-item mx-lg-3">
+                        <a class="nav-link btn btn-dark mx-1 p-0 px-2 text-light" href="./about.html" th:href="@{/html/about.html}">ABOUT</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn  mx-1  p-0 px-2 text-light p-0 " href="">HELP</a>
+                    <li class="nav-item mx-lg-3">
+                        <a class="nav-link btn btn-dark mx-1 p-0 px-2 text-light p-0" href="./help.html" th:href="@{/html/help.html}">HELP</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
-    <main class="mx-3 p-3 bg-ligth text-center">
-        <img src="/images/taxi.gif" alt="" class="img-fluid rounded-2">
-        <article class="mx-4 p-3 border border-success bg-ligth shadow text-center rounded-3 shadow-lg m-lg-5 p-lg-5 ">
+    <br><br><br><br>
+    <main class="container text-center p-sm-5 mt-sm-6 mb-5">
+    <!-- <div class="col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-7 alert-secondary px-4 my-4"> -->
 
-            <p class="text-dark justify-content-center font-monospace">Enter your starting station and your destination</p>
-            <form action="">
+    <!-- <p class="container shadow py-4">Lorem, ipsum dolor sit amet tibus ut officia. Vero blanditiis laboriosam, eius minus exercitationem quibusdam voluptas necessitatibus.</p> -->
+    <article class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 py-3 ">
+
+        <br>
+        <p class="text-dark justify-content-center ">Enter your starting station and your destination</p>
+        <form action="post">
 
 
-                <label for="destination"><i class="fas fa-map-marker-alt text-dark lead w-75"></i> </label>
-                <input type="text" class="p-2 alert bg-dark bg-opacity-25  rounded-pill w-75" list="start" placeholder="Choose starting point..."> <br>
-                <datalist id="start">
-                    <option value="megenagna"></option>
-                    <option value="merkato"></option>
-                    <option value="Adama"></option>
-                    <option value="Dera"></option>
-                </datalist>
-
-                <label for="destination"><i class="fas fa-map-marker-alt text-dark lead w-75"></i> </label>
-                <input type="text" class="p-2 alert bg-dark bg-opacity-25  rounded-pill w-75" placeholder="Choose destination..." list="destinations"> <br>
-                <datalist id="destinations">
-                    <option value="megenagna"></option>
-                    <option value="merkato"></option>
-                    <option value="Adama"></option>
-                    <option value="Dera"></option>
-                </datalist>
-                </div>
-                <input type="button" class="btn w-75 btn-dark rounded-pill" value="Search">
-
-            </form><br>
-            <div class="container  border-dark bg-dark bg-opacity-10 rounded-3 p-2 px-3 shadow ">
-                <h3 class="text-dark w-75 container border-bottom border-success rounded-3 p-1 mb-4 ">Tarrif</h3>
-                <p class="text-dark w-50 container border border-success  rounded-3 p-1">6kilo
-                </p>
-                <p class="text-dark">to</p>
-                <p class="text-dark w-50 container border border-success rounded-3 p-1">Magenagna</p>
-                <p class="text-dark w-50 container border border-success rounded-3 p-1"><i class="fas fa-hand-holding-usd text-small text-dark px-2"></i>5 Birr</p>
+            <div class="form-group text-start small m-2 ">
+                <label class="py-1" for="Destination">Starting</label>
+                <input type="text" class="form-control rounded rounded-3 alert-secondary " list="start " placeholder="Choose starting point... ">  
             </div>
-        </article>
-    </main>
-    <footer class="bg-dark p-3 rounded-top mt-4">
-        <p class="text-light text-center py-0 my-0">copy right Lorem, ipsum dolor.</p>
-    </footer>
-    <script src="../static/js/signup.js" lang="javascript" th:src="@{/js/signup.js}"></script>
-    <script src="../static/js/scroll.js" lang="javascript" th:src="@{/js/scroll.js}"></script>
+            
+
+            <div class="form-group text-start small m-2 ">
+                <label class="py-1" for="Destination">Destination</label>
+                <input type="text" class="form-control rounded rounded-3 alert-secondary " list="start " placeholder="Choose starting point... ">  
+           
+            <div class="form-group text-start small my-4 py-2 ">
+                <button type="submit" class="btn btn-dark w-100 rounded rounded-3 submit_form">Search</button>
+            </div>
+            <datalist id="start ">
+                <option value="megenagna "></option>
+                <option value="merkato "></option>
+                <option value="Adama "></option>
+                <option value="Dera "></option>
+            </datalist>
+        </form>
+    </article>
+    <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 py-3">
+        <table class="table ">
+            <tr class="text-center">
+              <th colspan="2" class="text-primary lead fw-bold">Tariff</th>
+            </tr>
+            <tr>
+                <td class="text-start px-4">6 kilo</td>
+                
+            </tr>
+            <tr>
+                <td class="text-start px-4">Megenagna</td>
+            </tr>
+            <tr>
+                <td></td> <!-- its just gap nothing to add here -->
+            </tr>
+            <tr>
+                <td class="text-start px-4">Tarrif </td>
+            </tr>
+        </table>    </div>
+</main>
+<footer class="bg-dark p-3 rounded-top top-100">
+    <p class="text-light text-center py-0 my-0">Copyright &copy; 2021 All rights reserved | Imala</p>
+</footer>
 
 </body>
-
 </html>

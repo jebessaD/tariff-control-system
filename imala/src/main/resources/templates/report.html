@@ -13,9 +13,9 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar bg-dark fixed-top p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex ">
-            <div>
+    <header id="header" class="position-fixed top-0 w-100">
+        <nav class="navbar bg-dark p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex">
+
                 <h1 class="text-light p-2 ">IMALA</h1>
             </div>
             <div class="navbar-expand text-end float-end ">
@@ -35,8 +35,9 @@
         </nav>
     </header>
 
-    <main class="container text-center p-sm-2 mt-md-7 ">
-        <div class="col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-3 alert-secondary px-4 my-4 ">
+    <br><br><br><br>
+    <main class="container text-center p-sm-5 mb-5">
+        <div class="col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-3 bg-light px-4 my-4">
             <h1 class="title text-primary my-3">REPORT</h1>
 
             <form class="form-report ">
@@ -67,7 +68,7 @@
         </div>
     </main>
 
-    <footer class="bg-dark p-3 rounded-top fixed-bottom ">
+    <footer class="bg-dark p-3 rounded-top">
         <p class="text-light text-center py-0 my-0 ">Copyright &copy; 2021 All rights reserved | Imala</p>
     </footer>
     <script src="../static/js/report.js " lang="javascript " th:src="@{/js/report.js} "></script>
