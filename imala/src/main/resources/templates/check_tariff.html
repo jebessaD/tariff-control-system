@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
@@ -39,32 +39,35 @@
 
         <br>
         <p class="text-dark justify-content-center lead shadow-sm py-2">Enter your starting station and your destination</p>
-        <form action="searchTarrif" method="post" th:object="$searchingAttribute">
+        <form th:action="@{/searchTarrif}" method="post" th:object="${searchingAttribute}">
 
 
             <div class="form-group text-start small m-2 ">
                 <label class="py-1" for="Departure">Starting</label>
-                <input type="text" class="form-control rounded rounded-3 alert-secondary " list="departure" placeholder="Choose starting point..." th:field = "*{departure}" >  
+                <input type="text" class="form-control rounded rounded-3 alert-secondary " list="departure"
+                 placeholder="Choose starting point..." th:field = "*{departure}" >  
             </div>
             
 
             <div class="form-group text-start small m-2 ">
                 <label class="py-1" for="Destination">Destination</label>
-                <input type="text" class="form-control rounded rounded-3 alert-secondary " list="destination" placeholder="Choose starting point... " th:field = "*{destination}" >  
+                <input type="text" class="form-control rounded rounded-3 alert-secondary " list="destination" 
+                placeholder="Choose starting point... " th:field = "*{destination}" >  
            
-            </div>            
+            </div>   
+                
+            <datalist id="departure" th:each ="station : ${cityJourneys}">
+                <option th:value="${station.departure}"></option>
+            </datalist>
+            <datalist id="destination" th:each ="station : ${cityJourneys}">
+                <option th:value="${station.destination}"></option>
+            </datalist>
             <div class="form-group text-start small m-2 my-4 py-2 ">
                 <button type="submit" class="btn btn-dark w-100 rounded rounded-3 submit_form">Search</button>
             </div>
-            
-            <datalist id="departure" th:each ="station : ${}">
-                <option th:value="{station.departure}"></option>
-            </datalist>
-            <datalist id="destination" th:each ="station : ${}">
-                <option th:value="{station.destination}"></option>
-            </datalist>
-
         </form>
+
+        
     </article>
     <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 py-3">
         <table class="table">
@@ -72,16 +75,16 @@
               <th colspan="2" class="text-primary lead fw-bold">Tariff</th>
             </tr>
             <tr>
-                <td class="text-start px-4">Departure: <span th:text ="$departure" > </span></td>
+                <td class="text-start px-4">Departure: <span th:text ="${departure}" > </span></td>
             </tr>
             <tr>
-                <td class="text-start px-4">Destination: <span th:text ="$destination" > </span></td>
+                <td class="text-start px-4">Destination: <span th:text ="${destination}" > </span></td>
             </tr>
             <tr>
                 <td></td> <!-- its just gap nothing to add here -->
             </tr>
             <tr>
-                <td class="text-start px-4">Tarrif <span th:text ="$tarrif" > </span> </td>
+                <td class="text-start px-4">Tariff:    <span th:text ="${tariff}" >   </td>
             </tr>
         </table>    
     </div>
