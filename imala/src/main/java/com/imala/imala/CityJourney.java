@@ -28,6 +28,6 @@ public class CityJourney {
     private String destination;
 
     @Column(name = "tariff",nullable=false)
-    private float tariff;
+    private String tariff;
     
 }
