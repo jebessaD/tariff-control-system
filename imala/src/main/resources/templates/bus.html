@@ -4,10 +4,8 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report</title>
+    <title>Bus</title>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.css}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
     <link rel="icon" href="../images/icon.jpg" type="image/png">
@@ -17,9 +15,10 @@
     <header class="flex-shrink-0">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark flex-shrink-0">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">IMALA</a>
+                <h1 class="navbar-brand">IMALA</h1>
                 <div>
-                    <a href="html/profile.html" th:href="@{/html/profile}"><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
+                    <a href="./editProfile.html" th:href="@{/html/editProfile}" aria-label="user"><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
+                    </a>
 
                     <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -40,7 +39,7 @@
                     </ul>
                 </div>
                 <div class="btn-group d-none d-sm-block">
-                    <a href="html/profile.html" th:href="@{/html/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
+                    <a href="./editrofile.html" th:href="@{/html/editProfile}" class="mx-3 p-0 m-2 mx-lg-5" aria-label="user"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
 
                 </div>
             </div>
@@ -62,18 +61,18 @@
 
 
                 <div class="form-group text-start small m-2 ">
-                    <label class="py-1" for="Departure">Starting</label>
-                    <input id="form" type="text" id="start" class="form-control rounded rounded-3 alert-secondary " list="departure" placeholder="Choose starting point..." th:field="*{departure}">
+                    <label class="py-1" for="Starting">Starting</label>
+                    <input id="Starting" type="text" class="form-control rounded rounded-3 alert-secondary " list="departure" placeholder="Choose starting point..." th:field="*{departure}">
                 </div>
 
 
                 <div class="form-group text-start small m-2 ">
                     <label class="py-1" for="Destination">Destination</label>
-                    <input type="text" class="form-control rounded rounded-3 alert-secondary " list="destination" placeholder="Choose starting point... " th:field="*{destination}">
+                    <input type="text" id="Destination" class="form-control rounded rounded-3 alert-secondary " list="destination" placeholder="Choose starting point... " th:field="*{destination}">
                 </div>
                 <div class="form-group text-start small m-2 ">
-                    <label class="py-1" for="Destination">Buses</label>
-                    <input type="text" class="form-control rounded rounded-3 alert-secondary " list="buses" placeholder="Choose bus... " th:field="*{bus}">
+                    <label class="py-1" for="Bus">Buses</label>
+                    <input type="text" id="Bus" class="form-control rounded rounded-3 alert-secondary " list="buses" placeholder="Choose bus... " th:field="*{bus}">
                 </div>
 
                 <div class="form-group text-start small m-2 my-4 py-2 ">
@@ -121,7 +120,7 @@
     <footer class="bg-dark p-3 rounded-top  mt-md-6">
         <p class="text-light text-center py-0 my-0">Copyright &copy; 2021 All rights reserved | Imala</p>
     </footer>
-    <script src="../static/js/scroll.js" lang="javascript" th:src="@{/js/scroll.js}"></script>
+    <script src="../static/js/bootstrap.bundle.min.js" lang="javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
     <script src="../static/js/taxi.js" lang="javascript" th:src="@{/js/scroll.js}"></script>
 
 
