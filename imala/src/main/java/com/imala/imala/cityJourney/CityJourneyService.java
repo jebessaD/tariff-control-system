@@ -41,7 +41,7 @@ public class CityJourneyService {
 
         CityJourney cityJourney = cityJourneyRepository.search(searchingAttribute.getDeparture(),
                 searchingAttribute.getDestination());
-        // log.error("{}", cityJourney);
+       
         if (cityJourney != null) {
             model.addObject("departure", cityJourney.getDeparture());
 
