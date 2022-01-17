@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import lombok.RequiredArgsConstructor;
@@ -21,23 +22,7 @@ public class CrossService {
     private final CrossRepository crossRepository;
     
 
-
-   
-    // public List<CrossCountry> getAllCross()
-    // {
-    //     return crossRepository.findAll();
-    // }
-  
-   
-    // public Double getTariff(){
-    //     CrossCountry cc = crossRepository.findTariff("Addis Ababa", "Yabello", Type.ODA);
-
-    //     return cc.getTariff();
-    // }
-
-
-    // @GetMapping("/cityJourneyList")
-    public ModelAndView cityJourneyList() {
+    public ModelAndView crossCountryList() {
         ModelAndView model = new ModelAndView("bus");
 
         List<CrossCountry> crossCountryList = crossRepository.findAll();
@@ -48,7 +33,6 @@ public class CrossService {
 
     }
 
-    // @GetMapping("/checkTariff")
     public ModelAndView departureList() {
         ModelAndView model = new ModelAndView("bus");
         SearchingAttribute searchingAttribute = new SearchingAttribute();
@@ -61,7 +45,7 @@ public class CrossService {
     }
 
 
-    // @PostMapping("/searchTarrif")
+
     public ModelAndView showTariff(@ModelAttribute("searchingAttribute") SearchingAttribute searchingAttribute) {
 
         ModelAndView model = new ModelAndView("bus");
@@ -90,6 +74,32 @@ public class CrossService {
         }
         return model;
 
+    }
+
+    public String saveCrossCountry(@ModelAttribute("newCrossCountry") CrossCountry crossCountry){
+        crossRepository.save(crossCountry);
+        return "redirect:/addCrossCountry";
+    }
+
+
+
+    public String deleteCrossCountry(@RequestParam Long crossCountry){
+        crossRepository.deleteById(crossCountry);
+        return "redirect:/crossCountryList";
+    }
+
+
+
+
+    public ModelAndView updateCrossCountry(@RequestParam Long crossCountryId){
+        
+        ModelAndView model = new ModelAndView("add_cross_country");
+
+        CrossCountry crossCountry = crossRepository.findById(crossCountryId).get();
+
+        model.addObject("newCrossCountry", crossCountry);
+
+        return model;
     }
 
 }

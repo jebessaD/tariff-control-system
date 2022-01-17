@@ -1,4 +1,4 @@
-package com.imala.imala;
+package com.imala.imala.cityJourney;
 
 import lombok.Data;
 

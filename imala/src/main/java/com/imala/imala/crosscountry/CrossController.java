@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,8 +24,8 @@ public class CrossController {
 
    
     @GetMapping("/crossCountryList")
-    public ModelAndView cityJourneyList() {
-       return crossService.cityJourneyList();
+    public ModelAndView CrossCountryList() {
+       return crossService.crossCountryList();
     }
 
     @GetMapping("/checkBusTariff")
@@ -40,6 +41,35 @@ public class CrossController {
         return crossService.showTariff(searchingAttribute);
 
     }
+
+    
+    @GetMapping("/addCrossCountry")
+    public ModelAndView addCrossCountry() {
+        ModelAndView model = new ModelAndView("add_cross_country");
+        CrossCountry CrossCountry = new CrossCountry();
+        model.addObject("newCrossCountry", CrossCountry);
+        return model;
+    }
+
+    @PostMapping("/saveCrossCountry")
+    public String saveCrossCountry(@ModelAttribute("newCrossCountry") CrossCountry CrossCountry) {
+        return crossService.saveCrossCountry(CrossCountry);
+        
+    }
+
+    @GetMapping("/deleteCrossCountry")
+    public String deleteCrossCountry(@RequestParam Long CrossCountryId) {
+        return deleteCrossCountry(CrossCountryId);
+
+    }
+
+    @GetMapping("/updateCrossCountry")
+    public ModelAndView updateCrossCountry(@RequestParam Long CrossCountryId) {
+
+        return crossService.updateCrossCountry(CrossCountryId);
+    }
+
+
 
 
 

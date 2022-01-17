@@ -1,4 +1,4 @@
-package com.imala.imala;
+package com.imala.imala.cityJourney;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,6 +28,6 @@ public class CityJourney {
     private String destination;
 
     @Column(name = "tariff",nullable=false)
-    private String tariff;
+    private float tariff;
     
 }
