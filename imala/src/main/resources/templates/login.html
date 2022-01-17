@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" class="h-100" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
+    <link rel="icon" href="../images/icon.jpg" type="image/png">
+</head>
+
+<body class="h-100 d-flex flex-column">
+    <header class="flex-shrink-0">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark flex-shrink-0">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">IMALA</a>
+                <div>
+                    <a href="html/profile.html" th:href="@{/profile}" ><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
+        
+                    <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+                        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/index}">HOME</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about}">ABOUT</a>
+                  </li>
+                  <li>
+                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help}">HELP</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="btn-group d-none d-sm-block">
+                <a href="html/profile.html" th:href="@{/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
+        
+              </div>
+            </div>
+        </nav>   
+    </header>
+    <main class="container text-center p-sm-5 m-auto flex-grow-1 ">
+        <div class="col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-3 bg-light px-4 my-4 ">
+            <h1 class="title text-primary my-5 my-sm-4 ">IMALA</h1>
+
+            <form class="form-login ">
+
+                <div class="form-group text-start small m-2 ">
+                    <label class="py-1 " for="email ">Email address or Phone Number</label>
+                    <input type="email " class="form-control rounded rounded-3 alert-secondary " id="email " placeholder=" " required>
+                </div>
+                <div class="form-group text-start small m-2 ">
+                    <label class="py-1 " for="psw_1 ">Password</label>
+                    <input type="password " class="form-control rounded rounded-3 alert-secondary " id="psw_1 " aria-describedby="passwordHelp " placeholder=" " minlength="4 " required>
+                </div>
+
+                <div class="form-group text-start small m-2 my-4 py-2 ">
+                    <button type="submit " class="btn btn-dark w-100 rounded rounded-3 submit_form ">Login</button>
+                </div>
+                <div class="login-error my-3 pb-4 ">
+                    <p class="text-danger text-start p-0 m-0 px-2 small "><i class="fas fa-exclamation-circle px-2 "></i>Incorrect password or email</p>
+                </div>
+                <div class="text-start m-2 my-4 ">
+                    <p class="text-start p-0 m-0 px-2 small ">Don't have an account yet?<a href="./signup.html" th:href="@{/signup}" class="text-primary px-2 ">Sign up</a href="login.html " th:href="@{/login}" ></p>
+                </div>
+                
+            </form>
+        </div>
+    </main>
+    <footer class="bg-dark p-3 rounded-top flex-shrink-0">
+      <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
+    </footer>
+    <script src="../static/js/login.js " lang="javascript " th:src="@{/js/login.js} "></script>
+    <script src="../static/js/bootstrap.bundle.min.js" th:href="@{/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>
