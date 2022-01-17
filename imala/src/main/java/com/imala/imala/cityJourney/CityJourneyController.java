@@ -1,7 +1,7 @@
 package com.imala.imala.cityJourney;
 
 // import java.lang.System.Logger;
-import java.util.List;
+// import java.util.List;
 
 // import org.hibernate.annotations.common.util.impl.Log;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,37 +15,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+ 
 @Controller
 public class CityJourneyController {
-
+    
+    
     @Autowired
-    private CityJourneyRepository cityJourneyRepository;
+    CityJourneyService cityJourneyService;
+
+
 
     @GetMapping("/cityJourneyList")
-    public ModelAndView cityJourneyList() {
-        ModelAndView model = new ModelAndView("city_journey_list");
-
-        List<CityJourney> cityJourneyList = cityJourneyRepository.findByOrderByDepartureAsc();
-
-        model.addObject("cityJourneys", cityJourneyList);
-
-        return model;
-
+    public ModelAndView cityJourneyList() {  
+        return cityJourneyService.getCityJourneyList();
     }
 
     @GetMapping("/checkTariff")
     public ModelAndView departureList() {
-        ModelAndView model = new ModelAndView("check_tariff");
-        SearchingAttribute searchingAttribute = new SearchingAttribute();
-        List<CityJourney> cityJourneyList = cityJourneyRepository.findByOrderByDepartureAsc();
-        model.addObject("cityJourneys", cityJourneyList);
-        model.addObject("searchingAttribute", searchingAttribute);
-        
-        return model;
-
+        return cityJourneyService.getSearchingAttribute();
     }
 
     // @GetMapping("/checkTariff")
@@ -63,27 +51,7 @@ public class CityJourneyController {
     @PostMapping("/searchTarrif")
     public ModelAndView showTariff(@ModelAttribute("searchingAttribute") SearchingAttribute searchingAttribute) {
 
-        ModelAndView model = new ModelAndView("check_Tariff");
-
-        CityJourney cityJourney = cityJourneyRepository.search(searchingAttribute.getDeparture(),
-                searchingAttribute.getDestination());
-        // log.error("{}", cityJourney);
-        if (cityJourney != null) {
-            model.addObject("departure", cityJourney.getDeparture());
-
-            model.addObject("destination", cityJourney.getDestination());
-
-            model.addObject("tariff", cityJourney.getTariff());
-
-        } else {
-            model.addObject("departure", searchingAttribute.getDeparture());
-
-            model.addObject("destination", searchingAttribute.getDestination());
-
-            model.addObject("tariff", "No Match Found");
-
-        }
-        return model;
+       return cityJourneyService.searchTariff(searchingAttribute);
 
     }
 
@@ -99,30 +67,20 @@ public class CityJourneyController {
 
     @PostMapping("/saveCityJourney")
     public String saveCityJourney(@ModelAttribute("newCityJourney") CityJourney cityJourney) {
+        return cityJourneyService.saveCityJourney(cityJourney);
         
-        cityJourneyRepository.save(cityJourney);
-        return "redirect:/addCityJourney";
     }
 
     @GetMapping("/deleteCityJourney")
     public String deleteCityJourney(@RequestParam Long cityJourneyId) {
-        cityJourneyRepository.deleteById(cityJourneyId);
-
-        return "redirect:/cityJourneyList";
+        return deleteCityJourney(cityJourneyId);
 
     }
 
     @GetMapping("/updateCityJourney")
     public ModelAndView updateCityJourney(@RequestParam Long cityJourneyId) {
 
-        ModelAndView model = new ModelAndView("add_city_journey_form");
-
-        CityJourney cityJourney = cityJourneyRepository.findById(cityJourneyId).get();
-
-        model.addObject("newCityJourney", cityJourney);
-
-        return model;
-
+        return cityJourneyService.updateCityJourney(cityJourneyId);
     }
 
 }
