@@ -47,8 +47,8 @@
   </nav>
 </header>
 
-<main class="container text-center p-sm-5 my-5 mt-sm-6">
-    <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
+<main class="container text-center m-auto flex-grow-1">
+  <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
         <h1 class="py-3">List of City Journey</h1>
         
         <form th:action="@{/saveCityJourney}" th:object="${newCityJourney}" method="post" >
@@ -63,9 +63,10 @@
     
     </div>
 </main>
-<footer class="bg-dark p-3 rounded-top ">
-    <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
+<footer class="bg-dark p-3 rounded-top flex-shrink-0">
+  <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
 </footer>
+<script src="../static/js/bootstrap.bundle.min.js" th:href="@{/js/bootstrap.bundle.min.js}"></script>
 
 <!-- <script th:src="@{/js/bootstrap.bundle.min.js}"></script>    -->
 </body>

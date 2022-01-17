@@ -18,7 +18,7 @@
             <div class="container-fluid">
               <a class="navbar-brand" href="#">IMALA</a>
                 <div>
-                    <a href="html/profile.html" th:href="@{/html/profile}" ><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
+                    <a href="html/profile.html" th:href="@{/profile}" ><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
         
                     <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
                         aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,18 +29,18 @@
               <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/html/index.html}">HOME</a>
+                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/index.html}">HOME</a>
                 </li>
                   <li class="nav-item">
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/html/about.html}">ABOUT</a>
+                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about.html}">ABOUT</a>
                   </li>
                   <li>
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/html/help.html}">HELP</a>
+                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help.html}">HELP</a>
                   </li>
                 </ul>
               </div>
               <div class="btn-group d-none d-sm-block">
-                <a href="html/profile.html" th:href="@{/html/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
+                <a href="html/profile.html" th:href="@{/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
         
               </div>
             </div>
@@ -75,7 +75,7 @@
                     <button type="submit" class="btn btn-dark w-100 rounded rounded-3 submit_form">Sign Up</button>
                 </div>
                 <div class="text-start m-2 my-4">
-                    <p class="text-start p-0 m-0 px-2 small">Already have an account? <a href="./login.html" th:href="@{/html/login.html}" class="text-dabtn-dark">Login</a href="login.html"></p>
+                    <p class="text-start p-0 m-0 px-2 small">Already have an account? <a href="./login.html" th:href="@{/login.html}" class="text-dabtn-dark">Login</a href="login.html"></p>
                 </div>
                 
             </form>
@@ -85,7 +85,6 @@
         <p class="text-light text-center py-0 my-0">Copyright &copy; 2021 All rights reserved | Imala</p>
     </footer>
     <script src="../static/js/signup.js" lang="javascript" th:src="@{/js/signup.js}"></script>
-    <script src="../static/js/scroll.js" lang="javascript" th:src="@{/js/scroll.js}"></script>
     <script src="../static/js/bootstrap.bundle.min.js" th:href="@{/js/bootstrap.bundle.min.js}"></script>
 
 </body>
