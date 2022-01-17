@@ -6,7 +6,7 @@
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report</title>
+    <title>Taxi</title>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.css}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
     <link rel="icon" href="../images/icon.jpg" type="image/png">
@@ -56,24 +56,21 @@
 
             <div class="form-group text-start small m-2 ">
                 <label class="py-1" for="Departure">Starting</label>
-                <input type="text" class="form-control rounded rounded-3 alert-secondary " list="p_departure"
-                 placeholder="Choose starting point..." th:field = "*{departure}" >  
+                <input type="text" class="form-control rounded rounded-3 alert-secondary " list="start" placeholder="Choose starting point..." th:field="*{departure}" autocomplete="off">
+
+                <datalist id="start" th:each="station : ${cityJourneys}">
+                    <option th:each ="station : ${cityJourneys}" th:value="${station.departure}"></option>
+                </datalist>
             </div>
-            
+
 
             <div class="form-group text-start small m-2 ">
                 <label class="py-1" for="Destination">Destination</label>
-                <input type="text" class="form-control rounded rounded-3 alert-secondary " list="destination" 
-                placeholder="Choose destination... " th:field = "*{destination}" >  
-           
-            </div>   
-                
-            <datalist id="p_departure" th:each="station:${cityJourneys}">
-                <option th:value="${station.departure}"><span th:text="${station.departure}"></span></option>
+                <input type="text" class="form-control rounded rounded-3 alert-secondary " list="destination_on" placeholder="Choose starting point... " th:field="*{destination}" autocomplete="off">
+                <datalist id="destination_on" th:each="station : ${cityJourneys}">
+                <option th:each="station : ${cityJourneys}" th:value="${station.destination}"></option>
             </datalist>
-            <datalist id="p_destination" th:each ="station : ${cityJourneys}">
-                <option th:value="${station.destination}"></option>
-            </datalist>
+            </div>
             <div class="form-group text-start small m-2 my-4 py-2 ">
                 <button type="submit" class="btn btn-dark w-100 rounded rounded-3 submit_form">Search</button>
             </div>
