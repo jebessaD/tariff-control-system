@@ -1,4 +1,4 @@
-package com.imala.imala;
+package com.imala.imala.cityJourney;
 
 // import java.lang.System.Logger;
 import java.util.List;
@@ -39,14 +39,11 @@ public class CityJourneyController {
     @GetMapping("/checkTariff")
     public ModelAndView departureList() {
         ModelAndView model = new ModelAndView("check_tariff");
-
         SearchingAttribute searchingAttribute = new SearchingAttribute();
-
-        List<CityJourney> departureList = cityJourneyRepository.findByOrderByDepartureAsc();
-
-        model.addObject("cityJourneys", departureList);
+        List<CityJourney> cityJourneyList = cityJourneyRepository.findByOrderByDepartureAsc();
+        model.addObject("cityJourneys", cityJourneyList);
         model.addObject("searchingAttribute", searchingAttribute);
-
+        
         return model;
 
     }
@@ -70,7 +67,7 @@ public class CityJourneyController {
 
         CityJourney cityJourney = cityJourneyRepository.search(searchingAttribute.getDeparture(),
                 searchingAttribute.getDestination());
-        log.error("{}", cityJourney);
+        // log.error("{}", cityJourney);
         if (cityJourney != null) {
             model.addObject("departure", cityJourney.getDeparture());
 
@@ -90,12 +87,7 @@ public class CityJourneyController {
 
     }
 
-    @GetMapping("/index")
-    public ModelAndView home() {
-        ModelAndView model = new ModelAndView("index");
-        return model;
-
-    }
+    
 
     @GetMapping("/addCityJourney")
     public ModelAndView addCityJourney() {
