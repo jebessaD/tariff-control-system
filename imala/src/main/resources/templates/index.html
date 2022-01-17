@@ -1,49 +1,96 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" class="h-100" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imala | Home</title>
-
     <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
-    <link rel="icon" href="../static/images/icon.jpg" th:href="/images/icon.jpg" type="image/png">
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
-
+    <link rel="icon" href="../images/icon.jpg" type="image/png">
 </head>
 
-<body>
-    <header id="header" class="position-fixed top-0 w-100">
-        <nav class="navbar bg-dark p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex">
-            <div>
-                <h1 class="text-light p-2">IMALA</h1>
-            </div>
-            <div class="navbar-expand text-end float-end">
-                <a href="./editProfile.html" th:href="@{/html/profile.html}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
-                <ul class="navbar-nav mb-2 pb-0">
-                    <li class="nav-item mx-lg-3">
-                        <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light" href="./login.html" th:href="@{/html/login.html}">LOGIN</a>
-                    </li>
-                    <li class="nav-item mx-lg-3">
-                        <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light" href="./about.html" th:href="@{/html/about.html}">ABOUT</a>
-                    </li>
-                    <li class="nav-item mx-lg-3">
-                        <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light p-0 " href="./help.html" th:href="@{/html/help.html}">HELP</a>
-                    </li>
-                </ul>
+<body class="h-100 d-flex flex-column">
+    <header class="flex-shrink-0">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark flex-shrink-0">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">IMALA</a>
+                <div>
+                    <a href="html/profile.html" th:href="@{/html/profile}"><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
+
+                    <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+        
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./login.html" th:href="@{/html/index.html}">LOGIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/html/about.html}">ABOUT</a>
+                        </li>
+                        <li>
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/html/help.html}">HELP</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group d-none d-sm-block">
+                    <a href="html/profile.html" th:href="@{/html/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
+
+                </div>
             </div>
         </nav>
     </header>
-    <br><br><br><br>
-    <section class="container text-center shadow mt-sm-5 p-3 mb-5  rounded m-auto">
-        <h1 class="text-center text-primary my-2  py-2 pb-4 border-bottom">WELCOME</h1>
-        <p class="text-danger">Where do you want to go? we provided you helpful information</p>
-        <p class="text-primary ">Get transport fares online everywhere <br> choose what you want</p>
-    </section>
 
+    <main class="container text-center p-sm-5 m-auto flex-grow-1 ">
+        <section class="container text-center shadow  rounded ">
+            <h1 class="text-center text-primary my-2  py-2 pb-4 border-bottom">WELCOME TO IMALA</h1>
+            <p class="text-danger">Where do you want to go? we provided you helpful information</p>
+            <p class="text-primary ">Get transport fares online everywhere <br> choose what you want</p>
+        </section>
+        <article class="row">
+            <div class="card shadow col-md-4">
+                <div class="col-md-12 px-3">
+                    <img src="../static/images/taxi.gif" th:attr="src=@{/images/taxi.gif},title=#{Taxi fare},alt=#{Taxi fare}" class="card-img-top " alt="Taxi car">
+                    <div class="card-body border">
+                        <h5 class="card-title">Taxi Fares</h5>
+                        <p class="card-text">Click the button to get taxi fares in Addis Ababa</p>
+                        <a class="btn btn-dark" href="./taxi.html" th:href="@{/checkTariff}">Taxi fares</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow col-md-4">
+                <div class="col-md-12 px-3">
+
+                    <img src="../static/images/bus.jpg" th:attr="src=@{/images/taxi.gif},title=#{Taxi fare},alt=#{Taxi fare}" class="card-img-top" alt="Taxi car">
+                    <div class="card-body border">
+                        <h5 class="card-title">Bus Fares</h5>
+                        <p class="card-text">Click the button to get bus fares from Addis Ababa to sidecountry cities.</p>
+                        <a class="btn btn-dark" href="bus.html">Bus fares</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card shadow col-md-4">
+                <div class="col-md-12 px-3">
+
+                    <img src="../static/images/report3.jpg" th:attr="src=@{/images/taxi.gif},title=#{Taxi fare},alt=#{Taxi fare}" class="card-img-top" alt="Taxi car">
+                    <div class="card-body border">
+                        <h5 class="card-title">Report ILLEGALS</h5>
+                        <p class="card-text">Report illegal tariff raises.</p>
+                        <a class="btn btn-dark" href="./report.html" th:href="@{/html/report.html}">Report Now</a>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+
+
+        <!-- 
     <article class="container mb-5 rounded px-4">
 
         <div class="  my-4 alert-secondary justify-content-end row rounded-3  shadow-sm   ">
@@ -53,7 +100,7 @@
             <div class="col-6  border-1 text-center py-2">
                 <h6 class="text-primary">Taxi fares in Addis</h6>
                 <p class="lh-1">Click the button to get taxi fares in Addis Ababa</p>
-                <a class="btn rounded-pill btn-dark p-0 px-4 mb-2 p-sm-2 px-sm-5 p-sm-2 px-sm-5" href="./taxi.html" th:href="@{/html/taxi.html}">Taxi fares</a>
+                <a class="btn rounded-pill btn-dark p-0 px-4 mb-2 p-sm-2 px-sm-5 p-sm-2 px-sm-5"  th:href="@{/checkTariff}">Taxi fares</a>
 
             </div>
         </div>
@@ -82,10 +129,10 @@
 
             </div>
         </div>
-    </article>
-
-
-    <footer class="bg-dark p-3 rounded-top top-100">
+    </article> -->
+        <!-- <a th:href="@{/cityJourneyList}" class="btn btn-dark">City Journey List</a> -->
+    </main>
+    <footer class="bg-dark">
         <p class="text-light text-center py-0 my-0">Copyright &copy; 2021 All rights reserved | Imala</p>
     </footer>
     <script src="../static/js/scroll.js" lang="javascript" th:src="@{/js/scroll.js}"></script>
