@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 <head>
     <meta charset="UTF-8">
@@ -12,31 +12,44 @@
 
 </head>
 
-<body>
+<body class="h-100 d-flex flex-column">
     <header id="header" class="position-fixed top-0 w-100">
-        <nav class="navbar bg-dark p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex">
-
-                <h1 class="text-light p-2 ">IMALA</h1>
-            </div>
-            <div class="navbar-expand text-end float-end ">
-                <a href="./editprofile.html " th:href="@{/html/profile.html} " class="mx-3 p-0 m-2 mx-lg-5 "><i class="fas fa-user text-light mb-2 py-lg-3 "></i></a>
-                <ul class="navbar-nav mb-2 pb-0 ">
-                    <li class="nav-item mx-lg-3 ">
-                        <a class="nav-link btn btn-dark mx-1 p-0 px-2 text-light " href="./index.html " th:href="@{/html/index.html} ">HOME</a>
-                    </li>
-                    <li class="nav-item mx-lg-3 ">
-                        <a class="nav-link btn btn-dark mx-1 p-0 px-2 text-light " href="./about.html " th:href="@{/html/about.html} ">ABOUT</a>
-                    </li>
-                    <li class="nav-item mx-lg-3 ">
-                        <a class="nav-link btn btn-dark mx-1 p-0 px-2 text-light p-0 " href="./help.html" th:href="@{/html/help.html} ">HELP</a>
-                    </li>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark flex-shrink-0">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">IMALA</a>
+                <div>
+                    <a href="html/profile.html" th:href="@{/html/profile}" ><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
+        
+                    <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+                        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+        
+                    </button>
+                </div>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/html/index.html}">HOME</a>
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/html/about.html}">ABOUT</a>
+                  </li>
+                  <li>
+                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/html/help.html}">HELP</a>
+                  </li>
                 </ul>
+              </div>
+              <div class="btn-group d-none d-sm-block">
+                <a href="html/profile.html" th:href="@{/html/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
+        
+              </div>
             </div>
-        </nav>
+        </nav>   
     </header>
-
-    <br><br><br><br>
-    <main class="container text-center p-sm-5 mb-5">
+    
+    
+    <main class="container text-center p-sm-5 m-auto flex-grow-1 ">
+        
         <div class="col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-3 bg-light px-4 my-4">
             <h1 class="title text-primary my-3">REPORT</h1>
 
@@ -67,8 +80,9 @@
             </form>
         </div>
     </main>
+    <footer class="bg-dark p-3 rounded-top flex-shrink-0 ">
 
-    <footer class="bg-dark p-3 rounded-top">
+    <!-- <footer class="bg-dark p-3 rounded-top"> -->
         <p class="text-light text-center py-0 my-0 ">Copyright &copy; 2021 All rights reserved | Imala</p>
     </footer>
     <script src="../static/js/report.js " lang="javascript " th:src="@{/js/report.js} "></script>
