@@ -49,11 +49,11 @@
         <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
             <h2 class="title text-primary my-5 ">CHECK REPORTS</h2>
             <p class="text-dark">Enter plate number you want to check reports record</p>
-            <form class="form-report">
+            <form th:action="@{/checkReport}" class="form-report">
 
                 <div class="form-group text-start small m-2">
                     <label for="plateNo">Plate Number</label>
-                    <input type="text" class="form-control rounded rounded-3 alert-secondary" id="plateNo" placeholder="" required>
+                    <input type="text" class="form-control rounded rounded-3 alert-secondary" id="plateNo" placeholder="" required th:value = "*{plateNo}">
                 </div>
 
                 <div class="form-group text-start small m-2 my-4 ">
@@ -64,19 +64,18 @@
                 <p class="text-start p-0 m-0 px-2 small"><a href="report.html" class="text-primary text-decoration-none">Back to Report</a href="login.html"></p>
             </div>
         </div>
-        <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
-        <!-- <div class="border col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-3 bg-light px-4 my-md-5 "> -->
+        <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4" th:each="report:${reports}">
             <table class="table ">
                 <tr class="text-center">
                   <th colspan="2" class="text-primary lead fw-bold">REPORTS</th>
                 </tr>
                 <tr>
                     <td class="text-start">Plate Number</td>
-                    <td class="text-start">32670</td>
+                    <td class="text-start" th:text="${report.plateNo}"></td>
                 </tr>
                 <tr>
                     <td class="text-start">No. Reports</td>
-                    <td class="text-start">12</td>
+                    <td class="text-start"th:text="${report.plateNo}"></td>
                 </tr>
             </table>
             <div class="text-start mb-4 p-1">
