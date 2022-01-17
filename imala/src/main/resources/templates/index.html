@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" class="h-100" lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text; charset=UTF-8"/>
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
             <div class="container-fluid">
               <a class="navbar-brand" href="#">IMALA</a>
                 <div>
-                    <a href="html/profile.html" th:href="@{/html/profile}" ><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
+                    <a href="html/profile.html" th:href="@{/profile}" ><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
         
                     <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
                         aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,19 +29,18 @@
               <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./login.html" th:href="@{/html/index.html}">LOGIN</a>
+                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./login.html" th:href="@{/index.html}">LOGIN</a>
                 </li>
                   <li class="nav-item">
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/html/about.html}">ABOUT</a>
+                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about.html}">ABOUT</a>
                   </li>
                   <li>
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/html/help.html}">HELP</a>
+                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help.html}">HELP</a>
                   </li>
                 </ul>
               </div>
               <div class="btn-group d-none d-sm-block">
-                <a href="html/profile.html" th:href="@{/html/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
-        
+                <a href="html/profile.html" th:href="@{/rofile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
               </div>
             </div>
         </nav>   
@@ -55,7 +54,7 @@
                 <h1 class="text-center text-primary my-2  py-2 pb-4 border-bottom">WELCOME</h1>
                 <p class="text-danger lead">Where do you want to go? we provided you helpful information</p>
                 <p class="lead">Get transport fares online everywhere <br> choose what you want</p>
-                <a href="./admin.html " th:href="@{/admin.html}" th:if="${user.role}=='ADMIN'" class="btn btn-outline-dark px-5">ADMIN</a>
+                <!-- <a href="./admin.html " th:href="@{/admin.html}" th:if="${user.role}=='ADMIN'" class="btn btn-outline-dark px-5">ADMIN</a> -->
 
             </section>
           </div>
@@ -77,11 +76,11 @@
               </div>
               <div class="col">
                 <div class="card shadow">
-                    <img src="../static/images/bus.jpg"  th:attr="src=@{/images/taxi.gif},title=#{Taxi fare},alt=#{Taxi fare}" class="card-img-top" alt="Taxi car">
+                    <img src="../static/images/bus.jpg"  th:attr="src=@{/images/bus.jpg},title=#{Bus fare},alt=#{Bus fare}" class="card-img-top" alt="Taxi car">
                     <div class="card-body border">
                         <h5 class="card-title">Bus Fares</h5>
                         <p class="card-text">Click the button to get bus fares from Addis Ababa to sidecountry cities.</p>
-                        <p class="text-start"><a class="btn btn-dark " href="bus.html" th:href="@{/html/bus.html}">Bus fares</a></p>
+                        <p class="text-start"><a class="btn btn-dark " href="bus.html" th:href="@{/bus.html}">Bus fares</a></p>
                     </div>
                 </div>
               </div>
@@ -91,7 +90,7 @@
                     <div class="card-body border">
                         <h5 class="card-title">Report ILLEGALS</h5>
                         <p class="card-text">Report illegal tariff raises.</p>
-                        <p class="text-start"><a class="btn btn-dark " href="./report.html" th:href="@{/html/report.html}">Report Now</a></p>
+                        <p class="text-start"><a class="btn btn-dark " href="./report.html" th:href="@{/report.html}">Report Now</a></p>
                     </div>
                 </div>
               </div>
@@ -107,4 +106,4 @@
     <script src="../static/js/scroll.js" lang="javascript" th:src="@{/js/scroll.js}"></script>
 </body>
 
-</html>
+<>
