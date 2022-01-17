@@ -29,13 +29,13 @@
               <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/index.html}">HOME</a>
+                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/index}">HOME</a>
                 </li>
                   <li class="nav-item">
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about.html}">ABOUT</a>
+                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about}">ABOUT</a>
                   </li>
                   <li>
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help.html}">HELP</a>
+                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help}">HELP</a>
                   </li>
                 </ul>
               </div>
@@ -48,7 +48,7 @@
     </header>
     <main class="container text-center m-auto flex-grow-1">
         <article class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 py-3 ">
-
+        <h2>Check Taxi Fares</h2>
         <br>
         <p class="text-dark justify-content-center lead shadow-sm py-2">Enter your starting station and your destination</p>
         <form th:action="@{/searchTarrif}" method="post" th:object="${searchingAttribute}">
@@ -56,7 +56,7 @@
 
             <div class="form-group text-start small m-2 ">
                 <label class="py-1" for="Departure">Starting</label>
-                <input type="text" class="form-control rounded rounded-3 alert-secondary " list="departure"
+                <input type="text" class="form-control rounded rounded-3 alert-secondary " list="p_departure"
                  placeholder="Choose starting point..." th:field = "*{departure}" >  
             </div>
             
@@ -68,10 +68,10 @@
            
             </div>   
                 
-            <datalist id="departure" th:each ="station : ${cityJourneys}">
-                <option th:value="${station.departure}"></option>
+            <datalist id="p_departure" th:each="station:${cityJourneys}">
+                <option th:value="${station.departure}"><span th:text="${station.departure}"></span></option>
             </datalist>
-            <datalist id="destination" th:each ="station : ${cityJourneys}">
+            <datalist id="p_destination" th:each ="station : ${cityJourneys}">
                 <option th:value="${station.destination}"></option>
             </datalist>
             <div class="form-group text-start small m-2 my-4 py-2 ">
@@ -79,7 +79,6 @@
             </div>
         </form>
 
-        
     </article>
     <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 py-3">
         <table class="table">
