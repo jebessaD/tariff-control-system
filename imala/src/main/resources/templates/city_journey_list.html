@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    
+    <title> Add City Journey</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Add City Journey</h1>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Departure</th>
+                    <th>Deastination</th>
+                    <th>Tariff</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cityJourney:${cityJourneys}">
+                    <td th:text="${cityJourney.departure}"></td>
+                    <td th:text="${cityJourney.destination}"></td>
+                    <td th:text="${cityJourney.tariff}"></td>
+                    <td><a th:href="@{/updateCityJourney(cityJourneyId=${cityJourney.id})}" class="btn-outline-info">Edit</a>
+                        <a th:href="@{/deleteCityJourney(cityJourneyId=${cityJourney.id})}" class="btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+    </div>
+<!-- <script th:src="@{/js/bootstrap.bundle.min.js}"></script>    -->
+</body>
+</html>

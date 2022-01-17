@@ -28,9 +28,9 @@ public class CityJourneyController {
     public ModelAndView cityJourneyList() {
         ModelAndView model = new ModelAndView("city_journey_list");
 
-        List<CityJourney> departureList = cityJourneyRepository.findByOrderByDepartureAsc();
+        List<CityJourney> cityJourneyList = cityJourneyRepository.findByOrderByDepartureAsc();
 
-        model.addObject("cityJourneys", departureList);
+        model.addObject("cityJourneys", cityJourneyList);
 
         return model;
 
@@ -127,7 +127,7 @@ public class CityJourneyController {
 
         CityJourney cityJourney = cityJourneyRepository.findById(cityJourneyId).get();
 
-        model.addObject("cityJourney", cityJourney);
+        model.addObject("newCityJourney", cityJourney);
 
         return model;
 
