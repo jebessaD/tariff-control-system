@@ -77,7 +77,7 @@
                 </tr>
                 <tr>
                     <td class="text-start">No. Reports</td>
-                    <td class="text-start"th:text="${report.plateNo}"></td>
+                    <td class="text-start"th:text="${report.count}"></td>
                 </tr>
             </table>
             <div class="text-start mb-4 p-1">
@@ -92,8 +92,8 @@
                       <th >Comment</th>
                     </tr>
                     <tr>
-                        <td>Plate Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore, molestias! Number</td> <!--th line road-->
-                        <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem! Plate Number</td>  <!--what do u observe-->
+                        <td th:text="${report.line}"></td> <!--th line road-->
+                        <td th:text="${report.comment}"></td>  <!--what do u observe-->
                         
                     </tr>
                     
@@ -105,12 +105,10 @@
     </main>
 
     <footer class="bg-dark p-3 rounded-top  mt-md-6">
-        <p class="text-light text-center py-0 my-0">Copyright &copy; 2021 All rights reserved | Imala</p>
+        <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
     </footer>
     <script src="../static/js/bootstrap.bundle.min.js" th:href="@{/js/bootstrap.bundle.js}"></script>
 
-    <script src="../static/js/scroll.js" lang="javascript" th:src="@{/js/scroll.js}"></script>
-    <!-- <script src="../js/report.js" lang="javascript" th:src="@{/js/report.js}"></script> -->
 
 </body>
 
