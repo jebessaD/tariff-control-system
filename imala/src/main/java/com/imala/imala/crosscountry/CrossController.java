@@ -1,33 +1,47 @@
 package com.imala.imala.crosscountry;
 
-import java.util.List;
+// import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
-@RestController
+
+@Controller
 public class CrossController {
     
     @Autowired
-    private final CrossService crossService;
+    private CrossService crossService;
     
 
 
-    @GetMapping("api/v1/crosscountry")
-    public List<CrossCountry> getAllNotes()
-    {
-        return crossService.getAllCross();
+   
+    @GetMapping("/crossCountryList")
+    public ModelAndView cityJourneyList() {
+       return crossService.cityJourneyList();
     }
-  
-    @GetMapping("api/v1/crosscountry/tariff")
-    public Double getTariff(){
-       
 
-        return crossService.getTariff();
+    @GetMapping("/checkBusTariff")
+    public ModelAndView departureList() {
+        
+        return crossService.departureList();
+
     }
+
+    @PostMapping("/searchBusTariff")
+    public ModelAndView showTariff(@ModelAttribute("searchingAttribute") SearchingAttribute searchingAttribute) {
+
+        return crossService.showTariff(searchingAttribute);
+
+    }
+
+
+
 
 }

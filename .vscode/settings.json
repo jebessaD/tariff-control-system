@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
     "java.configuration.updateBuildConfiguration": "automatic"
+=======
+    "liveServer.settings.port": 5502
+>>>>>>> d46aa3c2ae658f9d8456ede19a297cb7514c3a2f
 }
