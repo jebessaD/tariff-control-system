@@ -2,143 +2,141 @@
 <html xmlns:th="http://www.thymeleaf.org" class="h-100" lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report</title>
+    <title>IMALA | User Profile</title>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.css}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
     <link rel="icon" href="../images/icon.jpg" type="image/png">
 </head>
 
 <body class="h-100 d-flex flex-column">
-<header class="flex-shrink-0">
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark flex-shrink-0">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">IMALA</a>
-          <div>
-              <a href="html/profile.html" th:href="@{/profile}" ><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
+    <header class="flex-shrink-0">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark flex-shrink-0">
+            <div class="container-fluid">
+                <h1 class="navbar-brand">IMALA</h1>
+                <div>
+                    <a href="editProfile.html" th:href="@{/profile}" aria-label="User"><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
 
-              <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
-                  aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
 
               </button>
-          </div>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/index">HOME</a>
-          </li>
-            <li class="nav-item">
-              <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about">ABOUT</a>
-            </li>
-            <li>
-              <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help">HELP</a>
-            </li>
-          </ul>
-        </div>
-        <div class="btn-group d-none d-sm-block">
-          <a href="html/profile.html" th:href="@{/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/index">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about">ABOUT</a>
+                        </li>
+                        <li>
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help">HELP</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group d-none d-sm-block">
+                    <a href="editProfile.html" th:href="@{/profile}" class="mx-3 p-0 m-2 mx-lg-5" aria-label="User"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
 
-        </div>
-      </div>
-  </nav>
-</header>
-
-<main class="container text-center m-auto flex-grow-1">
-    <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
-        <div class="text-start my-4 px-3">
-            <a class="text-start text-warning" aria-label="left Arrow" href="./index.html" th:href="@{/index"><i class="fas fa-chevron-left "></i> </a>
-            <h2 class="text-start text-warning my-3  mb-5"><i class="far fa-user"></i> </i> Profile</h2>
-        </div>
-        <hr class="mx-2">
-        <div id="password">
-            <div class="d-flex container justify-content-between">
-                <p class="p-0 m-0"><i class="fas fa-unlock-alt text-primary px-2"> </i>Change Password</p>
-                <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#changePassword" href="changePassword"><i class="fas fa-angle-down"></i></a>
+                </div>
             </div>
-            <div>
+        </nav>
+    </header>
 
-                <form class="collapse  indent container my-3 px-5 text-start" id="changePassword" data-parent="#password" method="post">
-                    <div class="form-group text-start small m-2">
-                        <label for="psw_1">New Password</label>
-                        <input type="password" class="form-control rounded rounded-5 alert-secondary" id="psw_1" aria-describedby="passwordHelp" placeholder="" minlength="4" required>
-                    </div>
-                    <div class="error-message">
-                        <p class="text-danger text-start p-0 m-0 px-2 small"><i aria-label="error-exclamation-circle" class="fas fa-exclamation-circle px-2" ></i> Password not matched!</p>
-                    </div>
-                    <div class="form-group text-start small m-2">
-                        <label for="psw_2">Confrim Password</label>
-                        <input type="password" class="form-control rounded rounded-5 alert-secondary" id="psw_2" placeholder="" minlength="4" required>
-                    </div>
-                    <div class="form-group text-start small m-2 my-4">
-                        <button type="submit" class="btn btn-dark w-100 rounded rounded-5 submit_form">Change</button>
-                    </div>
-
-                </form>
-                <hr class="mx-2">
+    <main class="container text-center m-auto flex-grow-1">
+        <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
+            <div class="text-start my-4 px-3">
+                <a class="text-start text-warning" aria-label="left Arrow" href="./index.html" th:href="@{/index"><i class="fas fa-chevron-left "></i> </a>
+                <h2 class="text-start text-warning my-3  mb-5"><i class="far fa-user"></i> </i> Profile</h2>
             </div>
-        </div>
-        <div id="username">
-            <div class="d-flex container justify-content-between">
-                <p class="p-0 m-0"><i class="fas fa-user-edit text-primary px-2"></i>Edit Username</p>
-                <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#editUsername" href="#editUsername"><i class="fas fa-angle-down"></i></a>
+            <hr class="mx-2">
+            <div id="password">
+                <div class="d-flex container justify-content-between">
+                    <p class="p-0 m-0"><i class="fas fa-unlock-alt text-primary px-2"> </i>Change Password</p>
+                    <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#changePassword" href="changePassword"><i class="fas fa-angle-down"></i></a>
+                </div>
+                <div>
+
+                    <form class="collapse  indent container my-3 px-5 text-start" id="changePassword" data-parent="#password" method="post">
+                        <div class="form-group text-start small m-2">
+                            <label for="psw_1">New Password</label>
+                            <input type="password" class="form-control rounded rounded-5 alert-secondary" id="psw_1" aria-describedby="passwordHelp" placeholder="" minlength="4" required>
+                        </div>
+                        <div class="error-message">
+                            <p class="text-danger text-start p-0 m-0 px-2 small"><i aria-label="error-exclamation-circle" class="fas fa-exclamation-circle px-2"></i> Password not matched!</p>
+                        </div>
+                        <div class="form-group text-start small m-2">
+                            <label for="psw_2">Confrim Password</label>
+                            <input type="password" class="form-control rounded rounded-5 alert-secondary" id="psw_2" placeholder="" minlength="4" required>
+                        </div>
+                        <div class="form-group text-start small m-2 my-4">
+                            <button type="submit" class="btn btn-dark w-100 rounded rounded-5 submit_form">Change</button>
+                        </div>
+
+                    </form>
+                    <hr class="mx-2">
+                </div>
             </div>
-            <div>
+            <div id="username">
+                <div class="d-flex container justify-content-between">
+                    <p class="p-0 m-0"><i class="fas fa-user-edit text-primary px-2"></i>Edit Username</p>
+                    <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#editUsername" href="#editUsername"><i class="fas fa-angle-down"></i></a>
+                </div>
+                <div>
 
-                <form class="collapse  indent container my-3 px-5 text-start" id="editUsername" data-parent="#username">
-                    <label for="userName">User name</label>
-                    <div class="text-start small py-2 input-group">
+                    <form class="collapse  indent container my-3 px-5 text-start" id="editUsername" data-parent="#username">
+                        <label for="userName">User name</label>
+                        <div class="text-start small py-2 input-group">
 
-                        <input type="text" class="form-control alert-secondary" id="userName" placeholder="" required>
-                        <button type="submit" class="btn btn-dark ">Save</button>
+                            <input type="text" class="form-control alert-secondary" id="userName" placeholder="" required>
+                            <button type="submit" class="btn btn-dark ">Save</button>
+                        </div>
+
+                    </form>
+                    <hr class="mx-2">
+                </div>
+            </div>
+            <div class="text-start">
+                <a class="text-decoration-none text-dark px-3" href=""><i class="fas fa-sign-out-alt text-primary px-2"></i>logout</a>
+            </div>
+            <hr class="mx-2">
+
+            <div class="text-start">
+
+                <a class="text-decoration-none text-danger px-3" data-bs-toggle="modal" data-bs-target="#exampleModal" href=""><i class="fas fa-trash-alt text-danger px-2 "></i>Delete Account</a>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Delete Account</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
                     </div>
-
-                </form>
-                <hr class="mx-2">
+                </div>
             </div>
-        </div>
-        <div class="text-start">
-            <a class="text-decoration-none text-dark px-3" href=""><i class="fas fa-sign-out-alt text-primary px-2"></i>logout</a>
-        </div>
-        <hr class="mx-2">
-
-        <div class="text-start">
-            
-            <a class="text-decoration-none text-danger px-3"  data-bs-toggle="modal" data-bs-target="#exampleModal" href=""><i class="fas fa-trash-alt text-danger px-2 "></i>Delete Account</a>
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Delete Account</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-danger">Delete</button>
-        </div>
-      </div>
-    </div>
-  </div>
-        </div>
-        <hr class="mx-2"> <br>
+            <hr class="mx-2"> <br>
 
 
-    </div>
-</main>
+        </div>
+    </main>
 
-<footer class="bg-dark p-3 rounded-top flex-shrink-0">
-    <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
-  </footer>
-  <script src="../static/js/editProfile.js" lang="javascript" th:src="@{/js/editProfile.js}"></script>
-<script src="../static/js/bootstrap.bundle.min.js" th:href="@{/js/bootstrap.bundle.min.js}"></script>
-<!-- <script src="../static/js/bootstrap.min.js" th:href="@{/js/bootstrap.min.js}"></script> -->
+    <footer class="bg-dark p-3 rounded-top flex-shrink-0">
+        <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
+    </footer>
+    <script src="../static/js/editProfile.js" lang="javascript" th:src="@{/js/editProfile.js}"></script>
+    <script src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
 
 </html>

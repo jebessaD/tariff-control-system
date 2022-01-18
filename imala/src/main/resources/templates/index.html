@@ -2,106 +2,105 @@
 <html xmlns:th="http://www.thymeleaf.org" class="h-100" lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text; charset=UTF-8" />
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME </title>
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.css}">
+    <title>IMALA | HOME </title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
-    <link rel="icon" href="../images/icon.jpg" type="image/png">
+
+    <link rel="icon" href="../images/icon.jpg" th:href="@{/images/icon.jpg}" type="image/png">
 </head>
 
 <body class="h-100 d-flex flex-column">
     <header class="flex-shrink-0">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark flex-shrink-0">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">IMALA</a>
+                <h1 class="navbar-brand">IMALA</h1>
                 <div>
-                    <a href="html/profile.html" th:href="@{/profile}" ><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
-        
-                    <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
-                        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <a href="editProfile.html" th:href="@{/profile}" aria-label="User"><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
+
+                    <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
         
                     </button>
                 </div>
-              <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./login.html" th:href="@{/login}">LOGIN</a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about}">ABOUT</a>
-                  </li>
-                  <li>
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help}">HELP</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="btn-group d-none d-sm-block">
-                <a href="html/profile.html" th:href="@{/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
-              </div>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./login.html" th:href="@{/login}">LOGIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about}">ABOUT</a>
+                        </li>
+                        <li>
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help}">HELP</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group d-none d-sm-block">
+                    <a href="editProfile.html" th:href="@{/profile}" class="mx-3 p-0 m-2 mx-lg-5" aria-label="User"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
+                </div>
             </div>
-        </nav>   
+        </nav>
     </header>
-    
-<main class="container text-center p-sm-5 m-auto flex-grow-1 ">
-    <article class="container flex-grow-1 pt-4">
-        <div class="row">
-          <div class="col-12">
-            <section class="container text-center rounded pb-2 mb-5 ">
-                <h1 class="text-center text-primary my-2  py-2 pb-4 border-bottom">WELCOME</h1>
-                <p class="text-danger lead">Where do you want to go? we provided you helpful information</p>
-                <p class="lead">Get transport fares online everywhere <br> choose what you want</p>
-                <!-- <a href="./admin.html " th:href="@{/admin}" th:if="${user.role}=='ADMIN'" class="btn btn-outline-dark px-5">ADMIN</a> -->
 
-            </section>
-          </div>
-        </div>
+    <main class="container text-center p-sm-5 m-auto flex-grow-1 ">
+        <article class="container flex-grow-1 pt-4">
+            <div class="row">
+                <div class="col-12">
+                    <section class="container text-center rounded pb-2 mb-5 ">
+                        <h1 class="text-center text-primary my-2  py-2 pb-4 border-bottom">WELCOME</h1>
+                        <p class="text-danger lead">Where do you want to go? we provided you helpful information</p>
+                        <p class="lead">Get transport fares online everywhere <br> choose what you want</p>
+                        <!-- <a href="./admin.html " th:href="@{/admin}" th:if="${user.role}=='ADMIN'" class="btn btn-outline-dark px-5">ADMIN</a> -->
 
-        <div class="row">
-          <div class="col-12">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-              <div class="col">
-                <div class="card shadow">
-                    <img src="../static/images/taxi.gif"  th:attr="src=@{/images/taxi.gif},title=#{Taxi fare},alt=#{Taxi fare}" class="card-img-top " alt="Taxi car">
-                    <div class="card-body">
-                        <h5 class="card-title">Taxi Fares</h5>
-                        <p class="card-text">Click the button to get taxi fares in Addis Ababa</p>
-                        <p class="text-start"><a class="btn btn-dark "  th:href="@{/checkTariff}">Taxi fares</a></p>
-                    </div>
+                    </section>
                 </div>
-
-              </div>
-              <div class="col">
-                <div class="card shadow">
-                    <img src="../static/images/bus.jpg"  th:attr="src=@{/images/bus.jpg},title=#{Bus fare},alt=#{Bus fare}" class="card-img-top" alt="Taxi car">
-                    <div class="card-body border">
-                        <h5 class="card-title">Bus Fares</h5>
-                        <p class="card-text">Click the button to get bus fares from Addis Ababa to sidecountry cities.</p>
-                        <p class="text-start"><a class="btn btn-dark " href="bus.html" th:href="@{/checkBusTariff}">Bus fares</a></p>
-                    </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card shadow">
-                    <img src="../static/images/report3.jpg"  th:attr="src=@{/images/taxi.gif},title=#{Taxi fare},alt=#{Taxi fare}" class="card-img-top" alt="Taxi car">
-                    <div class="card-body border">
-                        <h5 class="card-title">Report ILLEGALS</h5>
-                        <p class="card-text">Report illegal tariff raises.</p>
-                        <p class="text-start"><a class="btn btn-dark " href="./report.html" th:href="@{/report}">Report Now</a></p>
-                    </div>
-                </div>
-              </div>
-
             </div>
-          </div>
-        </div>
-    </article>
-</main>
-<footer class="bg-dark p-3 rounded-top flex-shrink-0">
-  <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
-</footer>
-<script src="../static/js/bootstrap.bundle.min.js" th:href="@{/bootstrap.bundle.min.js}"></script>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <div class="col">
+                            <div class="card shadow">
+                                <img src="../static/images/taxi.gif" th:attr="src=@{/images/taxi.gif},title=#{Taxi fare},alt=#{Taxi fare}" class="card-img-top " alt="Taxi car">
+                                <div class="card-body">
+                                    <h5 class="card-title">Taxi Fares</h5>
+                                    <p class="card-text">Click the button to get taxi fares in Addis Ababa</p>
+                                    <p class="text-start"><a class="btn btn-dark " th:href="@{/checkTariff}">Taxi fares</a></p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="card shadow">
+                                <img src="../static/images/bus.jpg" th:attr="src=@{/images/bus.jpg},title=#{Bus fare},alt=#{Bus fare}" class="card-img-top" alt="Taxi car">
+                                <div class="card-body border">
+                                    <h5 class="card-title">Bus Fares</h5>
+                                    <p class="card-text">Click the button to get bus fares from Addis Ababa to sidecountry cities.</p>
+                                    <p class="text-start"><a class="btn btn-dark " href="bus.html" th:href="@{/checkBusTariff}">Bus fares</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow">
+                                <img src="../static/images/report3.jpg" th:attr="src=@{/images/taxi.gif},title=#{Taxi fare},alt=#{Taxi fare}" class="card-img-top" alt="Taxi car">
+                                <div class="card-body border">
+                                    <h5 class="card-title">Report ILLEGALS</h5>
+                                    <p class="card-text">Report illegal tariff raises.</p>
+                                    <p class="text-start"><a class="btn btn-dark " href="./report.html" th:href="@{/report}">Report Now</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer class="bg-dark p-3 rounded-top flex-shrink-0">
+        <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
+    </footer>
+    <script src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
