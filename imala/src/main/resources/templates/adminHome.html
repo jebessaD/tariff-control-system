@@ -29,13 +29,13 @@
               <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/index}">HOME</a>
+                    <a class="nav-link btn btn-outline-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/index}">HOME</a>
                 </li>
                   <li class="nav-item">
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about}">ABOUT</a>
+                    <a class="nav-link btn btn-outline-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about}">ABOUT</a>
                   </li>
                   <li>
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help}">HELP</a>
+                    <a class="nav-link btn btn-outline-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help}">HELP</a>
                   </li>
                 </ul>
               </div>
@@ -47,54 +47,67 @@
         </nav>   
     </header>
 
-    <main class="container text-center m-auto flex-grow-1">
+    <main class="container text-center m-auto flex-grow-1 mb-5">
         <div class="container flex-grow-1 pt-4">
             <div class="row">
             <div class="col-12">
-                <form class="d-flex w-100 gap-2 p-2">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control form-control-lg" placeholder="Search Here">
-                    <button type="submit" class="input-group-text btn-primary"><i class="bi bi-search me-2"></i> Search</button>
+                <div class="my-1 border py-3 my-5 shadow-sm">
+                    <h2 class="text-danger">WARNING</h2>
+                    <p>Access to this page is restricted to authorized users only. Unauthorized or excessive access attempts could be subject to legal accountability. Kindly be informed that all user activities are recorded and monitored by the system. In case of any suspected unauthorized use or malicious activity, the user may be subjected for legal actions.</p>
                 </div>
-                </form>
             </div>
             </div>
             <div class="row">
             <div class="col-12">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card ">
+                        <div class="card-body">
+                            <h5 class="card-title py-2  text-primary">City Journey</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                            content.</p>
+                            <div class="d-flex justify-content-around">
+                                <a href="add_city_journey_form.html" class="btn btn-outline-dark">Edit List</a>
+                                <a href="" class="btn btn-outline-dark">See List</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div><div class="col">
+                        <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title py-2  text-primary">Cross city Journey</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                            content.</p>
+                            <div class="d-flex justify-content-around">
+                                <a href="" class="btn btn-outline-dark">Edit List</a>
+                                <a href="" class="btn btn-outline-dark">See List</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                 <div class="col">
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                        content. This content is a little bit longer.</p>
-                    </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                        content. This content is a little bit longer.</p>
-                    </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title py-2  text-primary">Users</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
                         content.</p>
+                        <div class="d-flex justify-content-around">
+                            <a href="" class="btn btn-outline-dark">Ordinary Users</a>
+                            <a href="" class="btn btn-outline-dark">Traffics</a>
+                        </div>
                     </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title py-2  text-primary">Edit Reports</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
                         content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-around">
+                            <a href="" class="btn btn-outline-dark">Edit</a>
+                        </div>
+
                     </div>
                     </div>
                 </div>

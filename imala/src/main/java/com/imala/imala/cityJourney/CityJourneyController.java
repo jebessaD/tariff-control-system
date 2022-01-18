@@ -73,7 +73,7 @@ public class CityJourneyController {
 
     @GetMapping("/deleteCityJourney")
     public String deleteCityJourney(@RequestParam Long cityJourneyId) {
-        return deleteCityJourney(cityJourneyId);
+        return cityJourneyService.deleteCityJourney(cityJourneyId);
 
     }
 

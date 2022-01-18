@@ -48,7 +48,7 @@
     </header>
         <br>
         <main class="container text-center m-auto flex-grow-1">
-          <div class="col col-sm-12 col-lg-9 shadow mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
+          <div class="col col-12 shadow mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
         <h1>List of City Journey</h1>
         <hr>
         <table class="table table-striped">
@@ -66,8 +66,25 @@
                     <td th:text="${cityJourney.destination}"></td>
                     <td th:text="${cityJourney.tariff}"></td>
                     <td><a th:href="@{/updateCityJourney(cityJourneyId=${cityJourney.id})}" class="btn btn-outline-info">Edit</a>
-                        <a th:href="@{/deleteCityJourney(cityJourneyId=${cityJourney.id})}" class="btn btn-outline-danger">Delete</a>
-                    </td>
+                        <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
+                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                Are you sure want to delete?
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <a th:href="@{/deleteCityJourney(cityJourneyId=${cityJourney.id})}" class="btn btn-danger" >Delete</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
                 </tr>
             </tbody>
         </table>
@@ -79,6 +96,8 @@
 <footer class="bg-dark p-3 rounded-top flex-shrink-0">
   <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
 </footer>
-<script src="../static/js/bootstrap.bundle.min.js" th:href="@{/js/bootstrap.bundle.min.js}"></script>
+<!-- <script src="../static/js/bootstrap.bundle.min.js" th:href="@{/js/bootstrap.bundle.min.js}"></script> -->
+<script src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
 </body>
 </html>
