@@ -52,15 +52,15 @@
         <div class="col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-3 bg-light px-4 my-4">
             <h1 class="title text-primary my-3">REPORT</h1>
 
-            <form class="form-report " th:action="@{/saveReport}" method="post" th:object="${newReport}">
+            <form class="form-report " th:action="@{/saveReport}" th:object="${newReport}" method="post">
 
                 <div class="form-group text-start small m-2 ">
                     <label for="plateNo ">Plate Number</label>
-                    <input type="text " class="form-control rounded rounded-3 alert-secondary " id="plateNo " placeholder=" " required th:field="*{code}">
+                    <input type="text" class="form-control rounded rounded-3 alert-secondary " id="plateNo " placeholder=" " required th:field="*{code}">
                 </div>
                 <div class="form-group text-start small m-2 ">
                     <label for="road ">Line or road</label>
-                    <input type="text " class="form-control rounded rounded-3 alert-secondary " id="road " aria-describedby="roadHelp " placeholder=" " required th:field="*{place}">
+                    <input type="text" class="form-control rounded rounded-3 alert-secondary " id="road " aria-describedby="roadHelp " placeholder=" " required th:field="*{place}">
                 </div>
                 <div class="form-group text-start small m-2 ">
                     <label for="FormControlTextarea " class="form-label ">What do you observe?</label>
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="form-group text-start small m-2 my-4 ">
-                    <button type="submit " class="btn btn-dark w-100 rounded rounded-3 submit_form ">Report</button>
+                    <button type="submit" class="btn btn-dark w-100 rounded rounded-3 submit_form ">Report</button>
                 </div>
 
                 <div class="text-start m-2 my-4 ">

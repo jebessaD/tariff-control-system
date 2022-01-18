@@ -64,7 +64,7 @@
 
                 <div class="form-group text-start small m-2 ">
                     <label class="py-1" for="Destination">Destination</label>
-                    <input type="text" id="Destination" class=" form-control rounded rounded-3 alert-secondary " list="destination " placeholder="Choose starting point... " th:field="*{destination} " autocomplete="off ">
+                    <input type="text" id="Destination" class=" form-control rounded rounded-3 alert-secondary " list="destination " placeholder="Choose starting point... " th:field="*{destination} " autocomplete="off">
                     <datalist id="destination " th:each="station : ${cityJourneys} ">
                 <option th:each="station : ${cityJourneys} " th:value="${station.destination} "></option>
             </datalist>

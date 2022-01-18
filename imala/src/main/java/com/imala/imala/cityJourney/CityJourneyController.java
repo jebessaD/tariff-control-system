@@ -15,19 +15,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-
- 
 @Controller
 public class CityJourneyController {
-    
-    
+
     @Autowired
     CityJourneyService cityJourneyService;
 
-
-
     @GetMapping("/cityJourneyList")
-    public ModelAndView cityJourneyList() {  
+    public ModelAndView cityJourneyList() {
         return cityJourneyService.getCityJourneyList();
     }
 
@@ -51,11 +46,9 @@ public class CityJourneyController {
     @PostMapping("/searchTarrif")
     public ModelAndView showTariff(@ModelAttribute("searchingAttribute") SearchingAttribute searchingAttribute) {
 
-       return cityJourneyService.searchTariff(searchingAttribute);
+        return cityJourneyService.searchTariff(searchingAttribute);
 
     }
-
-    
 
     @GetMapping("/addCityJourney")
     public ModelAndView addCityJourney() {
@@ -68,12 +61,12 @@ public class CityJourneyController {
     @PostMapping("/saveCityJourney")
     public String saveCityJourney(@ModelAttribute("newCityJourney") CityJourney cityJourney) {
         return cityJourneyService.saveCityJourney(cityJourney);
-        
+
     }
 
     @GetMapping("/deleteCityJourney")
     public String deleteCityJourney(@RequestParam Long cityJourneyId) {
-        return deleteCityJourney(cityJourneyId);
+        return cityJourneyService.deleteCityJourney(cityJourneyId);
 
     }
 
