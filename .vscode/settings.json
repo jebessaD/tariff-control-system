@@ -1,11 +1,9 @@
 {
-<<<<<<< HEAD
+
+  
+
     "liveServer.settings.port": 5502
-=======
-<<<<<<< HEAD
-    "java.configuration.updateBuildConfiguration": "automatic"
-=======
-    "liveServer.settings.port": 5502
->>>>>>> d46aa3c2ae658f9d8456ede19a297cb7514c3a2f
->>>>>>> 90ecd47f4c3be8805017feca42c20bfd1a2a3232
+
+
+
 }

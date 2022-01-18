@@ -51,9 +51,7 @@
 
             <br>
             <p class="text-dark justify-content-center ">Enter your starting station and your destination</p>
-
             <form th:action="@{/searchBusTariff}" method="post" th:object="${searchingAttribute}">
-
 
 
                 <div class="form-group text-start small m-2 ">
@@ -61,22 +59,24 @@
                     <input type="text" class="form-control rounded rounded-3 alert-secondary " list="start" placeholder="Choose starting point..." th:field="*{departure}" autocomplete="off">
                     <datalist id="start" th:each="station : ${crossCountry}">
                     <option th:each ="station : ${crossCountry}" th:value="${station.departure}"></option>
-                    </div>
+                </datalist>
+
+                </div>
 
 
-                    <div class="form-group text-start small m-2 ">
-                        <label class="py-1" for="Destination">Destination</label>
-                        <input type="text" class="form-control rounded rounded-3 alert-secondary " list="destination_on" placeholder="Choose starting point... " th:field="*{destination}" autocomplete="off">
-                        <datalist id="destination_on" th:each="station : ${crossCountry}">
+                <div class="form-group text-start small m-2 ">
+                    <label class="py-1" for="Destination">Destination</label>
+                    <input type="text" class="form-control rounded rounded-3 alert-secondary " list="destination_on" placeholder="Choose starting point... " th:field="*{destination}" autocomplete="off">
+                    <datalist id="destination_on" th:each="station : ${crossCountry}">
                     <option th:each ="station : ${crossCountry}" th:value="${station.destination}"></option>
                 </datalist>
                 </div>
 
                 <div class="form-group text-start small m-2 ">
-                    <label class="py-1" for="bus">Destination</label>
+                    <label class="py-1" for="bus">Bus</label>
                     <input type="text" class="form-control rounded rounded-3 alert-secondary " list="bus_on" placeholder="Choose bus... " th:field="*{bus}" autocomplete="off">
-                    <datalist id="destination_on" th:each="bus : ${bus}">
-                    <option th:each ="bus : ${bus}" th:value="{bus.bus}"></option>
+                    <datalist id="bus_on" th:each="station : ${crossCountry}">
+                    <option th:each ="station : ${crossCountry}" th:value="${station.bus}"></option>
                 </datalist>
                 </div>
 
@@ -86,19 +86,6 @@
             </form>
 
 
-
-
-            <div class="form-group text-start small m-2 ">
-                <label class="py-1" for="Destination">Buses</label>
-                <input type="text" class="form-control rounded rounded-3 alert-secondary " list="buses" placeholder="Choose bus... " th:field="*{bus}">
-            </div>
-
-
-            <datalist id="buses" th:each="bus: ${crossCountry}">
-                <option th:value="${bus.bus}"></option>
-            </datalist>
-
-            </form>
         </article>
         <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 py-3">
             <table class="table">
@@ -128,7 +115,7 @@
     <footer class="bg-dark p-3 rounded-top flex-shrink-0">
         <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
     </footer>
-    <script src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    <script src="../static/js/bootstrap.bundle.min.js" th:href="@{/js/bootstrap.bundle.min.js}"></script>
     <script src="../static/js/taxi.js" lang="javascript" th:src="@{/js/scroll.js}"></script>
 
 </body>

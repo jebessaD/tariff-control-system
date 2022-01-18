@@ -18,13 +18,13 @@ public class ReportService {
     private final ReportRepository reportRepository;
 
 
-    // @PostMapping("/placeOrder")
+    @PostMapping("/placeOrder")
     public Report placeOrder(@RequestBody ReportConfig reportConfig){
 
         return reportRepository.save(reportConfig.getReport());
     }
 
-    // @GetMapping("/findAllOrder")
+   @GetMapping("/findAllOrder")
     public List<Report> findAllOrders(){
 
         return reportRepository.findAll(); 
