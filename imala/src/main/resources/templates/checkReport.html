@@ -50,11 +50,11 @@
         <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
             <h2 class="title text-primary my-5 ">CHECK REPORTS</h2>
             <p class="text-dark">Enter plate number you want to check reports record</p>
-            <form th:action="@{/checkReport}" class="form-report">
+            <form th:action="@{/checkReport}" th:object="${searchingAttribute}" class="form-report">
 
                 <div class="form-group text-start small m-2">
                     <label for="plateNo">Plate Number</label>
-                    <input type="text" class="form-control rounded rounded-3 alert-secondary" id="plateNo" placeholder="" required th:value="*{plateNo}">
+                    <input type="text" class="form-control rounded rounded-3 alert-secondary" id="plateNo" placeholder="" required th:field="*{code}">
                 </div>
 
                 <div class="form-group text-start small m-2 my-4 ">
@@ -72,7 +72,7 @@
                 </tr>
                 <tr>
                     <td class="text-start px-4 ">plate number:</td>
-                    <td class="text-start px-4 " th:field="${report.code}"></td>
+                    <td class="text-start px-4 " th:text="${searchingAttribute.code}"></td>
                 </tr>
                 <tr>
                     <td class="text-start px-4">Number of reports:</td>
