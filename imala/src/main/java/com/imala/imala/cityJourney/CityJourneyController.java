@@ -67,20 +67,20 @@ public class CityJourneyController {
 
     @PostMapping("/saveCityJourney")
     public String saveCityJourney(@ModelAttribute("newCityJourney") CityJourney cityJourney) {
-        return cityJourneyService.saveCityJourney(cityJourney);
+        return cityJourneyService.saveJourney(cityJourney);
         
     }
 
     @GetMapping("/deleteCityJourney")
     public String deleteCityJourney(@RequestParam Long cityJourneyId) {
-        return deleteCityJourney(cityJourneyId);
+        return cityJourneyService.deleteJourney(cityJourneyId);
 
     }
 
     @GetMapping("/updateCityJourney")
     public ModelAndView updateCityJourney(@RequestParam Long cityJourneyId) {
 
-        return cityJourneyService.updateCityJourney(cityJourneyId);
+        return cityJourneyService.updateJourney(cityJourneyId);
     }
 
 }
