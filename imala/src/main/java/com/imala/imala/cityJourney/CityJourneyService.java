@@ -2,7 +2,7 @@ package com.imala.imala.cityJourney;
 
 import java.util.List;
 
-
+import org.springframework.validation.BindingResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -67,21 +67,28 @@ public class CityJourneyService {
     
 
     
-    public String saveJourney(CityJourney cityJourney){
+    public String saveJourney(CityJourney cityJourney,BindingResult bindingResult){
 
         CityJourney redundancyCheck=cityJourneyRepository.search(cityJourney.getDeparture(),cityJourney.getDestination());
-       
+       if(bindingResult.hasErrors()){
+           return "add_city_journey_form";
+       }
+       else{
         if (redundancyCheck==null) {
             cityJourneyRepository.save(cityJourney);
+            return "redirect:/addCityJourney";
         }
         else{
             
             CityJourney newCityJourney=cityJourneyRepository.findById(redundancyCheck.getId()).get();
             newCityJourney.setTariff(cityJourney.getTariff());
             cityJourneyRepository.save(newCityJourney);
+            return "redirect:/addCityJourney";
         }
+       
+    }
         
-        return "redirect:/addCityJourney";
+        
     }
 
 

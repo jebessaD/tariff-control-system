@@ -1,4 +1,4 @@
-package com.imala.imala.report;
+package com.imala.imala.description;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,10 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReportConfig {
+public class SearchingAttribute {
      
-
-    private Report report;
+    private String code;
 
 }
 

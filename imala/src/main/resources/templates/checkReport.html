@@ -2,60 +2,59 @@
 <html xmlns:th="http://www.thymeleaf.org" class="h-100" lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>check Report</title>
+    <title>IMALA | check Report</title>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.css}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
-    <link rel="icon" href="../images/icon.jpg" type="image/png">
+    <link rel="icon" href="../images/icon.jpg" th:href="@{/images/icon.jpg}" type="image/png">
 </head>
 
 <body class="h-100 d-flex flex-column">
     <header class="flex-shrink-0">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark flex-shrink-0">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">IMALA</a>
+                <h1 class="navbar-brand">IMALA</h1>
                 <div>
-                    <a href="html/profile.html" th:href="@{/profile}" ><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
-        
-                    <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
-                        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <a href="editProfile.html" th:href="@{/profile}" aria-label="user"><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
+
+                    <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
         
                     </button>
                 </div>
-              <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/index}">HOME</a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about}">ABOUT</a>
-                  </li>
-                  <li>
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help}">HELP</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="btn-group d-none d-sm-block">
-                <a href="html/profile.html" th:href="@{/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
-        
-              </div>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/index}">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about}">ABOUT</a>
+                        </li>
+                        <li>
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help}">HELP</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group d-none d-sm-block">
+                    <a href="editProfile.html" th:href="@{/profile}" class="mx-3 p-0 m-2 mx-lg-5" aria-label="user"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
+
+                </div>
             </div>
-        </nav>   
+        </nav>
     </header>
-    
+
     <main class="container text-center m-auto flex-grow-1">
         <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
-                <h2 class="title text-primary my-5 ">CHECK REPORTS</h2>
+            <h2 class="title text-primary my-5 ">CHECK REPORTS</h2>
             <p class="text-dark">Enter plate number you want to check reports record</p>
-            <form th:action="@{/checkReport}" class="form-report">
+            <form th:action="@{/showReport}" class="form-report" method="post" th:object="${searchingAttribute}" >
 
                 <div class="form-group text-start small m-2">
                     <label for="plateNo">Plate Number</label>
-                    <input type="text" class="form-control rounded rounded-3 alert-secondary" id="plateNo" placeholder="" required th:value = "*{plateNo}">
+                    <input type="text" class="form-control rounded rounded-3 alert-secondary" id="plateNo" placeholder="" required th:field="*{code}">
                 </div>
 
                 <div class="form-group text-start small m-2 my-4 ">
@@ -63,21 +62,21 @@
                 </div>
             </form>
             <div class="text-start m-2 my-4 ">
-                <p class="text-start p-0 m-0 px-2 small"><a href="report.html" class="text-primary text-decoration-none">Back to Report</a href="login.html"></p>
+                <p class="text-start p-0 m-0 px-2 small"><a th:href="@{/makeReport}" class="text-primary text-decoration-none">Back to Report</a></p>
             </div>
         </div>
-        <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4">
+        <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4"  >
             <table class="table ">
                 <tr class="text-center">
-                  <th colspan="2" class="text-primary lead fw-bold">REPORTS</th>
+                    <th colspan="2" class="text-primary lead fw-bold">REPORTS</th>
                 </tr>
                 <tr>
-                    <td class="text-start">Plate Number</td>
-                    <td class="text-start" th:text="${plateNo}"></td>
+                    <td class="text-start px-4 ">Plate number:</td>
+                    <td class="text-start px-4 " th:text="${searchingAttribute.code}"></td>
                 </tr>
                 <tr>
-                    <td class="text-start">No. Reports</td>
-                    <td class="text-start"th:text="${count}"></td>
+                    <td class="text-start px-4">Number of reports:</td>
+                    <td class="text-start px-4" th:text="${count}"> </td>
                 </tr>
             </table>
             <div class="text-start mb-4 p-1">
@@ -85,17 +84,19 @@
             </div>
 
             <div id="seeDetailParent">
-                <table class="table collapse  indent container my-3 text-start" id="seeDetails" data-parent="#seeDetailParent" th:each="report:${reports}">
+                <table class="table collapse  indent container my-3 text-start" id="seeDetails" data-parent="#seeDetailParent">
                     <tr>
-                      <th >Line or road</th>
-                      <th >Comment</th>
+                        <th>Line or road</th>
+                        <th>Comment</th>
                     </tr>
-                    <tr>
-                        <td th:field="${report.line}"></td> <!--th line road-->
-                        <td th:field="${report.comment}"></td>  <!--what do u observe-->
-                        
+                    <tr th:each="report:${reports}">
+                        <td th:text="${report.place}"></td>
+                        <!--th line road-->
+                        <td th:text="${report.message}"></td>
+                        <!--what do u observe-->
+
                     </tr>
-                    
+
                 </table>
             </div>
         </div>
@@ -105,9 +106,9 @@
 
     <footer class="bg-dark p-3 rounded-top flex-shrink-0">
         <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
-      </footer>
-      <script src="../static/js/bootstrap.bundle.min.js" th:href="@{/js/bootstrap.bundle.min.js}"></script>
-            
+    </footer>
+    <script src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
 
 </body>
 

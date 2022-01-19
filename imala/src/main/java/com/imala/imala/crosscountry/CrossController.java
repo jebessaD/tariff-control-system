@@ -4,6 +4,8 @@ package com.imala.imala.crosscountry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import javax.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,9 +54,13 @@ public class CrossController {
     }
 
     @PostMapping("/saveCrossCountry")
-    public String saveCrossCountry(@ModelAttribute("newCrossCountry") CrossCountry CrossCountry) {
-        return crossService.saveCrossCountry(CrossCountry);
-        
+    public String saveCrossCountry(@Valid @ModelAttribute("newCrossCountry") CrossCountry CrossCountry,BindingResult result) {
+        if(result.hasErrors()){
+            return "add_cross_country";
+        }
+        else{
+            return crossService.saveCrossCountry(CrossCountry,result);
+        }
     }
 
     @GetMapping("/deleteCrossCountry")

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" class="h-100" lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,16 +12,15 @@
     <link rel="icon" href="../images/icon.jpg" type="image/png">
 </head>
 
-<body class="h-100 d-flex flex-column">
+<body class="h-100 d-flex flex-column bg-light">
     <header class="flex-shrink-0">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark flex-shrink-0">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">IMALA</a>
+                <a class="navbar-brand" href="#">IMALA</a>
                 <div>
-                    <a href="html/profile.html" th:href="@{/profile}" ><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
-        
-                    <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
-                        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <a href="html/profile.html" th:href="@{/profile}"><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
+
+                    <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
         
                     </button>
@@ -29,13 +28,13 @@
               <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/index}">HOME</a>
+                    <a class="nav-link btn btn-outline-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/index}">HOME</a>
                 </li>
                   <li class="nav-item">
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about}">ABOUT</a>
+                    <a class="nav-link btn btn-outline-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about}">ABOUT</a>
                   </li>
                   <li>
-                    <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help}">HELP</a>
+                    <a class="nav-link btn btn-outline-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help}">HELP</a>
                   </li>
                 </ul>
               </div>
@@ -44,57 +43,70 @@
         
               </div>
             </div>
-        </nav>   
+        </nav>
     </header>
 
-    <main class="container text-center m-auto flex-grow-1">
+    <main class="container text-center m-auto flex-grow-1 mb-5 ">
         <div class="container flex-grow-1 pt-4">
             <div class="row">
             <div class="col-12">
-                <form class="d-flex w-100 gap-2 p-2">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control form-control-lg" placeholder="Search Here">
-                    <button type="submit" class="input-group-text btn-primary"><i class="bi bi-search me-2"></i> Search</button>
+                <div class="my-1 border p-3 my-5 shadow-sm">
+                    <h2 class="text-danger ">WARNING</h2>
+                    <p class="p-2">Access to this page is restricted to authorized users only. Unauthorized or excessive access attempts could be subject to legal accountability. Kindly be informed that all user activities are recorded and monitored by the system. In case of any suspected unauthorized use or malicious activity, the user may be subjected for legal actions.</p>
                 </div>
-                </form>
             </div>
             </div>
             <div class="row">
             <div class="col-12">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title py-2  text-primary">City Journey</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                            content.</p>
+                            <div class="d-flex justify-content-around">
+                                <a href="add_city_journey_form.html" class="btn btn-outline-dark">Edit List</a>
+                                <a href="" class="btn btn-outline-dark">See List</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div><div class="col">
+                        <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title py-2  text-primary">Cross city Journey</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                            content.</p>
+                            <div class="d-flex justify-content-around">
+                                <a th:href="@{/addCityJourney}"  class="btn btn-outline-dark">Edit List</a>
+                                <a th:href="@{/cityJourneyList}"  class="btn btn-outline-dark">See List</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                 <div class="col">
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                        content. This content is a little bit longer.</p>
-                    </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                        content. This content is a little bit longer.</p>
-                    </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title py-2  text-primary">Users</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
                         content.</p>
+                        <div class="d-flex justify-content-around">
+                            <a href="" class="btn btn-outline-dark">Ordinary Users</a>
+                            <a href="" class="btn btn-outline-dark">Traffics</a>
+                        </div>
                     </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title py-2  text-primary">Edit Reports</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
                         content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-around">
+                            <a href="" class="btn btn-outline-dark">Edit</a>
+                        </div>
+
                     </div>
                     </div>
                 </div>
@@ -106,9 +118,8 @@
     <footer class="bg-dark p-3 rounded-top flex-shrink-0">
         <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
     </footer>
-    <script src="../static/js/bootstrap.bundle.min.js" th:href="@{/js/bootstrap.bundle.min.js}"></script>
-      
+    <script src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
 </body>
 
 </html>
-
