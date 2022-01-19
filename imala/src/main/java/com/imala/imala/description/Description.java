@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
+@Entity(name = "description")
 public class Description {
     
     @Id
@@ -27,19 +27,21 @@ public class Description {
     )
     private Long id;
 
-    @Column(
-        name = "date",
-        nullable = false
-    //     columnDefinition = "TEXT"
-    )
-    private String date;
+    @Column(name="code")
+    private String code;
+    // @Column(
+    //     name = "date",
+    //     nullable = false
+    // //     columnDefinition = "TEXT"
+    // )
+    // private String date;
 
-    @Column(
-        name = "time",
-        nullable = false
-    //     columnDefinition = "TEXT"
-    )
-    private String time;
+    // @Column(
+    //     name = "time",
+    //     nullable = false
+    // //     columnDefinition = "TEXT"
+    // )
+    // private String time;
 
     @Column(
         name = "place",
@@ -54,5 +56,7 @@ public class Description {
     //     columnDefinition = "TEXT"
     )
     private String message;
+
+    // public Description(String code,String place,String message)
 
 }

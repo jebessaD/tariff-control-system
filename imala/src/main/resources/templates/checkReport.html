@@ -50,7 +50,7 @@
         <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
             <h2 class="title text-primary my-5 ">CHECK REPORTS</h2>
             <p class="text-dark">Enter plate number you want to check reports record</p>
-            <form th:action="@{/checkReport}" th:object="${searchingAttribute}" class="form-report">
+            <form th:action="@{/showReport}" class="form-report" method="post" th:object="${searchingAttribute}" >
 
                 <div class="form-group text-start small m-2">
                     <label for="plateNo">Plate Number</label>
@@ -62,16 +62,16 @@
                 </div>
             </form>
             <div class="text-start m-2 my-4 ">
-                <p class="text-start p-0 m-0 px-2 small"><a href="report.html" th:href="@{/report.html}" class="text-primary text-decoration-none">Back to Report</a></p>
+                <p class="text-start p-0 m-0 px-2 small"><a th:href="@{/makeReport}" class="text-primary text-decoration-none">Back to Report</a></p>
             </div>
         </div>
-        <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4"  th:each="report:${reports}">
+        <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4"  >
             <table class="table ">
                 <tr class="text-center">
                     <th colspan="2" class="text-primary lead fw-bold">REPORTS</th>
                 </tr>
                 <tr>
-                    <td class="text-start px-4 ">plate number:</td>
+                    <td class="text-start px-4 ">Plate number:</td>
                     <td class="text-start px-4 " th:text="${searchingAttribute.code}"></td>
                 </tr>
                 <tr>
@@ -89,10 +89,10 @@
                         <th>Line or road</th>
                         <th>Comment</th>
                     </tr>
-                    <tr>
-                        <td th:field="${report.place}"></td>
+                    <tr th:each="report:${reports}">
+                        <td th:text="${report.place}"></td>
                         <!--th line road-->
-                        <td th:field="${report.message}"></td>
+                        <td th:text="${report.message}"></td>
                         <!--what do u observe-->
 
                     </tr>
