@@ -32,14 +32,14 @@ public class CityJourneyService {
     public ModelAndView getSearchingAttribute(){
         ModelAndView model = new ModelAndView("check_tariff");
         SearchingAttribute searchingAttribute = new SearchingAttribute();
-        List<CityJourney> distinctDeparture = cityJourneyRepository.findByOrderByDepartureAsc();
-        List<CityJourney> distinctDestination = cityJourneyRepository.findByOrderByDestinationAsc();
+        List<String> distinctDeparture = cityJourneyRepository.findDistinctByOrderByDepartureAsc();
+        List<String> distinctDestination = cityJourneyRepository.findDistinctByOrderByDestinationAsc();
         model.addObject("distnictDeparture",distinctDeparture );
         model.addObject("distnictDestination",distinctDestination);
         model.addObject("searchingAttribute", searchingAttribute);
         return model;
     }
-
+    
     public ModelAndView searchTariff(@ModelAttribute("searchingAttribute") SearchingAttribute searchingAttribute){
         ModelAndView model = new ModelAndView("check_Tariff");
 
@@ -48,16 +48,12 @@ public class CityJourneyService {
      
         if (cityJourney != null) {
             model.addObject("departure", cityJourney.getDeparture());
-
             model.addObject("destination", cityJourney.getDestination());
-
             model.addObject("tariff", cityJourney.getTariff());
 
         } else {
             model.addObject("departure", searchingAttribute.getDeparture());
-
             model.addObject("destination", searchingAttribute.getDestination());
-
             model.addObject("tariff", "No Match Found");
 
         }

@@ -18,5 +18,12 @@ public interface CityJourneyRepository extends JpaRepository<CityJourney,Long> {
     @Query(value = "select * from city_journey I where I.departure = :departure and I.destination = :destination ",nativeQuery =true)
     CityJourney search(@Param("departure") String departure,@Param("destination") String destination);
 
+    @Query(value = "SELECT DISTINCT departure FROM city_journey order by departure asc;", nativeQuery = true)
+    List<String> findDistinctByOrderByDepartureAsc();
+
+    @Query(value = "SELECT DISTINCT destination FROM city_journey order by destination asc;", nativeQuery = true)
+    List<String> findDistinctByOrderByDestinationAsc();
+
     
+
 }

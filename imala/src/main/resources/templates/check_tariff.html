@@ -45,40 +45,43 @@
         </nav>
     </header>
     <main class="container text-center m-auto flex-grow-1 row">
-        <article class="  col-lg-6 shadow-sm mx-auto border rounded-3  px-2 px-sm-3 my-4 py-3 ">
-            <h2 class="my-2">Check Taxi Fares</h2>
-            <p class="text-dark justify-content-center lead shadow-sm py-2">Enter your starting station and your destination</p>
-            <form th:action="@{/searchTarrif}" method="post" th:object="${searchingAttribute}">
+        <article class="=col-sm-12  col-lg-6 shadow-sm mx-auto border rounded-3 px-2 px-sm-3 my-4 py-3 d-flex ">
+            <div class=" align-self-center w-100">
+                <h2 class="my-2">Check Taxi Fares</h2>
+                <p class="text-dark justify-content-center lead shadow-sm py-2">Enter your starting station and your destination</p>
+                <form th:action="@{/searchTarrif}" method="post" th:object="${searchingAttribute}">
 
 
-                <div class="form-group text-start small m-2 ">
-                    <label class="py-1" for="Departure">Starting</label>
-                    <input type="text" id="Departure" class="form-control rounded rounded-3 alert-secondary " list="p_start" placeholder="Choose starting point..." th:field="*{departure}" autocomplete="off">
-                            <!-- <div class="alert alert-warning"  th:if="${#fields.hasErrors('departure')}" th:errors="*{departure}"></div> -->
-                            <!-- th:each="station : ${cityJourneys}" -->
-                    <datalist id="p_start" th:each ="station : ${distinctDeparture}" >
-                    <option th:each ="station : ${distinctDeparture}" th:value="${station.departure}"></option>
+                    <div class="form-group text-start small m-2 ">
+                        <label class="py-1" for="Departure">Starting</label>
+                        <input type="text" id="Departure" class="form-control rounded rounded-3 alert-secondary " list="start" placeholder="Choose starting point..." th:field="*{departure}" autocomplete="off">
+                        <div class="alert alert-warning"  th:if="${#fields.hasErrors('departure')}" th:errors="*{departure}"></div>
+                        <!-- th:each="station : ${cityJourneys}" -->
+                        <datalist id="start" th:each ="station : ${distnictDeparture}" >
+                        <option th:each ="station : ${distnictDeparture}" th:value="${station}"></option>
 
-                </datalist>
-                </div>
-
-
-                <div class="form-group text-start small m-2 ">
-                    <label class="py-1" for="Destination">Destination</label>
-                    <input type="text" id="Destination" class=" form-control rounded rounded-3 alert-secondary " list="p_destination" placeholder="Choose starting point... " th:field="*{destination} " autocomplete="off">
-                        <div class="alert alert-warning" th:if="${#fields.hasErrors('destination')}" th:errors="*{destination}"></div>
-                    <datalist id="p_destination" th:each="station : ${distinctDestination}" >
-                        <option th:each="station : ${distinctDestination}" th:value="${station.destination} "></option>
                     </datalist>
-                </div>
-                <div class="form-group text-start small m-2 my-4 py-2 ">
-                    <button type="submit " class="btn btn-dark w-100 rounded rounded-3 submit_form ">Search</button>
-                </div>
-            </form>
+                    </div>
 
+
+                    <div class="form-group text-start small m-2 ">
+                        <label class="py-1" for="Destination">Destination</label>
+                        <input type="text" id="Destination" class=" form-control rounded rounded-3 alert-secondary " list="destination " placeholder="Choose starting point... " th:field="*{destination} " autocomplete="off">
+                        <div class="alert alert-warning" th:if="${#fields.hasErrors('destination')}" th:errors="*{destination}"></div>
+                        <datalist id="destination " th:each="station : ${distnictDestination}" >
+                            <option th:each="station : ${distnictDestination} " th:value="${station} "></option>
+                        </datalist>
+
+                        
+                    </div>
+                    <div class="form-group text-start small m-2 my-4 py-2 ">
+                        <button type="submit " class="btn btn-dark w-100 rounded rounded-3 submit_form ">Search</button>
+                    </div>
+                </form>
+            </div>
         </article>
-        <div class="col col-lg-5 h-lg-100 d-flex">
-                <div class="border px-4 align-self-center shadow-sm border rounded-3 border w-100">
+        <div class="col-lg-5 h-lg-100 d-flex">
+            <div class="border px-4 align-self-center shadow-sm border rounded-3 border w-100">
                 <table class="table my-auto mx-auto m-4 mb-5">
                     <tr class="text-start ">
                         <th colspan="2 " class="text-primary lead fw-bold p-4">Tariff</th>
@@ -96,7 +99,7 @@
                         <th class="text-start px-4 ">Tariff:</th>
                         <td class="text-start px-4 " th:text="${tariff}"></td>
                     </tr>
-            </table>    
+                </table>    
             </div>
         </div>
 </main>
