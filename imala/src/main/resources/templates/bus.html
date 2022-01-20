@@ -85,8 +85,8 @@
         </article>
         <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 py-3">
             <table class="table">
-                <tr class="text-center">
-                    <th colspan="2" class="text-primary lead fw-bold">Tariff</th>
+                <tr class="text-start">
+                    <th colspan="2" class="text-primary lead fw-bold px-4">Tariff</th>
                 </tr>
                 <tr>
                     <th class="text-start px-4">Departure:</th>
@@ -106,7 +106,8 @@
                     <!-- its just gap nothing to add here -->
                 </tr>
                 <tr>
-                    <td class="text-start px-4">Tariff: <span th:text="${tariff}"> </span> </td>
+                    <th class="text-start px-4">Tariff: </th>
+                    <td class="text-start px-4" th:text="${tariff}"> </td>
                 </tr>
             </table>
         </div>
