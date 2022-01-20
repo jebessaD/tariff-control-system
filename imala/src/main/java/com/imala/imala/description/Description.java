@@ -29,20 +29,8 @@ public class Description {
 
     @Column(name="code")
     private String code;
-    // @Column(
-    //     name = "date",
-    //     nullable = false
-    // //     columnDefinition = "TEXT"
-    // )
-    // private String date;
-
-    // @Column(
-    //     name = "time",
-    //     nullable = false
-    // //     columnDefinition = "TEXT"
-    // )
-    // private String time;
-
+   
+    
     @Column(
         name = "place",
         nullable = false
