@@ -44,20 +44,19 @@
             </div>
         </nav>
     </header>
-    <main class="container text-center m-auto flex-grow-1">
-        <article class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 py-3 ">
-            <h2>Check Taxi Fares</h2>
-            <br>
+    <main class="container text-center m-auto flex-grow-1 row">
+        <article class="  col-lg-6 shadow-sm mx-auto border rounded-3  px-2 px-sm-3 my-4 py-3 ">
+            <h2 class="my-2">Check Taxi Fares</h2>
             <p class="text-dark justify-content-center lead shadow-sm py-2">Enter your starting station and your destination</p>
             <form th:action="@{/searchTarrif}" method="post" th:object="${searchingAttribute}">
 
 
                 <div class="form-group text-start small m-2 ">
                     <label class="py-1" for="Departure">Starting</label>
-                    <input type="text" id="Departure" class="form-control rounded rounded-3 alert-secondary " list="start" placeholder="Choose starting point..." th:field="*{departure}" autocomplete="off">
-                    <div class="alert alert-warning"  th:if="${#fields.hasErrors('departure')}" th:errors="*{departure}"></div>
-                    <!-- th:each="station : ${cityJourneys}" -->
-                    <datalist id="start" >
+                    <input type="text" id="Departure" class="form-control rounded rounded-3 alert-secondary " list="p_start" placeholder="Choose starting point..." th:field="*{departure}" autocomplete="off">
+                            <!-- <div class="alert alert-warning"  th:if="${#fields.hasErrors('departure')}" th:errors="*{departure}"></div> -->
+                            <!-- th:each="station : ${cityJourneys}" -->
+                    <datalist id="p_start" th:each ="station : ${distinctDeparture}" >
                     <option th:each ="station : ${distinctDeparture}" th:value="${station.departure}"></option>
 
                 </datalist>
@@ -66,11 +65,11 @@
 
                 <div class="form-group text-start small m-2 ">
                     <label class="py-1" for="Destination">Destination</label>
-                    <input type="text" id="Destination" class=" form-control rounded rounded-3 alert-secondary " list="destination " placeholder="Choose starting point... " th:field="*{destination} " autocomplete="off">
-                    <div class="alert alert-warning" th:if="${#fields.hasErrors('destination')}" th:errors="*{destination}"></div>
-                    <datalist id="destination ">
-                <option th:each="station : ${distinctDestination} " th:value="${station.destination} "></option>
-            </datalist>
+                    <input type="text" id="Destination" class=" form-control rounded rounded-3 alert-secondary " list="p_destination" placeholder="Choose starting point... " th:field="*{destination} " autocomplete="off">
+                        <div class="alert alert-warning" th:if="${#fields.hasErrors('destination')}" th:errors="*{destination}"></div>
+                    <datalist id="p_destination" th:each="station : ${distinctDestination}" >
+                        <option th:each="station : ${distinctDestination}" th:value="${station.destination} "></option>
+                    </datalist>
                 </div>
                 <div class="form-group text-start small m-2 my-4 py-2 ">
                     <button type="submit " class="btn btn-dark w-100 rounded rounded-3 submit_form ">Search</button>
@@ -78,30 +77,30 @@
             </form>
 
         </article>
-        <div class="col col-sm-12 col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 py-3 ">
-            <table class="table ">
-                <tr class="text-start ">
-                    <th colspan="2 " class="text-primary lead fw-bold px-4">Tariff</th>
-                </tr>
-                <tr>
-                    <th class="text-start px-4 ">Departure: </th>
-                    <td class="text-start px-4 " th:text="${departure} "></td>
-                </tr>
-                <tr>
-                    <th class="text-start px-4 ">Destination:  </th>
-                    <td class="text-start px-4 " th:text="${destination} "></td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th class="text-start px-4 ">Tariff:</th>
-                    <td class="text-start px-4 " th:text="${tariff}"></td>
-            </tr>
-        </table>    
-    </div>
+        <div class="col col-lg-5 h-lg-100 d-flex">
+                <div class="border px-4 align-self-center shadow-sm border rounded-3 border w-100">
+                <table class="table my-auto mx-auto m-4 mb-5">
+                    <tr class="text-start ">
+                        <th colspan="2 " class="text-primary lead fw-bold p-4">Tariff</th>
+                    </tr>
+                    <tr>
+                        <th class="text-start px-4 ">Departure: </th>
+                        <td class="text-start px-4 " th:text="${departure} "></td>
+                    </tr>
+                    <tr>
+                        <th class="text-start px-4 ">Destination:  </th>
+                        <td class="text-start px-4 " th:text="${destination} "></td>
+                    </tr>
+                    
+                    <tr class="pb-5">
+                        <th class="text-start px-4 ">Tariff:</th>
+                        <td class="text-start px-4 " th:text="${tariff}"></td>
+                    </tr>
+            </table>    
+            </div>
+        </div>
 </main>
-<footer class="bg-dark p-3 rounded-top flex-shrink-0 ">
+<footer class="bg-dark p-3 rounded-top flex-shrink-0  ">
     <p class="text-light text-center py-0 my-0 ">Copyright &copy; 2022 All rights reserved | Imala</p>
   </footer>
   <script src="../static/js/bootstrap.bundle.min.js " th:src="@{/js/bootstrap.bundle.min.js} "></script>
