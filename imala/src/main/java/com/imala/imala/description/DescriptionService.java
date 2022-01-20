@@ -50,39 +50,25 @@ public class DescriptionService {
 
     }
 
-    public ModelAndView showReport(@ModelAttribute("searchingAttribute") SearchingAttribute searchingAttribute) {
-
+    public ModelAndView showReport(SearchingAttribute searchingAttribute) {
         ModelAndView model = new ModelAndView("checkReport");
         List<Description> report = descriptionRepository.findByCode(searchingAttribute.getCode());
-    
-        
         int count = descriptionRepository.countReport(searchingAttribute.getCode());
-        // model.addObject("code", searchingAttribute.getCode());
-       
-        
         if (report != null) {
-
             model.addObject("reports", report);
-
             model.addObject("count", count);
+        } 
 
-        } else {
+        else {
             model.addObject("reports", report);
             model.addObject("count", "No related");
-    
-        }
-
-      
-
-
-        // report.setReportCount(reportRepository.countReport(searchingAttribute.getPalletCode()));
-       
+        } 
         return model;
 
     }
-    public String saveReport(@ModelAttribute("newReport") Description description){
+    public String saveReport(Description newdescription){
         // reportRepository.save(new Report(description.getCode()));
-        descriptionRepository.save(description);
+        descriptionRepository.save(newdescription);
         return "redirect:/";
     }
 

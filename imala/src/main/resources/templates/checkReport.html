@@ -54,7 +54,8 @@
 
                 <div class="form-group text-start small m-2">
                     <label for="plateNo">Plate Number</label>
-                    <input type="text" class="form-control rounded rounded-3 alert-secondary" id="plateNo" placeholder="" required th:field="*{code}">
+                    <input type="text" class="form-control rounded rounded-3 alert-secondary" id="plateNo" th:field="${searchingAttribute.code}">
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('code')} "th:errors="*{code}" ></div>
                 </div>
 
                 <div class="form-group text-start small m-2 my-4 ">

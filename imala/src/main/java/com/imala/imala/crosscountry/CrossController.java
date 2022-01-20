@@ -38,10 +38,15 @@ public class CrossController {
     }
 
     @PostMapping("/searchBusTariff")
-    public ModelAndView showTariff(@ModelAttribute("searchingAttribute") SearchingAttribute searchingAttribute) {
+    public ModelAndView showTariff(@Valid @ModelAttribute("searchingAttribute") SearchingAttribute searchingAttribute,BindingResult bindingResult) {
 
+        if(bindingResult.hasErrors()){
+            ModelAndView modelAndView=new ModelAndView("bus");
+            return modelAndView;
+        }
+        else{
         return crossService.showTariff(searchingAttribute);
-
+        }
     }
 
     
@@ -71,7 +76,6 @@ public class CrossController {
 
     @GetMapping("/updateCrossCountry")
     public ModelAndView updateCrossCountry(@RequestParam Long CrossCountryId) {
-
         return crossService.updateCrossCountry(CrossCountryId);
     }
 

@@ -25,7 +25,7 @@ public class CityJourney {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotBlank()
+    @NotBlank
     @Column(name = "departure")
     private String departure;
     
