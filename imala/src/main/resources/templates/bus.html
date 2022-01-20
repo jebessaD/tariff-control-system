@@ -54,6 +54,7 @@
                 <div class="form-group text-start small m-2 ">
                     <label class="py-1" for="Departure">Starting</label>
                     <input type="text" id="Departure" class="form-control rounded rounded-3 alert-secondary " list="start" placeholder="Choose starting point..." th:field="*{departure}" autocomplete="off">
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('departure')}" th:errors="*{departure}"></div>
                     <datalist id="start" th:each="station : ${crossCountry}">
                     <option th:each ="station : ${crossCountry}" th:value="${station.departure}"></option>
                 </datalist>
@@ -63,6 +64,7 @@
                 <div class="form-group text-start small m-2 ">
                     <label class="py-1" for="Destination">Destination</label>
                     <input type="text" id="Destination" class="form-control rounded rounded-3 alert-secondary " list="destination" placeholder="Choose starting point... " th:field="*{destination}" autocomplete="off">
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('destination')}" th:errors="*{destination}"></div>
                     <datalist id="destination" th:each="station : ${crossCountry}">
                     <option th:each ="station : ${crossCountry}" th:value="${station.destination}"></option>
                 </datalist>
@@ -71,6 +73,7 @@
                 <div class="form-group text-start small m-2 ">
                     <label class="py-1" for="bus">Bus</label>
                     <input type="text" id="bus" class="form-control rounded rounded-3 alert-secondary " list="bus_on" placeholder="Choose bus... " th:field="*{bus}" autocomplete="off">
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('bus')}" th:errors="*{bus}"></div>
                     <datalist id="bus_on" th:each="station : ${crossCountry}">
                     <option th:each ="station : ${crossCountry}" th:value="${station.bus}"></option>
                 </datalist>

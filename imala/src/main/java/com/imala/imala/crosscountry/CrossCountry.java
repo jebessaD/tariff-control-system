@@ -2,8 +2,9 @@ package com.imala.imala.crosscountry;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-// import javax.persistence.EnumType;
-// import javax.persistence.Enumerated;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,13 +33,16 @@ public class CrossCountry {
             nullable = false
         //     columnDefinition = "TEXT"
     )
+
+    @NotBlank
     private String departure;
 
     @Column(
         name = "destination",
         nullable = false
         // columnDefinition = "TEXT"
-)
+)   
+    @NotBlank
     private String destination;
 
     @Column(
@@ -46,6 +50,9 @@ public class CrossCountry {
         nullable = false
        
 )
+
+    @DecimalMin(value="1.0",inclusive=true)
+    @Digits(integer=3,fraction=2)
     private double tariff;
 
     @Column(
@@ -53,6 +60,7 @@ public class CrossCountry {
         nullable = false
       
 )
+    @NotBlank
     private String bus;
 
     // public static enum Type {
