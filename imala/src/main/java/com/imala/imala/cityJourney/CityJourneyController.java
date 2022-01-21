@@ -46,13 +46,13 @@ public class CityJourneyController {
     // }
 
     @PostMapping("/searchTarrif")
-    public ModelAndView showTariff(@Valid @ModelAttribute("searchingAttribute") SearchingAttribute searchingAttribute,BindingResult bindingResult) {
-        if(bindingResult.hasErrors()){
-            ModelAndView modelAndView=new ModelAndView("check_tariff");
+    public ModelAndView showTariff(@Valid @ModelAttribute("searchingAttribute") SearchingAttribute searchingAttribute,
+            BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            ModelAndView modelAndView = new ModelAndView("check_tariff");
             return modelAndView;
-        }
-        else{
-        return cityJourneyService.searchTariff(searchingAttribute);
+        } else {
+            return cityJourneyService.searchTariff(searchingAttribute);
         }
     }
 
@@ -65,21 +65,17 @@ public class CityJourneyController {
     }
 
     @PostMapping("/saveCityJourney")
-    public String saveCityJourney(@Valid  @ModelAttribute("newCityJourney") CityJourney cityJourney,BindingResult bindingResult) {
+    public String saveCityJourney(@Valid @ModelAttribute("newCityJourney") CityJourney cityJourney,
+            BindingResult bindingResult) {
 
-        return cityJourneyService.saveJourney(cityJourney,bindingResult);
-        
+        return cityJourneyService.saveJourney(cityJourney, bindingResult);
 
-    
     }
 
     @GetMapping("/deleteCityJourney")
     public String deleteCityJourney(@RequestParam Long cityJourneyId) {
         return cityJourneyService.deleteJourney(cityJourneyId);
     }
-
-
-
 
     @GetMapping("/updateCityJourney")
     public ModelAndView updateCityJourney(@RequestParam Long cityJourneyId) {
