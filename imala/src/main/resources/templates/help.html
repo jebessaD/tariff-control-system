@@ -46,7 +46,7 @@
         </nav>
     </header>
     <main class="container m-auto flex-grow-0 row">
-        <article class="align-self-start text-start col-lg-5 shadow mx-lg-5 my-5 rounded-3 px-2 px-sm-2 my-4 py-3 d-flex px-4 my-lg-5">
+        <article class="sticky-lg-top align-self-start text-start col-lg-5 shadow mx-lg-5 my-5 rounded-3 px-2 px-sm-2 my-4 py-3 d-flex px-4 my-lg-5">
             <div class="w-100 px-3">
                 <h2 class="h4 my-2 text-dark px-0">Get help</h2>
                 <ul class="list-unstyled px-4 fs-5 fst-italic border-start border-3">
@@ -136,7 +136,7 @@
                                 <p>To get the fares of taxi in Addis Ababa city </p>
                                 <ol>
                                     <li>Go to home page</li>
-                                    <li>Select Taxi fares</li>
+                                    <li>Select <a href="check_tariff.html" th:href="@{/checkTariff}">Taxi fares</a></li>
                                     <li>fill your starting and destination on provided input spaces</li>
                                     <li>click the Search button</li>
 
@@ -155,7 +155,9 @@
                                     <p>To get the fares of Bus ticket cost from Addis Ababa</p>
                                     <ol>
                                         <li>Go to home page</li>
-                                        <li>Select Bus fares</li>
+                                        <li>Select
+                                            <a href="bus.html" th:href="@{/checkBusTariff}">Bus fares</a>
+                                        </li>
                                         <li>fill your starting and destination on provided input spaces</li>
                                         <li>click the Search button</li>
 
@@ -175,10 +177,31 @@
                                         <ol>
                                             <li>Go to home page</li>
                                             <li>Login if you are not logged in</li>
-                                            <li>Goto Report page by selecting Report</li>
+                                            <li>Goto
+                                                <a href="report.html" th:href="@{/makeReport}">Report</a></li>
                                             <li>Fill the plate number of the car</li>
                                             <li>Fill the road you observed this illegal activity</li>
                                             <li>Write what you observed</li>
+                                            <li>Click report</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex container justify-content-between">
+                                <p>Checking number of Records</p>
+                                <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#checkrecord" href="checkrecord"><i id="aboutcreport" class="fas fa-angle-down"></i></a>
+                            </div>
+                            <div>
+                                <div class="collapse container text-start border-bottom border-top fst-italic" id="checkrecord">
+                                    <div class="form-group text-start m-2 ">
+                                        <p>To check number of records of specific car you have to login as traffic police</p>
+                                        <ol>
+                                            <li>Login as Traffic if you are not logged in</li>
+                                            <li>Goto
+                                                <a href="checkReport.html" th:href="@{/checkReport}">Check Report</a></li>
+                                            <li>Fill the plate number of the car you want to see record</li>
+
+                                            <li>Click Check</li>
                                         </ol>
                                     </div>
                                 </div>
@@ -191,9 +214,12 @@
                         <div>
                             <div class="collapse container text-start border-bottom border-top fst-italic" id="login">
                                 <div class="form-group text-start">
-                                    <p>If you are already registered you can simply log in by</p>
+                                    <p>You have to login to use some features of our website</p>
                                     <ol>
-                                        <li>Go to login button on navigation</li>
+                                        <li>Go to
+                                            <a href="login.html">Login</a> if you have an account or
+                                            <a href="./signup.html">SignUp</a> if you hav enot registered yet
+                                        </li>
                                         <li>Fill your email and password</li>
                                         <li>click login</li>
                                     </ol>

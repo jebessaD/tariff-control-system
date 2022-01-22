@@ -2,6 +2,7 @@ taxiArrow = document.querySelector('#abouttaxi');
 busArrow = document.querySelector('#aboutbus');
 reportArrow = document.querySelector('#aboutreport');
 loginArrow = document.querySelector('#aboutlogin');
+checkArrow = document.querySelector('#aboutcreport')
 arrowDirection = 1;
 
 function arrowChanger(arrow, arrowDirection) {
@@ -23,3 +24,4 @@ arrowChanger(taxiArrow, 1);
 arrowChanger(busArrow, 1);
 arrowChanger(reportArrow, 1);
 arrowChanger(loginArrow, 1);
+arrowChanger(checkArrow, 1);
