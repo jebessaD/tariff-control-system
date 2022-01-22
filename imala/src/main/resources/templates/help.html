@@ -20,7 +20,10 @@
             <div class="container-fluid">
                 <h1 class="navbar-brand">IMALA</h1>
                 <div>
-                    <a href="editProfile.html" th:href="@{/profile}" aria-label="User"><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
+                    <a href="editProfile.html" th:href="@{/profile}" aria-label="User">
+                        <i class="fas fa-user text-light mb-2  d-sm-none">
+                            </i>
+                    </a>
 
                     <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -46,7 +49,7 @@
         </nav>
     </header>
     <main class="container m-auto flex-grow-0 row">
-        <article class="sticky-lg-top align-self-start text-start col-lg-5 shadow mx-lg-5 my-5 rounded-3 px-2 px-sm-2 my-4 py-3 d-flex px-4 my-lg-5">
+        <article class="sticky-lg-top align-self-start text-start col-lg-4 shadow mx-lg-5 my-5 rounded-3 my-4 py-3 d-flex px-4 my-lg-5">
             <div class="w-100 px-3">
                 <h2 class="h4 my-2 text-dark px-0">Get help</h2>
                 <ul class="list-unstyled px-4 fs-5 fst-italic border-start border-3">
@@ -57,7 +60,7 @@
 
             </div>
         </article>
-        <div class="m-sm-4 col-lg-5 h-lg-100 p-sm-0 d-flex">
+        <div class="m-sm-4 col-lg-6 h-lg-100 p-sm-0 d-flex">
             <div class=" p-2 align-self-center shadow rounded-3 w-100 my-lg-4">
 
                 <div class="px-md-3">
@@ -82,7 +85,8 @@
                     <div class="collapse" id="question2">
                         <div class="card card-body">
                             <p>
-                                Due to legal restrictions only traffic polices can see the number of reports</div>
+                                Due to legal restrictions only traffic polices can see the number of reports
+                        </div>
                         </p>
                     </div>
                     <p>
@@ -99,20 +103,21 @@
                     </div>
                     <p>
                         <i class="far fa-question-circle"></i> <a class="text-decoration-none" data-bs-toggle="collapse" href="#questions" aria-expanded="false" aria-controls="questions">
-                        How does Imala ensure my privacy?
-                    </a>
+                            How does Imala ensure my privacy?
+                        </a>
 
                     </p>
                     <div class="collapse" id="questions">
                         <div class="card card-body">
-                            <p>Your personal informations are not given and used by third parties. We don't use personal data in a way that could cause harm to you and your personal informations are protected.</p>
+                            <p>Your personal informations are not given and used by third parties. We don't use personal data in a way that could cause harm to you and your personal informations are protected.
+                            </p>
                         </div>
 
                     </div>
                     <p>
                         <i class="far fa-question-circle"></i> <a class="text-decoration-none" data-bs-toggle="collapse" href="#account" aria-expanded="false" aria-controls="account">
-                     How Do I Manage My User Account?
-                    </a>
+                            How Do I Manage My User Account?
+                        </a>
 
                     </p>
                     <div class="collapse" id="account">
@@ -128,7 +133,8 @@
 
                     <div class="d-flex container justify-content-between">
                         <p>Checking Taxi tariff</p>
-                        <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#taxi" href="taxi"><i id="abouttaxi" class="fas fa-angle-down"></i></a>
+                        <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#taxi" href="taxi"><i
+                                id="abouttaxi" class="fas fa-angle-down"></i></a>
                     </div>
                     <div>
                         <div class="collapse container px-2 text-start border-bottom border-top text-start border-bottom" id="taxi">
@@ -147,7 +153,8 @@
 
                         <div class="d-flex container justify-content-between">
                             <p>Checking Bus tariff</p>
-                            <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#bus" href="bus"><i id="aboutbus" class="fas fa-angle-down"></i></a>
+                            <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#bus" href="bus"><i
+                                    id="aboutbus" class="fas fa-angle-down"></i></a>
                         </div>
                         <div>
                             <div class="collapse container text-start border-bottom border-top fst-italic" id="bus">
@@ -178,7 +185,8 @@
                                             <li>Go to home page</li>
                                             <li>Login if you are not logged in</li>
                                             <li>Goto
-                                                <a href="report.html" th:href="@{/makeReport}">Report</a></li>
+                                                <a href="report.html" th:href="@{/makeReport}">Report</a>
+                                            </li>
                                             <li>Fill the plate number of the car</li>
                                             <li>Fill the road you observed this illegal activity</li>
                                             <li>Write what you observed</li>
@@ -194,11 +202,13 @@
                             <div>
                                 <div class="collapse container text-start border-bottom border-top fst-italic" id="checkrecord">
                                     <div class="form-group text-start m-2 ">
-                                        <p>To check number of records of specific car you have to login as traffic police</p>
+                                        <p>To check number of records of specific car you have to login as traffic police
+                                        </p>
                                         <ol>
                                             <li>Login as Traffic if you are not logged in</li>
                                             <li>Goto
-                                                <a href="checkReport.html" th:href="@{/checkReport}">Check Report</a></li>
+                                                <a href="checkReport.html" th:href="@{/checkReport}">Check Report</a>
+                                            </li>
                                             <li>Fill the plate number of the car you want to see record</li>
 
                                             <li>Click Check</li>
@@ -209,7 +219,8 @@
                         </div>
                         <div class="d-flex container justify-content-between">
                             <p class="">Logging in</p>
-                            <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#login" href="login"><i id="aboutlogin" class="fas fa-angle-down"></i></a>
+                            <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#login" href="login"><i
+                                    id="aboutlogin" class="fas fa-angle-down"></i></a>
                         </div>
                         <div>
                             <div class="collapse container text-start border-bottom border-top fst-italic" id="login">
@@ -246,6 +257,7 @@
                 </div>
 
             </div>
+        </div>
 
 
     </main>
