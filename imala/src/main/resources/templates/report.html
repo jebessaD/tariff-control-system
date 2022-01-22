@@ -57,14 +57,17 @@
                 <div class="form-group text-start small m-2 ">
                     <label for="plateNo">Plate Number</label>
                     <input type="text" th:field="*{code}" class="form-control rounded rounded-3 alert-secondary" id="plateNo" placeholder=" ">
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('code')} " th:errors="*{code}"></div>
                 </div>
                 <div class="form-group text-start small m-2 ">
                     <label for="road">Line or road</label>
                     <input type="text" th:field="*{place}" class="form-control rounded rounded-3 alert-secondary" id="road" aria-describedby="roadHelp" placeholder=" ">
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('place')} " th:errors="*{place}"></div>
                 </div>
                 <div class="form-group text-start small m-2 ">
                     <label for="FormControlTextarea " class="form-label ">What do you observe?</label>
                     <textarea class="form-control rounded rounded-3 alert-secondary " id="FormControlTextarea " rows="3 " th:field="*{message}"></textarea>
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('message')} " th:errors="*{message}"></div>
                 </div>
 
                 <div class="form-group text-start small m-2 my-4 ">
@@ -77,14 +80,11 @@
         
         </div>
 
-        <!-- <div class="text-start m-2 my-4 ">
-          <p class="text-start p-0 m-0 px-2 small "><a href="./checkReport.html " th:href="@{/checkReport}" th:if="${user.role}=='TRAFFIC'" class="text-primary text-decoration-none ">CHECK REPORTS</a href="./login.html "></p>
-          </div> -->
+     
     </main>
     <footer class="bg-dark p-3 rounded-top flex-shrink-0">
       <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
     </footer>
-    <script src="../static/js/report.js " lang="javascript " th:src="@{/js/report.js} "></script>
 </body>
 
 </html>

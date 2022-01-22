@@ -1,5 +1,7 @@
 package com.imala.imala.crosscountry;
 
+import javax.validation.constraints.NotBlank;
+
 // import javax.persistence.EnumType;
 // import javax.persistence.Enumerated;
 
@@ -13,10 +15,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SearchingAttribute {
+
+    @NotBlank
     private String departure;
-    private String destination;   
+
+    @NotBlank
+    private String destination;  
+    
+    @NotBlank
     private String bus;
 
-  
+
+    
     
 }

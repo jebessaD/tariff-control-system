@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
+import org.springframework.validation.BindingResult;
 import lombok.RequiredArgsConstructor;
 
 
@@ -76,7 +76,7 @@ public class CrossService {
 
     }
 
-    public String saveCrossCountry(@ModelAttribute("newCrossCountry") CrossCountry crossCountry){
+    public String saveCrossCountry(@ModelAttribute("newCrossCountry") CrossCountry crossCountry,BindingResult result){
         crossRepository.save(crossCountry);
         return "redirect:/addCrossCountry";
     }
