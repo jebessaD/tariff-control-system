@@ -64,18 +64,18 @@
                 <form class="collapse  indent container my-3 px-5 text-start" id="changePassword" th:object="${editProfileForm}" data-parent="#password" method="post">
                   <div class="form-group text-start small m-2">
                     <label for="psw_old">Old Password</label>
-                    <input type="password" th:field="*{oldPassword}"class="form-control rounded rounded-5 alert-secondary" id="psw_old" aria-describedby="passwordHelp" placeholder="" minlength="4" required>
+                    <input type="password" th:field="*{oldPassword}"class="form-control rounded rounded-5 bg-light" id="psw_old" aria-describedby="passwordHelp" placeholder="" minlength="4" required>
                 </div> 
                   <div class="form-group text-start small m-2">
                         <label for="psw_1">New Password</label>
-                        <input type="password" th:field="*{newPassword}" class="form-control rounded rounded-5 alert-secondary" id="psw_1" aria-describedby="passwordHelp" placeholder="" minlength="4" required>
+                        <input type="password" th:field="*{newPassword}" class="form-control rounded rounded-5 bg-light" id="psw_1" aria-describedby="passwordHelp" placeholder="" minlength="4" required>
                     </div>
                     <div class="error-message">
                         <p class="text-danger text-start p-0 m-0 px-2 small"><i aria-label="error-exclamation-circle" class="fas fa-exclamation-circle px-2" ></i> Password not matched!</p>
                     </div>
                     <div class="form-group text-start small m-2">
                         <label for="psw_2">Confrim Password</label>
-                        <input type="password" class="form-control rounded rounded-5 alert-secondary" id="psw_2" placeholder="" minlength="4" required>
+                        <input type="password" class="form-control rounded rounded-5 bg-light" id="psw_2" placeholder="" minlength="4" required>
                     </div>
                     <div class="form-group text-start small m-2 my-4">
                         <button type="submit" class="btn btn-dark w-100 rounded rounded-5 submit_form">Change</button>
@@ -96,7 +96,7 @@
                     <label for="userName">User name</label>
                     <div class="text-start small py-2 input-group" th:object="${editProfileForm}" >
 
-                        <input type="text" th:field="*{username}" class="form-control alert-secondary" id="userName" placeholder="" required>
+                        <input type="text" th:field="*{username}" class="form-control bg-light" id="userName" placeholder="" required>
                         <button type="submit" class="btn btn-dark ">Save</button>
                     </div>
 
