@@ -8,104 +8,198 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMALA | check Report</title>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.css}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
     <link rel="icon" href="../images/icon.jpg" th:href="@{/images/icon.jpg}" type="image/png">
 </head>
 
-<body class="h-100 d-flex flex-column">
+<body class="h-100 d-flex flex-column .overflow-hidden">
     <header class="flex-shrink-0">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark flex-shrink-0">
             <div class="container-fluid">
                 <h1 class="navbar-brand">IMALA</h1>
                 <div>
-                    <a href="editProfile.html" th:href="@{/profile}" aria-label="user"><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
+                    <a href="editProfile.html" th:href="@{/profile}" aria-label="user"><i
+                            class="fas fa-user text-light mb-2  d-sm-none"></i></a>
 
-                    <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
+                        aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-        
+
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/index}">HOME</a>
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./index.html"
+                                th:href="@{/index}">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about}">ABOUT</a>
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html"
+                                th:href="@{/about}">ABOUT</a>
                         </li>
                         <li>
-                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help}">HELP</a>
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html"
+                                th:href="@{/help}">HELP</a>
                         </li>
                     </ul>
                 </div>
                 <div class="btn-group d-none d-sm-block">
-                    <a href="editProfile.html" th:href="@{/profile}" class="mx-3 p-0 m-2 mx-lg-5" aria-label="user"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
+                    <a href="editProfile.html" th:href="@{/profile}" class="mx-3 p-0 m-2 mx-lg-5" aria-label="user"><i
+                            class="fas fa-user text-light mb-2  py-lg-3"></i></a>
 
                 </div>
             </div>
         </nav>
     </header>
 
-    <main class="container text-center m-auto flex-grow-1">
-        <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
-            <h2 class="title text-primary my-5 ">CHECK REPORTS</h2>
-            <p class="text-dark">Enter plate number you want to check reports record</p>
-            <form th:action="@{/showReport}" class="form-report" method="post" th:object="${searchingAttribute}" >
+    <main class="container text-center m-auto flex-grow-1 row  ">
+        <div class="col-lg-6 rounded-3  my-4 ">
+            <div class="my-auto shadow-sm border px-2 px-sm-3 ">
+                <h2 class="title text-primary my-5 ">CHECK REPORTS</h2>
+                <p class="text-dark">Enter plate number you want to check reports record</p>
+                <form th:action="@{/showReport}" class="form-report" method="post" th:object="${searchingAttribute}">
 
-                <div class="form-group text-start small m-2">
-                    <label for="plateNo">Plate Number</label>
-                    <input type="text" class="form-control rounded rounded-3 alert-secondary" id="plateNo" th:field="${searchingAttribute.code}">
-                    <div class="alert alert-warning" th:if="${#fields.hasErrors('code')} "th:errors="*{code}" ></div>
-                </div>
+                    <div class="form-group text-start small m-2">
+                        <label for="plateNo">Plate Number</label>
+                        <input type="text" class="form-control rounded rounded-3 alert-secondary" id="plateNo"
+                            th:field="${searchingAttribute.code}">
+                        <div class="alert alert-warning" th:if="${#fields.hasErrors('code')} " th:errors="*{code}">
+                        </div>
+                    </div>
 
-                <div class="form-group text-start small m-2 my-4 ">
-                    <button type="submit" class="btn btn-dark w-100 rounded rounded-3 submit_form">Check</button>
+                    <div class="form-group text-start small m-2 my-4 ">
+                        <button type="submit" class="btn btn-dark w-100 rounded rounded-3 submit_form">Check</button>
+                    </div>
+                </form>
+                <div class="text-start m-2 my-4 ">
+                    <p class="text-start p-0 m-0 px-2 small"><a th:href="@{/makeReport}"
+                            class="text-primary text-decoration-none">Back to Report</a></p>
                 </div>
-            </form>
-            <div class="text-start m-2 my-4 ">
-                <p class="text-start p-0 m-0 px-2 small"><a th:href="@{/makeReport}" class="text-primary text-decoration-none">Back to Report</a></p>
             </div>
         </div>
-        <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4"  >
-            <table class="table ">
-                <tr class="text-center">
-                    <th colspan="2" class="text-primary lead fw-bold">REPORTS</th>
-                </tr>
-                <tr>
-                    <td class="text-start px-4 ">Plate number:</td>
-                    <td class="text-start px-4 " th:text="${searchingAttribute.code}"></td>
-                </tr>
-                <tr>
-                    <td class="text-start px-4">Number of reports:</td>
-                    <td class="text-start px-4" th:text="${count}"> </td>
-                </tr>
-            </table>
-            <div class="text-start mb-4 p-1">
-                <a data-bs-toggle="collapse" data-bs-target="#seeDetails" href="./seeDetail.html" th:href="@{/seeDetail}">see details</a>
+        <div class="col-lg-6  mx-auto  px-2 px-sm-3 my-4 ">
+            <div class="card shadow-sm p-4">
+                <table class="table ">
+                    <tr class="text-center">
+                        <th colspan="2" class="text-primary lead fw-bold">REPORTS</th>
+                    </tr>
+                    <tr>
+                        <td class="text-start px-4 ">Plate number:</td>
+                        <td class="text-start px-4 " th:text="${searchingAttribute.code}"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-start px-4">Number of reports:</td>
+                        <td class="text-start px-4" th:text="${count}"> </td>
+                    </tr>
+                </table>
+                <div class="text-start p-1">
+                    <a data-bs-toggle="collapse" data-bs-target="#seeDetails" href="./seeDetail.html"
+                        th:href="@{/seeDetail}">see details</a>
+                </div>
             </div>
 
-            <div id="seeDetailParent">
-                <table class="table collapse  indent container my-3 text-start" id="seeDetails" data-parent="#seeDetailParent">
+
+        </div>
+        <div class="card collapse  indent container mx-2" id="seeDetails" data-parent="#seeDetailParent">
+            <div id="seeDetailParent p-4">
+                <table class="table table-striped my-3 text-start ">
                     <tr>
-                        <th>Line or road</th>
-                        <th>Comment</th>
+                        <th class="py-3">Line or road</th>
+                        <th class="py-3">Comment</th>
                     </tr>
                     <tr th:each="report:${reports}">
                         <td th:text="${report.place}"></td>
-                        <!--th line road-->
                         <td th:text="${report.message}"></td>
-                        <!--what do u observe-->
-
                     </tr>
 
                 </table>
             </div>
         </div>
-        <br>
 
     </main>
 
-    <footer class="bg-dark p-3 rounded-top flex-shrink-0">
+    <!-- <main class="container text-center m-auto flex-grow-1 my-1">
+        <div class="row w-100 ">
+            <div class="card col col-md-6">
+                <div class="">
+                    <div class="card-body ">
+                        <h2 class="title text-primary my-5 ">CHECK REPORTS</h2>
+                        <p class="text-dark">Enter plate number you want to check reports record</p>
+                        <form th:action="@{/showReport}" class="form-report" method="post"
+                            th:object="${searchingAttribute}">
+
+                            <div class="form-group text-start small m-2">
+                                <label for="plateNo">Plate Number</label>
+                                <input type="text" class="form-control rounded rounded-3 alert-secondary" id="plateNo"
+                                    th:field="${searchingAttribute.code}">
+                                <div class="alert alert-warning" th:if="${#fields.hasErrors('code')} "
+                                    th:errors="*{code}"></div>
+                            </div>
+
+                            <div class="form-group text-start small m-2 my-4 ">
+                                <button type="submit"
+                                    class="btn btn-dark w-100 rounded rounded-3 submit_form">Check</button>
+                            </div>
+                        </form>
+                        <div class="text-start m-2 my-4 ">
+                            <p class="text-start p-0 m-0 px-2 small"><a th:href="@{/makeReport}"
+                                    class="text-primary text-decoration-none">Back to Report</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card col col-md-4">
+                <div class="">
+                    <div class="card-body">
+                        <table class="table ">
+                            <tr class="text-center">
+                                <th colspan="2" class="text-primary lead fw-bold">REPORTS</th>
+                            </tr>
+                            <tr>
+                                <th class="text-start px-4 ">Plate number:</th>
+                                <td class="text-start px-4 " th:text="${searchingAttribute.code}"></td>
+                            </tr>
+                            <tr>
+                                <th class="text-start px-4">Number of reports:</th>
+                                <td class="text-start px-4" th:text="${count}"> </td>
+                            </tr>
+                        </table>
+                        <div class="text-start mb-4 p-1">
+                            <a data-bs-toggle="collapse" data-bs-target="#seeDetails" href="./seeDetail.html"
+                                th:href="@{/seeDetail}">see details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-cols-6">
+            <div class="col col-12">
+                <div class="card collapse  indent w-100 container  my-3 text-start" id="seeDetails"
+                    data-parent="#seeDetailParent">
+                    <div class="card-body">
+                        <div id="seeDetailParent">
+                            <table class="table">
+                                <tr>
+                                    <th>Line or road</th>
+                                    <th>Comment</th>
+                                </tr>
+                                <tr th:each="report:${reports}">
+                                    <td th:text="${report.place}"></td>
+                                    <td th:text="${report.message}"></td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main> -->
+
+    <footer class="bg-dark p-3 rounded-top flex-shrink-0 mt-3">
         <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
     </footer>
     <script src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>

@@ -12,7 +12,7 @@ public interface CityJourneyRepository extends JpaRepository<CityJourney, Long> 
 
     List<CityJourney> findByOrderByDepartureAsc();
 
-    // List<CityJourney> findByOrderByDepartureAsc();
+   
     List<CityJourney> findByOrderByDestinationAsc();
 
     @Query(value = "select * from city_journey I where I.departure = :departure and I.destination = :destination ", nativeQuery = true)

@@ -33,17 +33,6 @@ public class CityJourneyController {
         return cityJourneyService.getSearchingAttribute();
     }
 
-    // @GetMapping("/checkTariff")
-    // public ModelAndView checkTariff(){
-    // ModelAndView model=new ModelAndView("check_Tariff");
-
-    // // SearchingAttribute searchingAttribute= new SearchingAttribute() ;
-
-    // // model.addObject("searchingAttribute",searchingAttribute);
-
-    // return model;
-
-    // }
 
     @PostMapping("/searchTarrif")
     public ModelAndView showTariff(@Valid @ModelAttribute("searchingAttribute") SearchingAttribute searchingAttribute,
