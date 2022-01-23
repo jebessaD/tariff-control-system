@@ -2,6 +2,8 @@ package com.imala.imala.description;
 
 import java.util.List;
 
+import com.imala.imala.Security.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,8 +43,8 @@ public class DescriptionService {
 
     }
 
-    public String saveReport(Description newdescription) {
-
+    public String saveReport(Description newdescription, User user) {
+        newdescription.setUser(user);
         descriptionRepository.save(newdescription);
         return "redirect:/";
     }

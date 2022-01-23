@@ -2,7 +2,10 @@ package com.imala.imala.description;
 
 import javax.validation.Valid;
 
+import com.imala.imala.Security.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -47,11 +50,12 @@ public class DescriptionController {
 
     @PostMapping("/saveReport")
     public String saveReport(@Valid @ModelAttribute("newdescription") Description newdescription,
-            BindingResult result) {
+            BindingResult result,@AuthenticationPrincipal User user) {
         if (result.hasErrors()) {
             return "report";
         } else {
-            return descriptionService.saveReport(newdescription);
+            
+            return descriptionService.saveReport(newdescription,user);
         }
     }
 

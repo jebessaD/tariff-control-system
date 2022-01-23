@@ -1,15 +1,19 @@
 package com.imala.imala.Security;
 
+import com.imala.imala.description.Description;
+
 import java.util.Arrays;
 import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.OneToMany;
+import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
@@ -26,6 +30,9 @@ public class User implements UserDetails {
     private String password;
     private String email;
     private Role role;
+    @OneToMany(mappedBy = "user")
+    private List<Description> reports;
+
 
     public static enum Role {
         ADMIN,
