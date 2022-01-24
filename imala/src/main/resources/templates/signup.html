@@ -47,38 +47,41 @@
     </header>
     <br>
     <main class="container text-center m-auto flex-grow-1">
-        <div class="col col-sm-8 col-md-6 col-lg-4 shadow-lg mx-auto border rounded-3 bg-light px-4 my-4">
+        <div class="col col-sm-8 col-md-6 col-lg-5 shadow-sm mx-auto border rounded-3  px-4 my-2">
             <h1 class="title text-primary my-3 my-sm-3">IMALA</h1>
 
-            <form class="form" id="form" th:action="@{/register}">
+            <form class="form" method="post" th:action="@{/signup}" id="signUpForm">
                 <div class="form-group text-start small m-2">
                     <label th:for="fullName">Full Name</label>
-                    <input  type="text" class="form-control rounded rounded-3 alert-secondary" id="FullName" aria-describedby="FullNameHelp" placeholder="">
+                    <input  type="text" name="fullName" class="form-control rounded rounded-3 bg-light" id="fullName" aria-describedby="FullNameHelp" placeholder="">
                 </div>
                 <div class="form-group text-start small m-2">
                     <label th:for="userName">User Name</label>
-                    <input  type="text" class="form-control rounded rounded-3 alert-secondary" id="userName" aria-describedby="FullNameHelp" placeholder="">
+                    <input  type="text" name="username" class="form-control rounded rounded-3 bg-light" id="userName" aria-describedby="UserNameHelp" placeholder="">
                 </div>
                 <div class="form-group text-start small m-2">
                     <label th:for="Email">Email address</label>
-                    <input type="email" class="form-control rounded rounded-3 alert-secondary" id="email" placeholder="">
+                    <input  type="email" name="email" class="form-control rounded rounded-3 bg-light" id="Email" placeholder="">
                 </div>
                 <div class="form-group text-start small m-2">
                     <label th:for="psw_1">Password</label>
-                    <input  type="password" class="form-control rounded rounded-3 alert-secondary" id="psw_1" aria-describedby="passwordHelp" placeholder="" minlength="4">
+                    <input  type="password" name="password" class="form-control rounded rounded-3 bg-light" id="psw_1" aria-describedby="passwordHelp" placeholder="" minlength="4">
                 </div>
                 <div class="error-message">
                     <p class="text-danger text-start p-0 m-0 px-2 small"><i class="fas fa-exclamation-circle px-2"></i> Password not match!!!</p>
                 </div>
                 <div class="form-group text-start small m-2">
                     <label th:for="psw_2">Confrim Password</label>
-                    <input  type="password" class="form-control rounded rounded-3 alert-secondary" id="psw_2" placeholder="" minlength="4">
+                    <input  type="password" class="form-control rounded rounded-3 bg-light" id="psw_2" placeholder="" minlength="4">
+
                 </div>
+
+                <input type="hidden" >
                 <div class="form-group text-start small m-2 my-4">
                     <button type="submit" class="btn btn-dark w-100 rounded rounded-3 submit_form">Sign Up</button>
                 </div>
                 <div class="text-start m-2 my-4">
-                    <p class="text-start p-0 m-0 px-2 small">Already have an account? <a href="./login.html" th:href="@{/login}" class="text-dabtn-dark">Login</a></p>
+                    <p class="text-start p-0 m-0 px-2 small">Already have an account? <a  th:href="@{/login}" class="text-dabtn-dark">Login</a ></p>
                 </div>
                 
             </form>

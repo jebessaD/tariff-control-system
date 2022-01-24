@@ -50,9 +50,17 @@
 
             <form th:action="@{/saveCrossCountry}" th:object="${newCrossCountry}" method="post">
                 <input type="text" th:field="*{departure}" placeholder="Departure" class="form-control col-4 mb-3 alert-secondary">
+                <div class="alert alert-warning color-warning" th:if="${#fields.hasErrors('departure')} "th:errors="*{departure}" ></div>
+
                 <input type="text" th:field="*{destination}" placeholder="Destination" class="form-control col-4 mb-3 alert-secondary">
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('destination')} "th:errors="*{destination}" ></div>
+
                 <input type="text" th:field="*{bus}" placeholder="bus" class="form-control col-4 mb-3 alert-secondary">
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('bus')} "th:errors="*{bus}" ></div>
+
                 <input type="text" th:field="*{tariff}" placeholder="Tariff" class="form-control col-4 mb-3 alert-secondary">
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('tariff')} "th:errors="*{tariff}" ></div>
+
                 <button type="submit" class="btn btn-dark my-2 w-100">Save</button>
                 <input type="hidden" th:field="*{id}">
             </form>

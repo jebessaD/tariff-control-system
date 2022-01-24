@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 // import org.springframework.ui.Model;
+import javax.validation.Valid;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,23 +33,16 @@ public class CityJourneyController {
         return cityJourneyService.getSearchingAttribute();
     }
 
-    // @GetMapping("/checkTariff")
-    // public ModelAndView checkTariff(){
-    // ModelAndView model=new ModelAndView("check_Tariff");
-
-    // // SearchingAttribute searchingAttribute= new SearchingAttribute() ;
-
-    // // model.addObject("searchingAttribute",searchingAttribute);
-
-    // return model;
-
-    // }
 
     @PostMapping("/searchTarrif")
-    public ModelAndView showTariff(@ModelAttribute("searchingAttribute") SearchingAttribute searchingAttribute) {
-
-        return cityJourneyService.searchTariff(searchingAttribute);
-
+    public ModelAndView showTariff(@Valid @ModelAttribute("searchingAttribute") SearchingAttribute searchingAttribute,
+            BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            ModelAndView modelAndView = new ModelAndView("check_tariff");
+            return modelAndView;
+        } else {
+            return cityJourneyService.searchTariff(searchingAttribute);
+        }
     }
 
     @GetMapping("/addCityJourney")
@@ -59,21 +54,21 @@ public class CityJourneyController {
     }
 
     @PostMapping("/saveCityJourney")
-    public String saveCityJourney(@ModelAttribute("newCityJourney") CityJourney cityJourney) {
-        return cityJourneyService.saveCityJourney(cityJourney);
+    public String saveCityJourney(@Valid @ModelAttribute("newCityJourney") CityJourney cityJourney,
+            BindingResult bindingResult) {
+
+        return cityJourneyService.saveJourney(cityJourney, bindingResult);
 
     }
 
     @GetMapping("/deleteCityJourney")
     public String deleteCityJourney(@RequestParam Long cityJourneyId) {
-        return cityJourneyService.deleteCityJourney(cityJourneyId);
-
+        return cityJourneyService.deleteJourney(cityJourneyId);
     }
 
     @GetMapping("/updateCityJourney")
     public ModelAndView updateCityJourney(@RequestParam Long cityJourneyId) {
-
-        return cityJourneyService.updateCityJourney(cityJourneyId);
+        return cityJourneyService.updateJourney(cityJourneyId);
     }
 
 }

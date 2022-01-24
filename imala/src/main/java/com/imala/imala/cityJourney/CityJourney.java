@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+// import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,12 +25,18 @@ public class CityJourney {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "departure", nullable = false)
+    @NotBlank
+    @Column(name = "departure")
     private String departure;
-   
+    
+    @NotBlank
     @Column(name="destination", nullable=false)
     private String destination;
 
+    // @Min()
+    // @Max(50)
+    @DecimalMin(value="1.0",inclusive=true)
+    @Digits(integer=3,fraction=2)
     @Column(name = "tariff",nullable=false)
     private float tariff;
     

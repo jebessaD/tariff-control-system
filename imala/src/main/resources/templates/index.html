@@ -65,7 +65,7 @@
                         <div class="col">
                             <div class="card shadow">
                                 <img src="../static/images/taxi.gif" th:attr="src=@{/images/taxi.gif},title=#{Taxi fare},alt=#{Taxi fare}" class="card-img-top " alt="Taxi car">
-                                <div class="card-body">
+                                <div class="card-body border">
                                     <h5 class="card-title">Taxi Fares</h5>
                                     <p class="card-text">Click the button to get taxi fares in Addis Ababa</p>
                                     <p class="text-start"><a class="btn btn-dark " th:href="@{/checkTariff}">Taxi fares</a></p>
@@ -89,7 +89,7 @@
                                 <div class="card-body border">
                                     <h5 class="card-title">Report ILLEGALS</h5>
                                     <p class="card-text">Report illegal tariff raises you faced on transportation.</p>
-                                    <p class="text-start"><a class="btn btn-dark " href="./report.html" th:href="@{/makeReport}">Report Now</a></p>
+                                    <p class="text-start"><a class="btn btn-dark" th:href="@{/makeReport}">Report Now</a></p>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +99,7 @@
             </div>
         </article>
     </main>
-    <footer class="bg-dark p-3 rounded-top flex-shrink-0">
+    <footer class="bg-dark p-3 rounded-top flex-shrink-0 mt-4">
         <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
     </footer>
     <script src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>

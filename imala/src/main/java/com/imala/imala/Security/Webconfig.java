@@ -1,4 +1,4 @@
-package com.imala.imala.security;
+package com.imala.imala.Security;
 
 
 import org.springframework.context.annotation.Configuration;
