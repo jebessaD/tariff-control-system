@@ -16,7 +16,7 @@ import javax.validation.Payload;
 public @interface UniqueEmail {
     
 
-    String message() default "not working";
+    String message() default "User with this email already exists";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
