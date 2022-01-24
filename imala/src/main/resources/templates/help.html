@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" class="h-100" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text; charset=UTF-8" />
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMALA | HELP </title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
+
+    <link rel="icon" href="../images/icon.jpg" th:href="@{/images/icon.jpg}" type="image/png">
+</head>
+
+<body class="h-100 d-flex flex-column">
+    <header class="flex-shrink-0">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark flex-shrink-0">
+            <div class="container-fluid">
+                <h1 class="navbar-brand">IMALA</h1>
+                <div>
+                    <a href="editProfile.html" th:href="@{/profile}" aria-label="User">
+                        <i class="fas fa-user text-light mb-2  d-sm-none">
+                            </i>
+                    </a>
+
+                    <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/index}">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about}">ABOUT</a>
+                        </li>
+                        <li>
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./login.html" th:href="@{/help}">LOGIN</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group d-none d-sm-block">
+                    <a href="editProfile.html" th:href="@{/profile}" class="mx-3 p-0 m-2 mx-lg-5" aria-label="User"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container m-auto flex-grow-0 row">
+        <article class="sticky-lg-top align-self-start text-start col-lg-4 shadow mx-lg-5 my-5 rounded-3 my-4 py-3 d-flex px-4 my-lg-5">
+            <div class="w-100 px-3">
+                <h2 class="h4 my-2 text-dark px-0">Get help</h2>
+                <ul class="list-unstyled px-4 fs-5 fst-italic border-start border-3">
+                    <li><a class="text-decoration-none text" href="#asked">FAQs</a> </li>
+                    <li><a href="#starts" class="text-decoration-none">Getting started</a></li>
+                    <li><a href="#contact" class="text-decoration-none"> Contact information</a></li>
+                </ul>
+
+            </div>
+        </article>
+        <div class="m-sm-4 col-lg-6 h-lg-100 p-sm-0 d-flex">
+            <div class=" p-2 align-self-center shadow rounded-3 w-100 my-lg-4">
+
+                <div class="px-md-3">
+                    <h2 class="h4 text-secondary border-bottom" id="asked">FAQs</h2>
+                    <p>
+                        <i class="far fa-question-circle"></i>
+                        <a class="text-decoration-none" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            What is the use of Imala?
+                        </a>
+
+                    </p>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            Imala is designed to minimize problems in transportation. Imala will provide a tarrif of taxi in Addis Ababa as well as Cross country buses from Addis Ababa to other cities in the country. And It will help yoou to report illegal tariff raises </div>
+                    </div>
+                    <p>
+                        <i class="far fa-question-circle"></i> <a class="text-decoration-none" data-bs-toggle="collapse" href="#question2" aria-expanded="false" aria-controls="collapseExample">
+                            Can I see number of reports on specific car?
+                        </a>
+
+                    </p>
+                    <div class="collapse" id="question2">
+                        <div class="card card-body">
+                            <p>
+                                Due to legal restrictions only traffic polices can see the number of reports
+                        </div>
+                        </p>
+                    </div>
+                    <p>
+                        <i class="far fa-question-circle"></i> <a class="text-decoration-none" data-bs-toggle="collapse" href="#collapse2" aria-expanded="false" aria-controls="collapseExample">
+                            Is Imala free to use for every one?
+                        </a>
+
+                    </p>
+                    <div class="collapse" id="collapse2">
+                        <div class="card card-body">
+                            <p>Yes! Imala can be used by everyone it is free</p>
+                        </div>
+
+                    </div>
+                    <p>
+                        <i class="far fa-question-circle"></i> <a class="text-decoration-none" data-bs-toggle="collapse" href="#questions" aria-expanded="false" aria-controls="questions">
+                            How does Imala ensure my privacy?
+                        </a>
+
+                    </p>
+                    <div class="collapse" id="questions">
+                        <div class="card card-body">
+                            <p>Your personal informations are not given and used by third parties. We don't use personal data in a way that could cause harm to you and your personal informations are protected.
+                            </p>
+                        </div>
+
+                    </div>
+                    <p>
+                        <i class="far fa-question-circle"></i> <a class="text-decoration-none" data-bs-toggle="collapse" href="#account" aria-expanded="false" aria-controls="account">
+                            How Do I Manage My User Account?
+                        </a>
+
+                    </p>
+                    <div class="collapse" id="account">
+                        <div class="card card-body">
+                            <p>You can manage your account in your profile page. You can change your Password, Your Username and You can delete your Account.</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="px-md-3">
+                    <h2 class="h4 text-secondary border-bottom" id="starts">Getting started</h2>
+
+
+                    <div class="d-flex container justify-content-between">
+                        <p>Checking Taxi tariff</p>
+                        <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#taxi" href="taxi"><i
+                                id="abouttaxi" class="fas fa-angle-down"></i></a>
+                    </div>
+                    <div>
+                        <div class="collapse container px-2 text-start border-bottom border-top text-start border-bottom" id="taxi">
+                            <div class="form-group text-start m-2 p-0 fst-italic p-0">
+                                <p>To get the fares of taxi in Addis Ababa city </p>
+                                <ol>
+                                    <li>Go to home page</li>
+                                    <li>Select <a href="check_tariff.html" th:href="@{/checkTariff}">Taxi fares</a></li>
+                                    <li>fill your starting and destination on provided input spaces</li>
+                                    <li>click the Search button</li>
+
+                                </ol>
+                            </div>
+                        </div>
+
+
+                        <div class="d-flex container justify-content-between">
+                            <p>Checking Bus tariff</p>
+                            <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#bus" href="bus"><i
+                                    id="aboutbus" class="fas fa-angle-down"></i></a>
+                        </div>
+                        <div>
+                            <div class="collapse container text-start border-bottom border-top fst-italic" id="bus">
+                                <div class="form-group text-start ">
+                                    <p>To get the fares of Bus ticket cost from Addis Ababa</p>
+                                    <ol>
+                                        <li>Go to home page</li>
+                                        <li>Select
+                                            <a href="bus.html" th:href="@{/checkBusTariff}">Bus fares</a>
+                                        </li>
+                                        <li>fill your starting and destination on provided input spaces</li>
+                                        <li>click the Search button</li>
+
+                                    </ol>
+                                </div>
+                            </div>
+
+
+                            <div class="d-flex container justify-content-between">
+                                <p>Reporting illegals</p>
+                                <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#changePassword" href="changePassword"><i id="aboutreport" class="fas fa-angle-down"></i></a>
+                            </div>
+                            <div>
+                                <div class="collapse container text-start border-bottom border-top fst-italic" id="changePassword">
+                                    <div class="form-group text-start m-2 ">
+                                        <p>To report illegal Tariff raises</p>
+                                        <ol>
+                                            <li>Go to home page</li>
+                                            <li>Login if you are not logged in</li>
+                                            <li>Goto
+                                                <a href="report.html" th:href="@{/makeReport}">Report</a>
+                                            </li>
+                                            <li>Fill the plate number of the car</li>
+                                            <li>Fill the road you observed this illegal activity</li>
+                                            <li>Write what you observed</li>
+                                            <li>Click report</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex container justify-content-between">
+                                <p>Checking number of Records</p>
+                                <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#checkrecord" href="checkrecord"><i id="aboutcreport" class="fas fa-angle-down"></i></a>
+                            </div>
+                            <div>
+                                <div class="collapse container text-start border-bottom border-top fst-italic" id="checkrecord">
+                                    <div class="form-group text-start m-2 ">
+                                        <p>To check number of records of specific car you have to login as traffic police
+                                        </p>
+                                        <ol>
+                                            <li>Login as Traffic if you are not logged in</li>
+                                            <li>Goto
+                                                <a href="checkReport.html" th:href="@{/checkReport}">Check Report</a>
+                                            </li>
+                                            <li>Fill the plate number of the car you want to see record</li>
+
+                                            <li>Click Check</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex container justify-content-between">
+                            <p class="">Logging in</p>
+                            <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#login" href="login"><i
+                                    id="aboutlogin" class="fas fa-angle-down"></i></a>
+                        </div>
+                        <div>
+                            <div class="collapse container text-start border-bottom border-top fst-italic" id="login">
+                                <div class="form-group text-start">
+                                    <p>You have to login to use some features of our website</p>
+                                    <ol>
+                                        <li>Go to
+                                            <a href="login.html">Login</a> if you have an account or
+                                            <a href="./signup.html">SignUp</a> if you hav enot registered yet
+                                        </li>
+                                        <li>Fill your email and password</li>
+                                        <li>click login</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div id="contact">
+                        <h2 class="h4 text-secondary border-bottom" id="info">Contact information</h2>
+                        <p class="px-2"> If you faced any difficulties while using Imala</p>
+                        <p class="px-2">Contact us on:
+                            <ul class="list-unstyled px-4">
+                                <li> Email: <a href="mailto:imalateam.com">Imalateam@gmail.com</a></li>
+                                <li>Phone:
+                                    <a href="tel:0976767676">+251976767676</a>
+                                </li>
+                            </ul>
+
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </main>
+
+
+    <footer class="bg-dark p-3 rounded-top flex-shrink-0 mt-4 ">
+        <p class="text-light text-center py-0 my-0 ">Copyright &copy; 2022 All rights reserved | Imala</p>
+    </footer>
+    <script src="../static/js/help.js " th:src="@{/js/help.js}">
+    </script>
+    <script src="../static/js/bootstrap.bundle.min.js " th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+
+</body>
