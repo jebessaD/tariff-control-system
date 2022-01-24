@@ -12,9 +12,16 @@ public class homeController {
         return model;
 
     }
-    @GetMapping("/error")
-    public ModelAndView error(){
-        ModelAndView model=new ModelAndView("error");
-        return model;
+
+    @GetMapping("/about")
+    public String about() {
+        return "about";
+       
     }
+
+    @GetMapping("/help")
+    public String help() {
+        return "help";
+       
+    } 
 }

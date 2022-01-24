@@ -2,7 +2,7 @@ package com.imala.imala.crosscountry;
 
 import java.util.List;
 
-// import com.imala.imala.crosscountry.SearchingAttribute.Type;
+
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

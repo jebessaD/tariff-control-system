@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-// import javax.validation.constraints.Email;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
@@ -33,8 +33,6 @@ public class CityJourney {
     @Column(name="destination", nullable=false)
     private String destination;
 
-    // @Min()
-    // @Max(50)
     @DecimalMin(value="1.0",inclusive=true)
     @Digits(integer=3,fraction=2)
     @Column(name = "tariff",nullable=false)
