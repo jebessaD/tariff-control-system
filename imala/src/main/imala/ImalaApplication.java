@@ -17,21 +17,19 @@ public class ImalaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ImalaApplication.class, args);
 	}
-	
 
 	@Bean
-	public CommandLineRunner adminCreater(UserRepository userRepository,PasswordEncoder passwordEncoder){
+	public CommandLineRunner adminCreater(UserRepository userRepository, PasswordEncoder passwordEncoder) {
 		return args -> {
-			if(!(userRepository.countByRole(Role.ADMIN)==0)){
+			if ((userRepository.countByRole(Role.ADMIN) != 0)) {
 				return;
-			}
-			else{
-				userRepository.save(new User("admin","admin",passwordEncoder.encode("abc123!"),"admin@gmail.com",Role.ADMIN));
+			} else {
+				userRepository.save(
+						new User("admin", "admin", passwordEncoder.encode("abc123!"), "admin@gmail.com", Role.ADMIN));
 				return;
 			}
 
 		};
 	}
-
 
 }

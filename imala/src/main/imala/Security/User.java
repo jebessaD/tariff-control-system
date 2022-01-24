@@ -35,7 +35,7 @@ public class User implements UserDetails {
     private Long id;
 
     @NotBlank
-    @UniqueUsername
+    // @UniqueUsername
     private String username;
 
     @NotBlank
