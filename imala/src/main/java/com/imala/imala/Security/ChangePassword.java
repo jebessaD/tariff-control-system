@@ -1,7 +1,6 @@
 package com.imala.imala.Security;
 
 
-
 import lombok.Data;
 
 @Data
