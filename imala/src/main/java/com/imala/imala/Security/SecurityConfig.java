@@ -33,7 +33,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .authorizeRequests()
-                .antMatchers("/makeReport","/saveReport","/profile").hasAnyRole("USER","TRAFFIC")
+                .antMatchers("/makeReport","/saveReport","/profile").hasAnyRole("USER","TRAFFIC","ADMIN")
                 .antMatchers("/checkReport", "/showReport").hasAnyRole("ADMIN","TRAFFIC")
                 // .antMatchers("/profile").hasAnyRole("USER","TRAFFIC")
                 // .antMatchers( "cityJourneyList", "/checkReport", "/showReport", "/crossCountryList").hasAnyRole("ADMIN,TRAFFIC")

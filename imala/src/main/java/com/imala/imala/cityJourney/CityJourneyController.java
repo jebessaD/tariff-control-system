@@ -56,11 +56,11 @@ public class CityJourneyController {
     @PostMapping("/saveCityJourney")
     public String saveCityJourney(@Valid @ModelAttribute("newCityJourney") CityJourney cityJourney,
             BindingResult bindingResult) {
-
         return cityJourneyService.saveJourney(cityJourney, bindingResult);
 
     }
 
+    
     @GetMapping("/deleteCityJourney")
     public String deleteCityJourney(@RequestParam Long cityJourneyId) {
         return cityJourneyService.deleteJourney(cityJourneyId);
@@ -70,5 +70,4 @@ public class CityJourneyController {
     public ModelAndView updateCityJourney(@RequestParam Long cityJourneyId) {
         return cityJourneyService.updateJourney(cityJourneyId);
     }
-
 }

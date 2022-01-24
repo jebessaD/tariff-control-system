@@ -20,60 +20,30 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity(name = "description")
 public class Description {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(
-            name = "id",
-            updatable = false
-    )
+    @Column(name = "id", updatable = false)
     private Long id;
 
-    
     @NotBlank
-    @Column(name="code")
-    // @Size(min=5,max=6)
-    
     private String code;
-    // @Column(
-    //     name = "date",
-    //     nullable = false
-    // //     columnDefinition = "TEXT"
-    // )
-    // private String date;
 
-    // @Column(
-    //     name = "time",
-    //     nullable = false
-    // //     columnDefinition = "TEXT"
-    // )
-    // private String time;
     @NotBlank
-    @Column(
-        name = "place"
-        ,nullable = false
-    //     columnDefinition = "TEXT"
-    )
-  
+    @Column(name = "place", nullable = false)
     private String place;
 
     @NotBlank
-    @Column(
-        name = "message",
-        nullable = false
-    //     columnDefinition = "TEXT"
-    )
+    @Column(name = "message", nullable = false)
     private String message;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    // public Description(String code,String place,String message)
 
 }

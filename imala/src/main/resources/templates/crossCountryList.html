@@ -48,27 +48,29 @@
         <br>
         <main class="container text-center m-auto flex-grow-1">
           <div class="col col-12 shadow mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
-        <h1>List of City Journey</h1>
+        <h1>List of Cross Country Journey</h1>
         <hr>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Departure</th>
-                    <th>Deastination</th>
+                    <th>Destination</th>
+                    <th>Bus</th>
                     <th>Tariff</th>
                     <th>Change</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="cityJourney:${cityJourneys}" >
-                    <td th:text="${cityJourney.departure}"></td>
-                    <td th:text="${cityJourney.destination}"></td>
-                    <td th:text="${cityJourney.tariff}"></td>
-                    
-                    <td><a th:href="@{/updateCityJourney(cityJourneyId=${cityJourney.id})}" class="btn btn-outline-info">Edit</a>
-                        <a class="btn btn-danger"  data-bs-toggle="modal"data-bs-target="#deleteModal" th:attr="data-bs-target='#deleteModal'+${cityJourney.id}">Delete</a>
-                        
-                        <div class="modal fade" id="deleteModal" tabindex="-1" th:id="deleteModal+${cityJourney.id}"aria-labelledby="deleteModalLabel" aria-hidden="true">
+               
+                <tr th:each="crossJourney:${crossCountries}">
+                    <div>
+                    <td th:text="${crossJourney.departure}"></td>
+                    <td th:text="${crossJourney.destination}"></td>
+                    <td th:text="${crossJourney.bus}"></td>
+                    <td th:text="${crossJourney.tariff}"></td>
+                    <td><a th:href="@{/updateCrossJourney(crossJourneyId=${crossJourney.id})}" class="btn btn-outline-info">Edit</a>
+                        <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" th:attr="data-bs-target='#deleteModal'+${crossJourney.id}">Delete</a>
+                        <div class="modal fade" th:id="deleteModal+${crossJourney.id}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
@@ -80,12 +82,16 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                 <a th:href="@{/deleteCityJourney(cityJourneyId=${cityJourney.id})}" class="btn btn-danger"  value="Delete">Delete</a>
+                                <a th:href="@{/deleteCrossJourney(crossJourneyId=${crossJourney.id})}" class="btn btn-danger" >Delete</a>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </td>
+                    </div>
                 </tr>
+                
+                
             </tbody>
         </table>
     

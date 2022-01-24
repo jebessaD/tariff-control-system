@@ -23,11 +23,9 @@ public class CrossService {
     
 
     public ModelAndView crossCountryList() {
-        ModelAndView model = new ModelAndView("bus");
-
+        ModelAndView model = new ModelAndView("crossCountryList");
         List<CrossCountry> crossCountryList = crossRepository.findAll();
-
-        model.addObject("crossCountry", crossCountryList );
+        model.addObject("crossCountries", crossCountryList );
 
         return model;
 
@@ -76,29 +74,25 @@ public class CrossService {
 
     }
 
-    public String saveCrossCountry(@ModelAttribute("newCrossCountry") CrossCountry crossCountry,BindingResult result){
+    public String saveCrossCountry(CrossCountry crossCountry){
         crossRepository.save(crossCountry);
-        return "redirect:/addCrossCountry";
+        return "redirect:/addCrossJourney";
     }
 
 
 
-    public String deleteCrossCountry(@RequestParam Long crossCountry){
-        crossRepository.deleteById(crossCountry);
+    public String deleteCrossCountry(Long crossCountryId){
+        crossRepository.deleteById(crossCountryId);
         return "redirect:/crossCountryList";
     }
 
 
 
 
-    public ModelAndView updateCrossCountry(@RequestParam Long crossCountryId){
-        
+    public ModelAndView updateCrossCountry(Long crossCountryId){   
         ModelAndView model = new ModelAndView("add_cross_country");
-
         CrossCountry crossCountry = crossRepository.findById(crossCountryId).get();
-
         model.addObject("newCrossCountry", crossCountry);
-
         return model;
     }
 

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/signup")
+
 public class SignUpController {
 
     @Autowired
@@ -18,17 +18,18 @@ public class SignUpController {
     @Autowired
     public UserRepository userRepository;
 
-    @GetMapping
+    @GetMapping("/signup")
     public String showSignupForm() {
         return "signup";
     }
 
-    @PostMapping
+    @PostMapping("/signup")
     public String signup(SignUpForm signUpForm) {
-        signUpForm.setRole(Role.USER);
+        signUpForm.setRole(Role.TRAFFIC);
         userRepository.save(signUpForm.createUser(passwordEncoder));
         return "redirect:/login";
 
     }
 
+   
 }

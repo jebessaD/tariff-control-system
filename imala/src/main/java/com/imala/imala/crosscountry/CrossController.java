@@ -50,7 +50,7 @@ public class CrossController {
     }
 
     
-    @GetMapping("/addCrossCountry")
+    @GetMapping("/addCrossJourney")
     public ModelAndView addCrossCountry() {
         ModelAndView model = new ModelAndView("add_cross_country");
         CrossCountry CrossCountry = new CrossCountry();
@@ -59,24 +59,24 @@ public class CrossController {
     }
 
     @PostMapping("/saveCrossCountry")
-    public String saveCrossCountry(@Valid @ModelAttribute("newCrossCountry") CrossCountry CrossCountry,BindingResult result) {
+    public String saveCrossCountry(@Valid @ModelAttribute("newCrossCountry") CrossCountry crossCountry,BindingResult result) {
         if(result.hasErrors()){
             return "add_cross_country";
         }
         else{
-            return crossService.saveCrossCountry(CrossCountry,result);
+            return crossService.saveCrossCountry(crossCountry);
         }
     }
 
-    @GetMapping("/deleteCrossCountry")
-    public String deleteCrossCountry(@RequestParam Long CrossCountryId) {
-        return deleteCrossCountry(CrossCountryId);
+    @GetMapping("/deleteCrossJourney")
+    public String deleteCrossCountry(@RequestParam Long crossJourneyId) {
+        return crossService.deleteCrossCountry(crossJourneyId);
 
     }
 
-    @GetMapping("/updateCrossCountry")
-    public ModelAndView updateCrossCountry(@RequestParam Long CrossCountryId) {
-        return crossService.updateCrossCountry(CrossCountryId);
+    @GetMapping("/updateCrossJourney")
+    public ModelAndView updateCrossCountry(@RequestParam Long crossJourneyId) {
+        return crossService.updateCrossCountry(crossJourneyId);
     }
 
 

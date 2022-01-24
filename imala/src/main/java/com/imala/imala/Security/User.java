@@ -4,6 +4,8 @@ import com.imala.imala.description.Description;
 
 import java.util.Arrays;
 import java.util.Collection;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,7 +32,7 @@ public class User implements UserDetails {
     private String password;
     private String email;
     private Role role;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade=CascadeType.REMOVE)
     private List<Description> reports;
 
 

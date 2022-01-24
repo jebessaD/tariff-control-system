@@ -62,4 +62,6 @@ public class profileController {
         userRepository.delete(user);
         return "redirect:/signup";
     }
+
+    
 }
