@@ -67,6 +67,7 @@
                     <label for="role">Choose Role</label>
                     <select class="card form-select  dropdown-toggle bg-light" name="role" data-bs-toggle="dropdown" aria-expanded="false" id="role">
                     <option class="form-control" th:each="roleType:${T(com.imala.imala.Security.User.Role).values()}" th:value="${roleType}" th:text="${roleType}" th:field="*{role}"></option>
+                    </select>
                            
                 </div>      
                 <div class="form-group text-start small m-2">
@@ -86,7 +87,7 @@
     </footer>
     <script src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>
 
-    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>   
+    <script  th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
 
 </html>

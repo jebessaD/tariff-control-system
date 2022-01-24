@@ -1,118 +1,205 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" class="h-100" lang="en">
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMALA | Profile</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.css}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
-    <title>Document</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="icon" href="../static/images/icon.jpg" th:href="@{/images/icon.jpg}" type="image/png">
 </head>
 
-<header id="header" class="position-fixed top-0 w-100">
-    <nav class="navbar bg-dark p-1 shadow p-0 px-2 mb-0 rounded-bottom d-flex">
-        <!-- <div class="col-3 "><img src="../images/imala.png" th:attr="src=@{/images/imala.png},title=#{imala logo},alt=#{imala logo}" class="img-fluid" alt="imala logo" width="150"></div> -->
-        <div>
-            <h1 class="text-light p-2">IMALA</h1>
-        </div>
-        <div class="navbar-expand text-end float-end">
-            <a href="html/profile.html" th:href="@{/html/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
-            <ul class="navbar-nav mb-2 pb-0">
-                <li class="nav-item mx-lg-3">
-                    <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light" href="./index.html" th:href="@{/html/index.html}">HOME</a>
-                </li>
-                <li class="nav-item mx-lg-3">
-                    <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light" href="./about.html" th:href="@{/html/about.html}">ABOUT</a>
-                </li>
-                <li class="nav-item mx-lg-3">
-                    <a class="nav-link btn btn-dark mx-1  p-0 px-2 text-light p-0 " href="./help.html" th:href="@{/html/help.html}">HELP</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
-<br><br>
+<body class="h-100 d-flex flex-column">
+    <header class="flex-shrink-0">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark flex-shrink-0">
+            <div class="container-fluid">
+                <h1 class="navbar-brand">IMALA</h1>
+                <div>
+                    <a href="html/profile.html" th:href="@{/profile}"><i class="fas fa-user text-light mb-2  d-sm-none"></i></a>
 
-<main class="container text-center p-sm-5 my-5 mt-sm-6">
-    <div class="col col-sm-12  col-lg-6 shadow-lg mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
+                    <button class="navbar-toggler m-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+        
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./index.html" th:href="@{/index}">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about}">ABOUT</a>
+                        </li>
+                        <li>
+                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./help.html" th:href="@{/help}">HELP</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group d-none d-sm-block">
+                    <a href="html/profile.html" th:href="@{/profile}" class="mx-3 p-0 m-2 mx-lg-5"><i class="fas fa-user text-light mb-2  py-lg-3"></i></a>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <main class="container text-center m-auto flex-grow-1">
+      <div class="row my-4">
+        <div class="col-12 col-lg-4 my-3 m-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title text-warning"> Profile</h2>
+              <table class="table text-start" th:each="profile :${user}">
+                <tr>
+                  <th>Full Name</th>
+                  <td th:value="${profile.fullName}" th:text="${profile.fullName}"></td>
+                
+                </tr>
+               
+                <tr>
+                  <th>User Name</th>
+                  <td th:value="${profile.username}" th:text="${profile.username}"></td>
+                </tr>
+               
+                <tr>
+                  <th>Email</th>
+                  <td th:value="${profile.email}" th:text="${profile.email}"></td>
+                </tr>
+
+              </table>
+              <a th:href="@{/myReports}" class="btn btn-primary">My Reports</a>
+            </div>
+          </div>
+        </div>
+      <div class="col col-sm-12  col-lg-7 shadow-sm mx-auto border rounded-3 px-5 ">
         <div class="text-start my-4 px-3">
-            <a class="text-start text-warning" href="./index.html" th:href="@{/html/index.html}"><i class="fas fa-chevron-left "></i></a>
-            <h2 class="text-start text-warning my-3  mb-5"><i class="far fa-user"></i> </i> Profile</h2>
+          <a class="text-start text-warning" aria-label="left Arrow" href="./index.html" th:href="@{/index}"></a>
+          <h3 class="text-start text-warning my-3  mb-5"><i class="fas fa-user-edit px-2"></i>Edit Profile</h3>
         </div>
         <hr class="mx-2">
-        <div id="password">
-            <div class="d-flex container justify-content-between">
-                <p class="p-0 m-0"><i class="fas fa-unlock-alt text-primary px-2"> </i>Change Password</p>
-                <a data-bs-toggle="collapse" data-bs-target="#changePassword" href="changePassword"><i class="fas fa-angle-down"></i></a>
-            </div>
-            <div>
-
-                <form class="collapse  indent container my-3 px-5 text-start" id="changePassword" data-parent="#password" method="post">
-
-                    <!-- <div class="form-group text-start small m-2">
-                        <label for="old_psw">Old Password</label>
-                        <input type="password" class="form-control rounded rounded-5 alert-secondary" id="old_psw" aria-describedby="oldPasswordHelp" placeholder="" minlength="4" required>
-                    </div>                   -->
-                    <div class="form-group text-start small m-2">
-                        <label for="psw_1">New Password</label>
-                        <input type="password" class="form-control rounded rounded-5 alert-secondary" id="psw_1" aria-describedby="passwordHelp" placeholder="" minlength="4" required>
-                    </div>
-                    <div class="error-message">
-                        <p class="text-danger text-start p-0 m-0 px-2 small"><i class="fas fa-exclamation-circle px-2"></i> Password not matched!</p>
-                    </div>
-                    <div class="form-group text-start small m-2">
-                        <label for="psw_2">Confrim Password</label>
-                        <input type="password" class="form-control rounded rounded-5 alert-secondary" id="psw_2" placeholder="" minlength="4" required>
-                    </div>
-                    <div class="form-group text-start small m-2 my-4">
-                        <button type="submit" class="btn btn-dark w-100 rounded rounded-5 submit_form">Change</button>
-                    </div>
-
-                </form>
-                <hr class="mx-2">
-            </div>
+        <div id="profile">
+          <div class="d-flex container justify-content-between">
+            
+            <p class="p-0 m-0"><i class="fas fa-user-edit text-primary px-2"></i>Edit Name</p>
+            <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#editProfile" href="editProfile"><i
+                class="fas fa-angle-down"></i></a>
+          </div>
         </div>
-        <div id="username">
-            <div class="d-flex container justify-content-between">
-                <p class="p-0 m-0"><i class="fas fa-user-edit text-primary px-2"></i>Edit Username</p>
-                <a data-bs-toggle="collapse" data-bs-target="#editUsername" href="#editUsername"><i class="fas fa-angle-down"></i></a>
+            
+            <form class="collapse  indent container my-3 px-5 text-start" id="editProfile" th:object="${user}" 
+              th:action="@{/editName}" data-parent="#password" method="post">
+              <h3>Edit Name</h3>
+              <div class="row row-cols-2">
+                
+
+                        <div>
+                        <label for="fullName">Full name</label>
+                        <div class="text-start small py-2 ">
+                        <input type="text" th:field="*{fullName}" class="form-control bg-light" id="fullName" placeholder="">
+                        <!-- <div class="alert alert-warning color-warning" th:if="${#fields.hasErrors('fullName')}"
+                          th:errors="*{fullName}"> -->
+
+                        </div>
+
+                        </div>
+                        <div>
+                        <label for="userName">User Name</label>
+                        <div class="text-start small py-2 ">
+                          <input type="text" th:field="*{username}" class="form-control bg-light" id="userName" placeholder="">
+                          <!-- <div class="alert alert-warning color-warning" th:if="${#fields.hasErrors('username')}"
+                            th:errors="*{username}"> -->
+
+                          </div>
+
+                        </div>
+                </div>
+                <div>
+                  <input type="hidden" th:field="*{id}">
+                  <input type="hidden" th:field="*{password}">
+                  <input type="hidden" th:field="*{email}">
+                  <input type="hidden" th:field="*{role}">
+                </div>
+                
+                
+              <button type="submit " class="btn btn-dark px-5">Save</button>
+
+            </form>
+            <hr class="mx-2">
+            <div id="password">
+              <div class="d-flex container justify-content-between">
+                <p class="p-0 m-0"><i class="fas fa-unlock-alt text-primary px-2"> </i>Edit Password</p>
+                <a href="./changePassword.html"  th:href="@{/changePassword}"><i class="fas fa-angle-right"></i></a>
+              </div>
+              <hr class="mx-2">
             </div>
-            <div>
-
-                <form class="collapse  indent container my-3 px-5 text-start" id="editUsername" data-parent="#username">
-                    <label for="userName">User name</label>
-                    <div class="text-start small py-2 input-group">
-
-                        <input type="text" class="form-control alert-secondary" id="userName" placeholder="" required>
-                        <button type="submit" class="btn btn-dark ">Save</button>
+    
+          
+            <div class="text-start">
+              <a class="text-decoration-none text-dark px-3" data-bs-toggle="modal" data-bs-target="#logoutModal" href=""><i
+                  class="fas fa-sign-out-alt text-primary px-2"></i>logout</a>
+              <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-
-                </form>
-                <hr class="mx-2">
+                    <div class="modal-body">
+                      Are you sure you want logout?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <form method="post" th:action="@{/logout}" id="logout">
+                        <input type="submit" class="btn btn-dark" id="Logout" value="logout" th:value="Logout">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
             </div>
+            <hr class="mx-2">
+            <div class="text-start">
+    
+              <a class="text-decoration-none text-danger px-3" data-bs-toggle="modal" data-bs-target="#deleteAccountModal"
+                href=""><i class="fas fa-trash-alt text-danger px-2 "></i>Delete Account</a>
+              <div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="deleteAccountModalLabel">Delete Account</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Are you sure you want to delete this account permanently?
+                    </div>
+                    <div class="modal-footer">
+                      <form th:action="@{/deleteProfile}" method="post">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-danger" value="Delete"></input>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="mx-2"> <br>
+          </div>
         </div>
-        <div class="text-start">
-            <a class="text-decoration-none text-dark px-3" href=""><i class="fas fa-sign-out-alt text-primary px-2"></i>logout</a>
-        </div>
-        <hr class="mx-2">
 
-        <div class="text-start">
-            <a class="text-decoration-none text-danger px-3" href=""><i class="fas fa-trash-alt text-danger px-2 "></i>Delete Account</a>
-        </div>
-        <hr class="mx-2"> <br>
+       
+  </main>
 
-
-    </div>
-</main>
-
-<footer class="bg-dark p-3 rounded-top top-100">
-    <p class="text-light text-center py-0 my-0">Copyright &copy; 2021 All rights reserved | Imala</p>
-</footer>
-<script src="../static/js/scroll.js" lang="javascript" th:src="@{/js/scroll.js}"></script>
-<script src="../static/js/editProfile.js" lang="javascript" th:src="@{/js/editProfile.js}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js}"></script>
-<script src="../static/js/bootstrap.bundle.min.js" th:href="@{/js/bootstrap.bundle.js}"></script>
+  <footer class="bg-dark p-3 rounded-top flex-shrink-0 mt-5">
+    <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
+  </footer>
+  <script src="../static/js/editProfile.js" lang="javascript" th:src="@{/js/editProfile.js}"></script>
+  <script  th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMALA | city Journey List</title>
+    <title>IMALA | user</title>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.css}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
     <link rel="icon" href="../images/icon.jpg" type="image/png">
@@ -48,7 +48,7 @@
         <br>
         <main class="container text-center m-auto flex-grow-1">
           <div class="col col-12 shadow mx-auto border rounded-3 bg-light px-2 px-sm-3 my-4 ">
-        <h1>List of City Journey</h1>
+        <h1>List of Users </h1>
         <hr>
         <table class="table table-striped">
             <thead>
@@ -60,13 +60,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="traffic:${traffics}">
-                    <td th:text="${traffic.fullName}"></td>
-                    <td th:text="${traffic.userName}"></td>
-                    <td th:text="${traffic.email}"></td>
-                    <td><a th:href="@{/updatetraffic(trafficId=${traffic.id})}" class="btn btn-outline-info">Edit</a>
-                        <a class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deleteModal" th:attr="data-bs-target='#deleteModal'+${code}">Delete</a>
-                        <div class="modal fade" th:id="deleteModal+${code}"  tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <tr th:each="user:${users}">
+                    <td th:text="${user.fullName}"></td>
+                    <td th:text="${user.username}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td><a th:href="@{/admin/updateUser(userId=${user.id})}" class="btn btn-outline-info">Edit</a>
+                        <a class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deleteModal" th:attr="data-bs-target='#deleteModal'+${user.id}">Delete</a>
+                        <div class="modal fade" th:id="deleteModal+${user.id}"  tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
@@ -78,7 +78,7 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <a th:href="@{/deletetraffic(trafficId=${traffic.id})}" class="btn btn-danger" >Delete</a>
+                                <a th:href="@{/admin/deleteUser/(userId=${user.id})}" class="btn btn-danger" >Delete</a>
                               </div>
                             </div>
                           </div>
@@ -95,7 +95,8 @@
 <footer class="bg-dark p-3 rounded-top flex-shrink-0">
   <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
 </footer>
-<script  th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<!-- <script src="../static/js/bootstrap.bundle.min.js" th:href="@{/js/bootstrap.bundle.min.js}"></script> -->
+<script src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>
 
 </body>
 

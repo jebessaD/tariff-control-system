@@ -37,14 +37,22 @@ public class profileController {
     @GetMapping("/profile")
     public ModelAndView showProfile(@AuthenticationPrincipal User user) {
         ModelAndView model = new ModelAndView("editProfile");
-        List<Description> myreports = descriptionRepository.findByUser(user);
-        EditProfile editProfile = new EditProfile();
-        EditUserName editUserName=new EditUserName();
-        model.addObject("myreports", myreports);
-        model.addObject("editUserName", editUserName);
-        model.addObject("editProfileForm", editProfile);
+        model.addObject("user", user);
         return model;
     }
+
+
+    @PostMapping("/editName")
+    public String editName(@Valid @ModelAttribute("user") User user,BindingResult result){
+        if(result.hasErrors()){
+            return "editProfile";
+        }
+        else{
+            userRepository.save(user);
+            return "/editProfile";
+        }
+    }
+
 
     @PostMapping("/changePassword")
     public String changePassword(@Valid @ModelAttribute("editProfileForm") EditProfile editProfile,

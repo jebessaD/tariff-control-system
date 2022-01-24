@@ -1,4 +1,3 @@
-// import swal from 'sweetalert';
 let p_form =document.querySelector("#changePassword");
 const password =document.querySelector("#psw_1");
 const c_password =document.querySelector("#psw_2");
@@ -11,43 +10,22 @@ p_form.addEventListener("submit",(e)=>{
                 error_msg.style.display="inline"
                 
             }
-        else{
-            //  e.preventDefault();
-              window.location.href = 'signup.html';
-            //   window.location.replace("signup.html");
-             
-            // e.preventDefault();
-            // swal("Good job!", "You clicked the button!", "success");
-            // swal({
-
-            //     position:'top-end',
-            //     icon: 'success',
-            //     title: 'Your password has been changed!',
-            //     showConfirmButton: false,
-            //     timer: 2000,
-            //     button: false,
-                
-            // })
-            // .then(function() {
-            //     window.location.href = 'login.html';
-            // });
-            
-            // window.location.href = 'login.html';
-
-            // return true;
-            
-        }
-     
-
         });
 
-        // outer scope
-//         hasSubmitted = false;
-//         //...
-//         p_form.submit(function(e) {
-//         if(hasSubmitted)return;
-//         hasSubmitted = true;
-//         //...
-//         })
+arrow =document.querySelectorAll(".fa-angle-down");
+arrowDirection=1;
 
-// console.log(hasSubmitted);
+
+for(let i=0;i<arrow.length;i++){
+  arrow[i].addEventListener("click", ()=>{
+    if (arrowDirection===1){
+    arrow[i].className="fas fa-angle-up";
+    arrowDirection*=-1;
+    }else{
+      arrow[i].className="fas fa-angle-down";
+      arrowDirection*=-1;
+  
+    }
+  })
+}
+
