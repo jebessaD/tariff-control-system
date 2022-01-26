@@ -69,7 +69,7 @@
                         <select class="card form-select  dropdown-toggle bg-light" name="role" data-bs-toggle="dropdown" aria-expanded="false" id="role">
                             <option class="form-control" th:each="roleType:${T(com.imala.imala.Security.User.Role).values()}" th:value="${roleType}" th:text="${roleType}" th:field="*{role}"></option>       
                     </div>  
-                </div>   <br> 
+                </div> 
                 <div class="form-group text-start small m-2">
                         <label th:for="email">Email</label>
                         <input  type="text" name="email" class="form-control rounded rounded-3 bg-light" th:field="*{email}" id="email" aria-describedby="emailHelp" placeholder="">

@@ -53,7 +53,7 @@
                 <form th:action="@{/searchBusTariff}" method="post" th:object="${searchingAttribute}">
                     <div class="form-group text-start small m-2 ">
                         <label class="py-1" for="Departure">Starting</label>
-                        <input  type="text" id="Departure" class="form-control rounded rounded-3 alert-secondary " list="start" placeholder="Choose starting point..."  >
+                        <input  type="text" id="Departure" th:field="*{departure}" class="form-control rounded rounded-3 alert-secondary " list="start" placeholder="Choose starting point..."  >
                         <div class="alert alert-warning" th:if="${#fields.hasErrors('departure')}" th:errors="*{departure}"></div>
                         <datalist id="start" th:each="station : ${crossCountry}">
                         <option th:each ="station : ${crossCountry}" th:value="${station.departure}"></option>

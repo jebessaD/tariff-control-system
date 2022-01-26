@@ -12,4 +12,9 @@ public class homeController {
         return model;
 
     }
+//     @GetMapping("/error")
+//     public ModelAndView error(){
+//         ModelAndView model=new ModelAndView("error");
+//         return model;
+//     }
 }

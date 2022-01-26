@@ -2,6 +2,7 @@ package com.imala.imala.description;
 
 import javax.validation.Valid;
 
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.imala.imala.Security.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import antlr.collections.List;
 import lombok.AllArgsConstructor;
 
 @Controller
@@ -66,6 +68,16 @@ public class DescriptionController {
    @GetMapping("/deleteReportByCode")
    public String deleteReportByCode(@RequestParam("code") String code){
      return descriptionService.deleteByCode(code);
+   }
+
+   @GetMapping("/myReports")
+   public ModelAndView myReports(@AuthenticationPrincipal User user){
+      return descriptionService.myReports(user);
+   }
+
+   @PostMapping("/deleteReport")
+   public String deleteReport(@RequestParam("reportId")Long id){
+       return descriptionService.deleteById(id);
    }
 
 }

@@ -18,8 +18,13 @@ public class DefaultAdmin implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        if(userRepository.existsByRole(Role.ADMIN)){
+            return;
+        }
+        else{
         User admin=new User("admin","admin",passwordEncoder.encode("abc123!"),"admin@gmail.com",Role.ADMIN);
         userRepository.save(admin);
+        }
         
     }
     
