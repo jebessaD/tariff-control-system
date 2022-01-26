@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" class="h-100" lang="en">
 
@@ -48,158 +47,149 @@
     </header>
     <br>
     <main class="container text-center m-auto flex-grow-1">
-      <div class="row my-4">
-        <div class="col-12 col-lg-4 my-3 m-sm-0">
-          <div class="card">
-            <div class="card-body">
-              <h2 class="card-title text-warning"> Profile</h2>
-              <table class="table text-start" th:each="profile :${user}">
-                <tr>
-                  <th>Full Name</th>
-                  <td th:value="${profile.fullName}" th:text="${profile.fullName}"></td>
-                
-                </tr>
-               
-                <tr>
-                  <th>User Name</th>
-                  <td th:value="${profile.username}" th:text="${profile.username}"></td>
-                </tr>
-               
-                <tr>
-                  <th>Email</th>
-                  <td th:value="${profile.email}" th:text="${profile.email}"></td>
-                </tr>
+        <div class="row my-4">
+            <div class="col-12 col-lg-4 my-3 m-sm-0">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-warning"> Profile</h2>
+                        <table class="table text-start" th:each="profile :${user}">
+                            <tr>
+                                <th>Full Name</th>
+                                <td th:value="${profile.fullName}" th:text="${profile.fullName}"></td>
 
-              </table>
-              <a th:href="@{/myReports}" class="btn btn-primary">My Reports</a>
+                            </tr>
+
+                            <tr>
+                                <th>User Name</th>
+                                <td th:value="${profile.username}" th:text="${profile.username}"></td>
+                            </tr>
+
+                            <tr>
+                                <th>Email</th>
+                                <td th:value="${profile.email}" th:text="${profile.email}"></td>
+                            </tr>
+
+                        </table>
+                        <a th:href="@{/myReports}" class="btn btn-primary">My Reports</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      <div class="col col-sm-12  col-lg-7 shadow-sm mx-auto border rounded-3 px-5 ">
-        <div class="text-start my-4 px-3">
-          <a class="text-start text-warning" aria-label="left Arrow" href="./index.html" th:href="@{/index}"></a>
-          <h3 class="text-start text-warning my-3  mb-5"><i class="fas fa-user-edit px-2"></i>Edit Profile</h3>
-        </div>
-        <hr class="mx-2">
-        <div id="profile">
-          <div class="d-flex container justify-content-between">
-            
-            <p class="p-0 m-0"><i class="fas fa-user-edit text-primary px-2"></i>Edit Name</p>
-            <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#editProfile" href="editProfile"><i
+            <div class="col col-sm-12  col-lg-7 shadow-sm mx-auto border rounded-3 px-5 ">
+                <div class="text-start my-4 px-3">
+                    <a class="text-start text-warning" aria-label="left Arrow" href="./index.html" th:href="@{/index}"></a>
+                    <h3 class="text-start text-warning my-3  mb-5"><i class="fas fa-user-edit px-2"></i>Edit Profile</h3>
+                </div>
+                <hr class="mx-2">
+                <div id="profile">
+                    <div class="d-flex container justify-content-between">
+
+                        <p class="p-0 m-0"><i class="fas fa-user-edit text-primary px-2"></i>Edit Name</p>
+                        <a data-bs-toggle="collapse" aria-label="Up Arrow" data-bs-target="#editProfile" href="editProfile"><i
                 class="fas fa-angle-down"></i></a>
-          </div>
-        </div>
-            
-            <form class="collapse  indent container my-3 px-5 text-start" id="editProfile" th:object="${user}" 
-              th:action="@{/editName}" data-parent="#password" method="post">
-              <h3>Edit Name</h3>
-              <div class="row row-cols-2">
-                
+                    </div>
+                </div>
+
+                <form class="collapse  indent container my-3 px-5 text-start" id="editProfile" th:object="${user}" th:action="@{/editName}" data-parent="#password" method="post">
+                    <h3>Edit Name</h3>
+                    <div class="row row-cols-2">
+
 
                         <div>
-                        <label for="fullName">Full name</label>
-                        <div class="text-start small py-2 ">
-                        <input type="text" th:field="*{fullName}" class="form-control bg-light" id="fullName" placeholder="">
-                        <!-- <div class="alert alert-warning color-warning" th:if="${#fields.hasErrors('fullName')}"
+                            <label for="fullName">Full name</label>
+                            <div class="text-start small py-2 ">
+                                <input type="text" th:field="*{fullName}" class="form-control bg-light" id="fullName" placeholder="">
+                                <!-- <div class="alert alert-warning color-warning" th:if="${#fields.hasErrors('fullName')}"
                           th:errors="*{fullName}"> -->
 
-                        </div>
+                            </div>
 
                         </div>
                         <div>
-                        <label for="userName">User Name</label>
-                        <div class="text-start small py-2 ">
-                          <input type="text" th:field="*{username}" class="form-control bg-light" id="userName" placeholder="">
-                          <!-- <div class="alert alert-warning color-warning" th:if="${#fields.hasErrors('username')}"
+                            <label for="userName">User Name</label>
+                            <div class="text-start small py-2 ">
+                                <input type="text" th:field="*{username}" class="form-control bg-light" id="userName" placeholder="">
+                                <!-- <div class="alert alert-warning color-warning" th:if="${#fields.hasErrors('username')}"
                             th:errors="*{username}"> -->
 
-                          </div>
+                            </div>
 
                         </div>
-                </div>
-                <div>
-                  <input type="hidden" th:field="*{id}">
-                  <input type="hidden" th:field="*{password}">
-                  <input type="hidden" th:field="*{email}">
-                  <input type="hidden" th:field="*{role}">
-                </div>
-                
-                
-              <button type="submit " class="btn btn-dark px-5">Save</button>
+                    </div>
+                    <div>
+                        <input type="hidden" th:field="*{id}">
+                        <input type="hidden" th:field="*{password}">
+                        <input type="hidden" th:field="*{email}">
+                        <input type="hidden" th:field="*{role}">
+                    </div>
 
-            </form>
-            <hr class="mx-2">
-            <div id="password">
-              <div class="d-flex container justify-content-between">
-                <p class="p-0 m-0"><i class="fas fa-unlock-alt text-primary px-2"> </i>Edit Password</p>
-                <a href="./changePassword.html"  th:href="@{/changePassword}"><i class="fas fa-angle-right"></i></a>
-              </div>
-              <hr class="mx-2">
-            </div>
-    
-          
-            <div class="text-start">
-              <a class="text-decoration-none text-dark px-3" data-bs-toggle="modal" data-bs-target="#logoutModal" href=""><i
+
+                    <button type="submit " class="btn btn-dark px-5">Save</button>
+
+                </form>
+                <hr class="mx-2">
+
+
+
+                <div class="text-start">
+                    <a class="text-decoration-none text-dark px-3" data-bs-toggle="modal" data-bs-target="#logoutModal" href=""><i
                   class="fas fa-sign-out-alt text-primary px-2"></i>logout</a>
-              <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want logout?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <form method="post" th:action="@{/logout}" id="logout">
+                                        <input type="submit" class="btn btn-dark" id="Logout" value="logout" th:value="Logout">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                      Are you sure you want logout?
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <form method="post" th:action="@{/logout}" id="logout">
-                        <input type="submit" class="btn btn-dark" id="Logout" value="logout" th:value="Logout">
-                      </form>
-                    </div>
-                  </div>
+
                 </div>
-              </div>
-    
-            </div>
-            <hr class="mx-2">
-            <div class="text-start">
-    
-              <a class="text-decoration-none text-danger px-3" data-bs-toggle="modal" data-bs-target="#deleteAccountModal"
-                href=""><i class="fas fa-trash-alt text-danger px-2 "></i>Delete Account</a>
-              <div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="deleteAccountModalLabel">Delete Account</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <hr class="mx-2">
+                <div class="text-start">
+
+                    <a class="text-decoration-none text-danger px-3" data-bs-toggle="modal" data-bs-target="#deleteAccountModal" href=""><i class="fas fa-trash-alt text-danger px-2 "></i>Delete Account</a>
+                    <div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteAccountModalLabel">Delete Account</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want to delete this account permanently?
+                                </div>
+                                <div class="modal-footer">
+                                    <form th:action="@{/deleteProfile}" method="post">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <input type="submit" class="btn btn-danger" value="Delete"></input>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                      Are you sure you want to delete this account permanently?
-                    </div>
-                    <div class="modal-footer">
-                      <form th:action="@{/deleteProfile}" method="post">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <input type="submit" class="btn btn-danger" value="Delete"></input>
-                      </form>
-                    </div>
-                  </div>
                 </div>
-              </div>
+                <hr class="mx-2"> <br>
             </div>
-            <hr class="mx-2"> <br>
-          </div>
         </div>
 
-       
-  </main>
 
-  <footer class="bg-dark p-3 rounded-top flex-shrink-0 mt-5">
-    <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
-  </footer>
-  <script src="../static/js/editProfile.js" lang="javascript" th:src="@{/js/editProfile.js}"></script>
-  <script  th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    </main>
+
+    <footer class="bg-dark p-3 rounded-top flex-shrink-0 mt-5">
+        <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
+    </footer>
+    <script src="../static/js/editProfile.js" lang="javascript" th:src="@{/js/editProfile.js}"></script>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
 
 </html>
