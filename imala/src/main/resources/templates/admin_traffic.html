@@ -53,22 +53,20 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Departure</th>
-                    <th>Deastination</th>
-                    <th>Tariff</th>
+                    <th>Full Name</th>
+                    <th>User Name</th>
+                    <th>Email</th>
                     <th>Change</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="cityJourney:${cityJourneys}" >
-                    <td th:text="${cityJourney.departure}"></td>
-                    <td th:text="${cityJourney.destination}"></td>
-                    <td th:text="${cityJourney.tariff}"></td>
-                    
-                    <td><a th:href="@{/admin/updateCityJourney(cityJourneyId=${cityJourney.id})}" class="btn btn-outline-info">Edit</a>
-                        <a class="btn btn-danger"  data-bs-toggle="modal"data-bs-target="#deleteModal" th:attr="data-bs-target='#deleteModal'+${cityJourney.id}">Delete</a>
-                        
-                        <div class="modal fade" id="deleteModal" tabindex="-1" th:id="deleteModal+${cityJourney.id}"aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <tr th:each="traffic:${traffics}">
+                    <td th:text="${traffic.fullName}"></td>
+                    <td th:text="${traffic.userName}"></td>
+                    <td th:text="${traffic.email}"></td>
+                    <td><a th:href="@{/updatetraffic(trafficId=${traffic.id})}" class="btn btn-outline-info">Edit</a>
+                        <a class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deleteModal" th:attr="data-bs-target='#deleteModal'+${code}">Delete</a>
+                        <div class="modal fade" th:id="deleteModal+${code}"  tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
@@ -80,7 +78,8 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                 <a th:href="@{/admin/deleteCityJourney(cityJourneyId=${cityJourney.id})}" class="btn btn-danger"  value="Delete">Delete</a>
+                                <a th:href="@{/deletetraffic(trafficId=${traffic.id})}" class="btn btn-danger" >Delete</a>
+                              </div>
                             </div>
                           </div>
                         </div>

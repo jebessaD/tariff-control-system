@@ -7,9 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.validation.BindingResult;
 import lombok.RequiredArgsConstructor;
 
 
@@ -23,11 +21,9 @@ public class CrossService {
     
 
     public ModelAndView crossCountryList() {
-        ModelAndView model = new ModelAndView("bus");
-
+        ModelAndView model = new ModelAndView("crossCountryList");
         List<CrossCountry> crossCountryList = crossRepository.findAll();
-
-        model.addObject("crossCountry", crossCountryList );
+        model.addObject("crossCountries", crossCountryList );
 
         return model;
 
@@ -76,29 +72,25 @@ public class CrossService {
 
     }
 
-    public String saveCrossCountry(@ModelAttribute("newCrossCountry") CrossCountry crossCountry,BindingResult result){
+    public String saveCrossCountry(CrossCountry crossCountry){
         crossRepository.save(crossCountry);
-        return "redirect:/addCrossCountry";
+        return "redirect:/admin/addCrossJourney";
     }
 
 
 
-    public String deleteCrossCountry(@RequestParam Long crossCountry){
-        crossRepository.deleteById(crossCountry);
-        return "redirect:/crossCountryList";
+    public String deleteCrossCountry(Long crossCountryId){
+        crossRepository.deleteById(crossCountryId);
+        return "redirect:/admin/crossCountryList";
     }
 
 
 
 
-    public ModelAndView updateCrossCountry(@RequestParam Long crossCountryId){
-        
+    public ModelAndView updateCrossCountry(Long crossCountryId){   
         ModelAndView model = new ModelAndView("add_cross_country");
-
         CrossCountry crossCountry = crossRepository.findById(crossCountryId).get();
-
         model.addObject("newCrossCountry", crossCountry);
-
         return model;
     }
 

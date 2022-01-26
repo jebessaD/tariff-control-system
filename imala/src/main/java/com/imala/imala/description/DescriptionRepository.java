@@ -6,6 +6,8 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
+import com.imala.imala.Security.User;
+
 // import org.hibernate.query.criteria.internal.expression.function.AggregationFunction.LEAST;
 import org.springframework.data.jpa.repository.Query;
 
@@ -17,4 +19,14 @@ public interface DescriptionRepository extends CrudRepository<Description, Long>
     int countReport( @Param("code") String code);
 
     List<Description> findByCode(String code);
+    List<Description> findByUser(User user);
+
+    @Query(value="SELECT DISTINCT(code) FROM description",nativeQuery = true)
+    List<String> findDistinctByCode();
+    Integer countByCode(String code);
+
+    
+
+
+
 }
