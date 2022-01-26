@@ -13,10 +13,10 @@ public class homeController {
 
     }
 
-    // @GetMapping("/login")
-    // public ModelAndView login() {
-    //     ModelAndView model = new ModelAndView("login");
-    //     return model;
+    @GetMapping("/about")
+    public String about() {
+        return "about";
+    }
 
-    // }
+    
 }
