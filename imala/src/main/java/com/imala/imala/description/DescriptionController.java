@@ -58,7 +58,7 @@ public class DescriptionController {
             return descriptionService.saveReport(newdescription,user);
         }
     }
-   @GetMapping("/editReport")
+   @GetMapping("/admin/editReport")
    public ModelAndView editReport(){
        return descriptionService.editReport();
 

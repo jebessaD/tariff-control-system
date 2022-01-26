@@ -23,7 +23,7 @@ public class CityJourneyController {
     @Autowired
     CityJourneyService cityJourneyService;
 
-    @GetMapping("/cityJourneyList")
+    @GetMapping("/admin/cityJourneyList")
     public ModelAndView cityJourneyList() {
         return cityJourneyService.getCityJourneyList();
     }
@@ -45,7 +45,7 @@ public class CityJourneyController {
         }
     }
 
-    @GetMapping("/addCityJourney")
+    @GetMapping("/admin/addCityJourney")
     public ModelAndView addCityJourney() {
         ModelAndView model = new ModelAndView("add_city_journey_form");
         CityJourney cityJourney = new CityJourney();
@@ -53,7 +53,7 @@ public class CityJourneyController {
         return model;
     }
 
-    @PostMapping("/saveCityJourney")
+    @PostMapping("/admin/saveCityJourney")
     public String saveCityJourney(@Valid @ModelAttribute("newCityJourney") CityJourney cityJourney,
             BindingResult bindingResult) {
         return cityJourneyService.saveJourney(cityJourney, bindingResult);
@@ -61,12 +61,12 @@ public class CityJourneyController {
     }
 
     
-    @GetMapping("/deleteCityJourney")
+    @GetMapping("/admin/deleteCityJourney")
     public String deleteCityJourney(@RequestParam Long cityJourneyId) {
         return cityJourneyService.deleteJourney(cityJourneyId);
     }
 
-    @GetMapping("/updateCityJourney")
+    @GetMapping("/admin/updateCityJourney")
     public ModelAndView updateCityJourney(@RequestParam Long cityJourneyId) {
         return cityJourneyService.updateJourney(cityJourneyId);
     }

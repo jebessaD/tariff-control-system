@@ -2,21 +2,19 @@ package com.imala.imala.Profile;
 
 import java.util.List;
 
-import javax.sound.sampled.Line;
+
+import javax.validation.Valid;
 
 import com.imala.imala.Security.SignUpForm;
 import com.imala.imala.Security.User;
 import com.imala.imala.Security.UserRepository;
 import com.imala.imala.Security.User.Role;
-import com.imala.imala.cityJourney.CityJourneyRepository;
-import com.imala.imala.cityJourney.CityJourneyService;
-import com.imala.imala.crosscountry.CrossRepository;
 import com.imala.imala.description.DescriptionRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,21 +30,12 @@ public class adminHomeController {
     private UserRepository userRepository;
 
     @Autowired
-    private CityJourneyService cityJourneyService;
-
-    @Autowired
     private DescriptionRepository descriptionRepository;
-
-    @Autowired
-    private CityJourneyRepository cityJourneyRepository;
-
-    @Autowired
-    private CrossRepository crossRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @GetMapping("/adminHome")
+    @GetMapping("/admin/adminHome")
     public ModelAndView showAdminHome(){
         ModelAndView model=new ModelAndView("adminHome");
         int userCount=userRepository.countByRole(Role.USER);
@@ -58,11 +47,10 @@ public class adminHomeController {
         model.addObject("countAdmin", adminCount);
         model.addObject("countReport", reportCount);
         return model;
-      
-
     }
 
-    @GetMapping("/trafficsList")
+
+    @GetMapping("/admin/trafficsList")
     public ModelAndView trafficsList(){
         List<User> traffics=userRepository.findByRole(Role.TRAFFIC);
         ModelAndView model=new ModelAndView("editTraffic");
@@ -70,6 +58,7 @@ public class adminHomeController {
         return model;
     }
     
+
     @GetMapping("/admin/updatetraffic")
     public ModelAndView updateTraffic(@RequestParam("trafficId")Long id){
         ModelAndView model=new ModelAndView("traffic_update");
@@ -78,28 +67,44 @@ public class adminHomeController {
         return model;
     }
 
-    @PostMapping("/updateTraffic")
-    public String saveTrafficUpdate(@ModelAttribute("traffic") User user){
+
+    @PostMapping("/admin/updateTraffic")
+    public String saveTrafficUpdate(@Valid @ModelAttribute("traffic") User user,BindingResult result){
+        if(result.hasErrors()){
+            return "traffic_update";
+        }
+        else{
         userRepository.save(user);
-        return "redirect:/trafficsList";
+        return "redirect:/admin/trafficsList";
+        }
     }
+
 
     @GetMapping("/admin/deletetraffic")
     public String deleteTraffic(@ModelAttribute("trafficId") Long id){
         userRepository.deleteById(id);
-        return "redirect:/trafficsList";
+        return "redirect:/admin/trafficsList";
     }
 
-    @GetMapping("/addTraffic")
-    public String showAddTrafficForm(){
-        return "addTraffic";
+
+    @GetMapping("/admin/addTraffic")
+    public ModelAndView showAddTrafficForm(){
+        ModelAndView model=new ModelAndView("addTraffic");
+        model.addObject("signUpForm", new SignUpForm());
+        return model;
     }
+
 
     @PostMapping("/admin/addTraffic")
-    public String addTraffic(SignUpForm signUpForm) {
+    public String addTraffic(@Valid @ModelAttribute SignUpForm signUpForm,BindingResult result) {
+        if(result.hasErrors()){
+            return "addTraffic";
+        }
+        else{
         signUpForm.setRole(Role.TRAFFIC);
         userRepository.save(signUpForm.createUser(passwordEncoder));
-        return "redirect:/trafficsList";
+        return "redirect:/admin/trafficsList";
+        }
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -108,7 +113,7 @@ public class adminHomeController {
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////
-    @GetMapping("/adminsList")
+    @GetMapping("/admin/adminsList")
     public ModelAndView adminsList(){
         List<User> admins=userRepository.findByRole(Role.ADMIN);
         ModelAndView model=new ModelAndView("editAdmin");
@@ -125,28 +130,42 @@ public class adminHomeController {
     }
 
 
-    @PostMapping("/updateAdmin")
-    public String saveAdminUpdate(@ModelAttribute("admin") User user){
+    @PostMapping("/admin/updateAdmin")
+    public String saveAdminUpdate(@Valid @ModelAttribute("admin") User user,BindingResult result){
+
+        if(result.hasErrors()){
+            return "admin_update";
+        }
+        else{
         userRepository.save(user);
-        return "redirect:/adminsList";
+        return "redirect:/admin/adminsList";
+        }
     }
 
-    @GetMapping("/admin/deleteAdmin")
+    @GetMapping("/admin/deleteadmin")
     public String deleteAdmin(@ModelAttribute("adminId") Long id){
         userRepository.deleteById(id);
-        return "redirect:/adminsList";
+        return "redirect:/admin/adminsList";
     }
 
-    @GetMapping("/addAdmin")
-    public String showAddAdminForm(){
-        return "addAdmin";
+    @GetMapping("/admin/addAdmin")
+    public ModelAndView showAddAdminForm(){
+        ModelAndView model=new ModelAndView("addAdmin");
+        model.addObject("signUpForm", new SignUpForm());
+        return model;
     }
 
     @PostMapping("/admin/addAdmin")
-    public String addAdmin(SignUpForm signUpForm) {
+    public String addAdmin(@Valid @ModelAttribute("signUpForm") SignUpForm signUpForm,BindingResult result) {
+        
+        if(result.hasErrors()){
+            return "addAdmin";
+        }
+        else{
         signUpForm.setRole(Role.ADMIN);
         userRepository.save(signUpForm.createUser(passwordEncoder));
-        return "redirect:/adminsList";
+        return "redirect:/admin/adminsList";
+        }
     }
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -155,7 +174,7 @@ public class adminHomeController {
 
         /////////////////////////////////////////////////////////////////////////////////////
 
-@GetMapping("/usersList")
+@GetMapping("/admin/usersList")
     public ModelAndView usersList(){
         List<User> users=userRepository.findByRole(Role.USER);
         ModelAndView model=new ModelAndView("editUser");
@@ -171,15 +190,20 @@ public class adminHomeController {
         return model;
     }
     
-    @PostMapping("/updateUser")
-    public String saveUserUpdate(@ModelAttribute("user") User user){
+    @PostMapping("/admin/updateUser")
+    public String saveUserUpdate(@Valid @ModelAttribute("user") User user,BindingResult result){
+        if(result.hasErrors()){
+            return "user_update";
+        }
+        else{
         userRepository.save(user);
-        return "redirect:/usersList";
+        return "redirect:/admin/usersList";
+        }
     }
 
     @GetMapping("/admin/deleteUser")
     public String deleteUser(@ModelAttribute("userId") Long id){
         userRepository.deleteById(id);
-        return "redirect:/usersList";
+        return "redirect:/admin/usersList";
     }
 }

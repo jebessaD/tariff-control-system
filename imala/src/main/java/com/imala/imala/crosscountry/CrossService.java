@@ -7,9 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.validation.BindingResult;
 import lombok.RequiredArgsConstructor;
 
 
@@ -76,14 +74,14 @@ public class CrossService {
 
     public String saveCrossCountry(CrossCountry crossCountry){
         crossRepository.save(crossCountry);
-        return "redirect:/addCrossJourney";
+        return "redirect:/admin/addCrossJourney";
     }
 
 
 
     public String deleteCrossCountry(Long crossCountryId){
         crossRepository.deleteById(crossCountryId);
-        return "redirect:/crossCountryList";
+        return "redirect:/admin/crossCountryList";
     }
 
 

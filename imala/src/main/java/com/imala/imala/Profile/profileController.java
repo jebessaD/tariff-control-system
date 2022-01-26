@@ -2,6 +2,8 @@ package com.imala.imala.Profile;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.imala.imala.Security.User;
 import com.imala.imala.Security.UserRepository;
 import com.imala.imala.description.Description;
@@ -11,16 +13,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+
+
 @Controller
 public class profileController {
-    // ,@AuthenticationPrincipal User user
-    @Autowired
+    
+    @Autowired   
     private UserRepository userRepository;
 
     @Autowired
@@ -34,27 +39,41 @@ public class profileController {
         ModelAndView model = new ModelAndView("editProfile");
         List<Description> myreports = descriptionRepository.findByUser(user);
         EditProfile editProfile = new EditProfile();
+        EditUserName editUserName=new EditUserName();
         model.addObject("myreports", myreports);
+        model.addObject("editUserName", editUserName);
         model.addObject("editProfileForm", editProfile);
         return model;
     }
 
     @PostMapping("/changePassword")
-    public String changePassword(@ModelAttribute("editProfileForm") EditProfile editProfile,
-            @AuthenticationPrincipal User user) {
-        if (passwordEncoder.matches(editProfile.getOldPassword(), user.getPassword())) {
+    public String changePassword(@Valid @ModelAttribute("editProfileForm") EditProfile editProfile,
+            @AuthenticationPrincipal User user,BindingResult result) {
+                  
+                      
+        
+        if ((!result.hasErrors())&&passwordEncoder.matches(editProfile.getOldPassword(), user.getPassword())){
             user.setPassword(passwordEncoder.encode(editProfile.getNewPassword()));
             userRepository.save(user);
+            return "redirect:/profile";
         }
-        return "redirect:/profile";
+        else{                  
+            return "editProfile";
+        }
+        
     }
 
     @PostMapping("/changeUsername")
-    public String changeUsername(@ModelAttribute("editProfileForm") EditProfile editProfileForm,
-            @AuthenticationPrincipal User user) {
-        user.setUsername(editProfileForm.getUsername());
+    public String changeUsername(@Valid @ModelAttribute EditUserName username,
+            @AuthenticationPrincipal User user,BindingResult result) {
+        if(result.hasErrors()){
+            return "editProfile";
+        }
+        else{
+        user.setUsername(username.getUsername());
         userRepository.save(user);
         return "redirect:/profile";
+        }
     }
 
     @PostMapping("/deleteProfile")

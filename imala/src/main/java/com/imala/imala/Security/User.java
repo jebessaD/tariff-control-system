@@ -11,6 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -27,13 +30,24 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @NotBlank
     private String username;
+
+    @NotBlank
     private String fullName;
+
     private String password;
+
+    @Email
+    @NotBlank
     private String email;
+    
+    
     private Role role;
+    
     @OneToMany(mappedBy = "user", cascade=CascadeType.REMOVE)
-    private List<Description> reports;
+    private List<Description> reports; 
 
 
     public static enum Role {

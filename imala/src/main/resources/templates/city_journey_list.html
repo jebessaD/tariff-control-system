@@ -65,7 +65,7 @@
                     <td th:text="${cityJourney.destination}"></td>
                     <td th:text="${cityJourney.tariff}"></td>
                     
-                    <td><a th:href="@{/updateCityJourney(cityJourneyId=${cityJourney.id})}" class="btn btn-outline-info">Edit</a>
+                    <td><a th:href="@{/admin/updateCityJourney(cityJourneyId=${cityJourney.id})}" class="btn btn-outline-info">Edit</a>
                         <a class="btn btn-danger"  data-bs-toggle="modal"data-bs-target="#deleteModal" th:attr="data-bs-target='#deleteModal'+${cityJourney.id}">Delete</a>
                         
                         <div class="modal fade" id="deleteModal" tabindex="-1" th:id="deleteModal+${cityJourney.id}"aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -80,7 +80,7 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                 <a th:href="@{/deleteCityJourney(cityJourneyId=${cityJourney.id})}" class="btn btn-danger"  value="Delete">Delete</a>
+                                 <a th:href="@{/admin/deleteCityJourney(cityJourneyId=${cityJourney.id})}" class="btn btn-danger"  value="Delete">Delete</a>
                             </div>
                           </div>
                         </div>

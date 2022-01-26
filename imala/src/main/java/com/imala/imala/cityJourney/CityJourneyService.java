@@ -62,13 +62,13 @@ public class CityJourneyService {
         } else {
             if (redundancyCheck == null) {
                 cityJourneyRepository.save(cityJourney);
-                return "redirect:/addCityJourney";
+                return "redirect:/admin/addCityJourney";
             } else {
 
                 CityJourney newCityJourney = cityJourneyRepository.findById(redundancyCheck.getId()).get();
                 newCityJourney.setTariff(cityJourney.getTariff());
                 cityJourneyRepository.save(newCityJourney);
-                return "redirect:/addCityJourney";
+                return "redirect:/admin/addCityJourney";
             }
 
         }
@@ -77,7 +77,7 @@ public class CityJourneyService {
 
     public String deleteJourney(Long cityJourneyId) {
         cityJourneyRepository.deleteById(cityJourneyId);
-        return "redirect:/cityJourneyList";
+        return "redirect:/admin/cityJourneyList";
     }
 
     public ModelAndView updateJourney(Long cityJourneyId) {

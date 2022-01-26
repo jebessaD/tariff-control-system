@@ -3,19 +3,16 @@ package com.imala.imala.description;
 import java.util.HashMap;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.imala.imala.Security.User;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+
 
 @AllArgsConstructor
 @Service
-@Slf4j
+
 public class DescriptionService {
 
     private DescriptionRepository descriptionRepository;
