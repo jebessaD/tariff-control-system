@@ -14,28 +14,9 @@ form.addEventListener("submit",(e)=>{
             }
         else{
              
-            // e.preventDefault();
-            // alert("ggg")
-            // swal("Good job!", "You clicked the button!", "success");
-            // swal({
-
-            //     position:'top-end',
-            //     icon: 'success',
-            //     title: 'You have successfully registered',
-            //     showConfirmButton: false,
-            //     timer: 2000,
-            //     button: false,
-                
-            // })
-            // .then(function() {
-            //     return true;
-            //     // e.returnValue = true;
-            //     // window.location.href = 'login.html';
-            // });
-            
+           
             window.location.href = 'signup.html';
             
-            // return true;
             
         }
         });
