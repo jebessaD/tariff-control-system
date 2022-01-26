@@ -9,43 +9,36 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 // import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-
-
-
 @Service
 public class CityJourneyService {
 
     @Autowired
     private CityJourneyRepository cityJourneyRepository;
 
-
-
-
-    public ModelAndView getCityJourneyList(){
+    public ModelAndView getCityJourneyList() {
         ModelAndView model = new ModelAndView("city_journey_list");
         List<CityJourney> cityJourneyList = cityJourneyRepository.findByOrderByDepartureAsc();
         model.addObject("cityJourneys", cityJourneyList);
         return model;
     }
 
-
-    public ModelAndView getSearchingAttribute(){
+    public ModelAndView getSearchingAttribute() {
         ModelAndView model = new ModelAndView("check_tariff");
         SearchingAttribute searchingAttribute = new SearchingAttribute();
         List<String> distinctDeparture = cityJourneyRepository.findDistinctByOrderByDepartureAsc();
         List<String> distinctDestination = cityJourneyRepository.findDistinctByOrderByDestinationAsc();
-        model.addObject("distnictDeparture",distinctDeparture );
-        model.addObject("distnictDestination",distinctDestination);
+        model.addObject("distnictDeparture", distinctDeparture);
+        model.addObject("distnictDestination", distinctDestination);
         model.addObject("searchingAttribute", searchingAttribute);
         return model;
     }
-    
-    public ModelAndView searchTariff(@ModelAttribute("searchingAttribute") SearchingAttribute searchingAttribute){
+
+    public ModelAndView searchTariff(@ModelAttribute("searchingAttribute") SearchingAttribute searchingAttribute) {
         ModelAndView model = new ModelAndView("check_Tariff");
 
         CityJourney cityJourney = cityJourneyRepository.search(searchingAttribute.getDeparture(),
                 searchingAttribute.getDestination());
-     
+
         if (cityJourney != null) {
             model.addObject("departure", cityJourney.getDeparture());
             model.addObject("destination", cityJourney.getDestination());
@@ -59,46 +52,36 @@ public class CityJourneyService {
         }
         return model;
     }
-     
-    
 
-    
-    public String saveJourney(CityJourney cityJourney,BindingResult bindingResult){
+    public String saveJourney(CityJourney cityJourney, BindingResult bindingResult) {
 
-        CityJourney redundancyCheck=cityJourneyRepository.search(cityJourney.getDeparture(),cityJourney.getDestination());
-       if(bindingResult.hasErrors()){
-           return "add_city_journey_form";
-       }
-       else{
-        if (redundancyCheck==null) {
-            cityJourneyRepository.save(cityJourney);
-            return "redirect:/addCityJourney";
+        CityJourney redundancyCheck = cityJourneyRepository.search(cityJourney.getDeparture(),
+                cityJourney.getDestination());
+        if (bindingResult.hasErrors()) {
+            return "add_city_journey_form";
+        } else {
+            if (redundancyCheck == null) {
+                cityJourneyRepository.save(cityJourney);
+                return "redirect:/admin/addCityJourney";
+            } else {
+
+                CityJourney newCityJourney = cityJourneyRepository.findById(redundancyCheck.getId()).get();
+                newCityJourney.setTariff(cityJourney.getTariff());
+                cityJourneyRepository.save(newCityJourney);
+                return "redirect:/admin/addCityJourney";
+            }
+
         }
-        else{
-            
-            CityJourney newCityJourney=cityJourneyRepository.findById(redundancyCheck.getId()).get();
-            newCityJourney.setTariff(cityJourney.getTariff());
-            cityJourneyRepository.save(newCityJourney);
-            return "redirect:/addCityJourney";
-        }
-       
-    }
-        
-        
+
     }
 
-
-
-    public String deleteJourney(Long cityJourneyId){
+    public String deleteJourney(Long cityJourneyId) {
         cityJourneyRepository.deleteById(cityJourneyId);
-        return "redirect:/cityJourneyList";
+        return "redirect:/admin/cityJourneyList";
     }
 
+    public ModelAndView updateJourney(Long cityJourneyId) {
 
-
-
-    public ModelAndView updateJourney(Long cityJourneyId){
-        
         ModelAndView model = new ModelAndView("add_city_journey_form");
 
         CityJourney cityJourney = cityJourneyRepository.findById(cityJourneyId).get();

@@ -27,8 +27,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./login.html" th:href="@{/login}">LOGIN</a>
+                        <li class="nav-item" sec:authorize="!isAuthenticated()">
+                            <a class="nav-link btn btn-dark mx-1   px-2 text-light" href="./login.html" th:href="@{/login}">LOGIN</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about}">ABOUT</a>
@@ -53,7 +53,7 @@
                         <h1 class="text-center text-primary my-2  py-2 pb-4 border-bottom">WELCOME</h1>
                         <p class="text-danger lead">Where do you want to go? we provided you helpful information</p>
                         <p class="lead">Get transport fares online everywhere <br> choose what you want</p>
-                        <!-- <a href="./admin.html " th:href="@{/admin}" th:if="${user.role}=='ADMIN'" class="btn btn-outline-dark px-5">ADMIN</a> -->
+                        <a th:href="@{/admin/adminHome}" sec:authorize="hasRole('ADMIN')" class="btn btn-outline-dark px-5">ADMIN</a>
 
                     </section>
                 </div>
@@ -63,7 +63,7 @@
                 <div class="col-12">
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                         <div class="col">
-                            <div class="card shadow">
+                            <div class="card shadow-sm">
                                 <img src="../static/images/taxi.gif" th:attr="src=@{/images/taxi.gif},title=#{Taxi fare},alt=#{Taxi fare}" class="card-img-top " alt="Taxi car">
                                 <div class="card-body border">
                                     <h5 class="card-title">Taxi Fares</h5>
@@ -74,7 +74,7 @@
 
                         </div>
                         <div class="col">
-                            <div class="card shadow">
+                            <div class="card shadow-sm">
                                 <img src="../static/images/bus.jpg" th:attr="src=@{/images/bus.jpg},title=#{Bus fare},alt=#{Bus fare}" class="card-img-top" alt="Taxi car">
                                 <div class="card-body border">
                                     <h5 class="card-title">Bus Fares</h5>
@@ -84,7 +84,8 @@
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card shadow">
+                            <div class="card shadow-sm">
+            
                                 <img src="../static/images/report3.jpg" th:attr="src=@{/images/report3.jpg},title=#{Taxi fare},alt=#{Taxi fare}" class="card-img-top" alt="Taxi car">
                                 <div class="card-body border">
                                     <h5 class="card-title">Report ILLEGALS</h5>

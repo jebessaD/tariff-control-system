@@ -1,18 +1,20 @@
 package com.imala.imala.description;
 
+import java.util.HashMap;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.imala.imala.security.User;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import lombok.AllArgsConstructor;
 
+
 @AllArgsConstructor
 @Service
+
 public class DescriptionService {
 
-    @Autowired
     private DescriptionRepository descriptionRepository;
 
     public ModelAndView reportList() {
@@ -41,10 +43,33 @@ public class DescriptionService {
 
     }
 
-    public String saveReport(Description newdescription) {
-
+    public String saveReport(Description newdescription, User user) {
+        newdescription.setUser(user);
         descriptionRepository.save(newdescription);
         return "redirect:/";
+    }
+
+    public ModelAndView editReport(){
+        ModelAndView model=new ModelAndView("editReport");
+        HashMap<String,Integer> reportMap=new HashMap<>();
+        List<String> codes=descriptionRepository.findDistinctByCode();
+        for (String code: codes) {
+          reportMap.put(code, descriptionRepository.countByCode(code)) ;
+        }
+        model.addObject("reportMap", reportMap);
+        model.addObject("codes",codes);
+        return model;
+        
+    }
+    public String deleteByCode(String code){
+//    log.error("Delete report by code {}",code);
+        List<Description> list=descriptionRepository.findByCode(code);
+        for (Description description : list) {
+            descriptionRepository.deleteById(description.getId());;
+            
+        }
+        // descriptionRepository.deleteAllByCode(code);
+        return "redirect:/editReport";
     }
 
 }
