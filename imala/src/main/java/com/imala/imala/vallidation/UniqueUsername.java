@@ -12,7 +12,7 @@ import javax.validation.Payload;
 
 @Target(value = ElementType.FIELD)
 @Retention(value = RetentionPolicy.RUNTIME)
-@Constraint(validatedBy =UniqueEmailValidator.class)
+@Constraint(validatedBy =UniqueUsernameValidator.class)
 @Documented
 public @interface UniqueUsername {
     String message() default "not working";

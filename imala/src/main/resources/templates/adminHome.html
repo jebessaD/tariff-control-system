@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.css}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
         th:href="@{https://use.fontawesome.com/releases/v5.4.1/css/all.css}">
-    <link rel="icon" href="../images/icon.jpg" type="image/png">
+    <link rel="icon" href="../images/icon.jpg"  th:href="@{/images/icon.jpg}" type="image/png">
 </head>
 
 <body class="h-100 d-flex flex-column bg-light">
@@ -85,7 +85,7 @@
                                 <div class="card-body alert-success p-0">
                                     <!-- <h2 style="font-size: 50px;" class="card-title pt-3  text-dark"><i class="fas fa-users text-dark "></i></h2> -->
                                     <div class="w-50 mx-auto my-3">
-                                        <img src="../static/images/clipart2327180.png" class="w-25" alt="">
+                                        <img src="../static/images/clipart2327180.png" th:src ="@{/images/clipart2327180.png}" class="w-25" alt="">
                                     </div>
                                     <h5 class="mt-2">NUMBER OF TRAFFIC POLICE</h5>
                                     <h2 class="pb-2 w-50 m-auto" th:text="${countTraffic}">.</h2>
@@ -206,7 +206,7 @@
     <footer class="bg-dark p-3 rounded-top flex-shrink-0">
         <p class="text-light text-center py-0 my-0">Copyright &copy; 2022 All rights reserved | Imala</p>
     </footer>
-    <script src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    <script  th:src="@{/js/bootstrap.bundle.min.js}"></script>
 
 </body>
 
