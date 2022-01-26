@@ -73,7 +73,7 @@
               <div class="form-group text-start small m-2 my-4 ">
                   <button type="submit " class="btn btn-dark w-100 rounded rounded-3 submit_form ">Report</button>
               </div>
-              <div class="text-start m-2 my-4 " sec:authorize="hasRole('TRAFFIC')">
+              <div class="text-start m-2 my-4 " sec:authorize="hasAnyRole('TRAFFIC','ADMIN')">
                 <p class="text-start p-0 m-0 px-2 small "><a th:href="@{/checkReport}" class="text-primary text-decoration-none ">CHECK REPORTS</p>
               </div>
           </form>

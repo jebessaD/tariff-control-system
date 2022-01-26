@@ -2,14 +2,17 @@ package com.imala.imala.description;
 
 import javax.validation.Valid;
 
+import com.imala.imala.Security.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import lombok.AllArgsConstructor;
@@ -47,12 +50,22 @@ public class DescriptionController {
 
     @PostMapping("/saveReport")
     public String saveReport(@Valid @ModelAttribute("newdescription") Description newdescription,
-            BindingResult result) {
+            BindingResult result,@AuthenticationPrincipal User user) {
         if (result.hasErrors()) {
             return "report";
         } else {
-            return descriptionService.saveReport(newdescription);
+            
+            return descriptionService.saveReport(newdescription,user);
         }
     }
+   @GetMapping("/admin/editReport")
+   public ModelAndView editReport(){
+       return descriptionService.editReport();
+
+   }
+   @GetMapping("/deleteReportByCode")
+   public String deleteReportByCode(@RequestParam("code") String code){
+     return descriptionService.deleteByCode(code);
+   }
 
 }

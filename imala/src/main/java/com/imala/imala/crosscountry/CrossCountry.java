@@ -63,10 +63,7 @@ public class CrossCountry {
     @NotBlank
     private String bus;
 
-    // public static enum Type {
-    //     ODA, SELAM, GHION, ABAY
-    // }
-
+    
     public CrossCountry(String departure, String destination, double tariff, String bus) {
         this.departure = departure;
         this.destination = destination;

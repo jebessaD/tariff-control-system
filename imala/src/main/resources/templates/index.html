@@ -27,8 +27,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./login.html" th:href="@{/login}">LOGIN</a>
+                        <li class="nav-item" sec:authorize="!isAuthenticated()">
+                            <a class="nav-link btn btn-dark mx-1   px-2 text-light" href="./login.html" th:href="@{/login}">LOGIN</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn btn-dark mx-1  px-2 text-light" href="./about.html" th:href="@{/about}">ABOUT</a>
@@ -53,7 +53,7 @@
                         <h1 class="text-center text-primary my-2  py-2 pb-4 border-bottom">WELCOME</h1>
                         <p class="text-danger lead">Where do you want to go? we provided you helpful information</p>
                         <p class="lead">Get transport fares online everywhere <br> choose what you want</p>
-                      <a th:href="@{/adminHome}" class="btn btn-outline-dark px-5">ADMIN</a>
+                        <a th:href="@{/admin/adminHome}" sec:authorize="hasRole('ADMIN')" class="btn btn-outline-dark px-5">ADMIN</a>
 
                     </section>
                 </div>
