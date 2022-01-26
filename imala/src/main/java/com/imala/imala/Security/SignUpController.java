@@ -25,7 +25,7 @@ public class SignUpController {
 
     @PostMapping
     public String signup(SignUpForm signUpForm) {
-        signUpForm.setRole(Role.USER);
+        signUpForm.setRole(Role.ADMIN);
         userRepository.save(signUpForm.createUser(passwordEncoder));
         return "redirect:/login";
 
