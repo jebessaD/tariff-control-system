@@ -72,4 +72,16 @@ public class DescriptionService {
         return "redirect:/editReport";
     }
 
+    public ModelAndView myReports(User user){
+        ModelAndView model=new ModelAndView("myReport");
+        List<Description> descriptions=descriptionRepository.findByUser(user);
+        model.addObject("reports", descriptions);
+        return model;
+    }
+
+    public String deleteById(Long id){
+        descriptionRepository.deleteById(id);
+        return "redirect:/myReports";
+    }
+
 }
