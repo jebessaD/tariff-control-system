@@ -26,6 +26,9 @@ public class DescriptionController {
     @Autowired
     private DescriptionService descriptionService;
 
+    @Autowired
+    private DescriptionRepository descriptionRepository;
+
     @GetMapping("/checkReport")
     public ModelAndView reportList() {
         return descriptionService.reportList();
@@ -75,9 +78,21 @@ public class DescriptionController {
       return descriptionService.myReports(user);
    }
 
-   @PostMapping("/deleteReport")
+   @GetMapping("/deleteReport")
    public String deleteReport(@RequestParam("reportId")Long id){
        return descriptionService.deleteById(id);
    }
+
+   @GetMapping("/updateMyReport")
+   public ModelAndView updateMyReport(@RequestParam("reportId")Long id){
+       ModelAndView model=new ModelAndView("editMyReport");
+       Description newDescription=descriptionRepository.findById(id).get();
+       model.addObject("newdescription",newDescription );
+       return model;
+ 
+   }
+ 
+
+
 
 }

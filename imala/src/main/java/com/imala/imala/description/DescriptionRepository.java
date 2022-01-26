@@ -21,6 +21,8 @@ public interface DescriptionRepository extends CrudRepository<Description, Long>
     List<Description> findByCode(String code);
     List<Description> findByUser(User user);
 
+   
+
     @Query(value="SELECT DISTINCT(code) FROM description",nativeQuery = true)
     List<String> findDistinctByCode();
     Integer countByCode(String code);

@@ -80,7 +80,7 @@
                                         <td th:text="${report.message}"></td>
                                     </div>
                                     <div class="mt-4">
-                                        <a th:href="@{/updateReport(reportId=${report.id})}"
+                                        <a th:href="@{/updateMyReport(reportId=${report.id})}"
                                             class="btn btn-primary">Edit</a>
                                         <a class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deleteModal"
                                             th:attr="data-bs-target='#deleteModal'+${report.id}">Delete</a>
