@@ -47,4 +47,30 @@ public class DescriptionService {
         descriptionRepository.save(newdescription);
         return "redirect:/";
     }
+
+    public ModelAndView editReport() {
+        ModelAndView model = new ModelAndView("editReport");
+        HashMap<String, Integer> reportMap = new HashMap<>();
+        List<String> codes = descriptionRepository.findDistinctByCode();
+        for (String code : codes) {
+            reportMap.put(code, descriptionRepository.countByCode(code));
+        }
+        model.addObject("reportMap", reportMap);
+        model.addObject("codes", codes);
+        return model;
+
+    }
+
+    public String deleteByCode(String code) {
+        // log.error("Delete report by code {}",code);
+        List<Description> list = descriptionRepository.findByCode(code);
+        for (Description description : list) {
+            descriptionRepository.deleteById(description.getId());
+            ;
+
+        }
+        // descriptionRepository.deleteAllByCode(code);
+        return "redirect:/editReport";
+    }
+
 }

@@ -62,49 +62,38 @@
         </nav>
     </header>
     <main class="container text-center p-sm-5 m-auto flex-grow-1">
-        <div class="col col-sm-8 col-md-6 col-lg-5 shadow-sm mx-auto border rounded-3 px-4 my-4">
-            <h1 class="title text-primary my-5 my-sm-4">IMALA</h1>
+        <div class="justify-content-center">
+            <div class="col-md-12 col-sm-12">
+                <div class="card shadow flex-grow border-0 rounded-2 mt-3 mb-5 px-sm-2 px-lg-2 mx-lg-4 w-md-75">
+                    <h1 class="card-header display-1 text-center text-danger">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </h1>
+                    <h3 class="text-muted h3">Page not found</h3>
 
-            <form class="form-login" method="POST" th:action="@{/login}" id="loginForm">
-                <div class="form-group text-start small m-2">
-                    <label class="py-1" for="username ">User Name</label>
-                    <input type="username " name="username" class="form-control rounded rounded-3 bg-light" id="username " placeholder=" " required />
-                </div>
-                <div class="form-group text-start small m-2">
-                    <label class="py-1" for="psw_1">Password</label>
-                    <input type="password" name="password" class="form-control rounded rounded-3 bg-light" id="psw_1 " aria-describedby="passwordHelp " placeholder=" " minlength="4 " required />
+                    <div class=" card-subtitle mb-1 mt-3 text-dark text-center ">
+                        <p>We can't find the resource you've requested.</p>
+                        <p class="text-dark ">Are you sure you're looking in the right place?</p>
+
+                    </div>
+                    <div class="card-body mx-auto ">
+                        <a type="button" href="index.html " th:href="@{/index} " class="btn btn-sm btn-secondary text-white ">Back To Home </a>
+                    </div>
+
                 </div>
 
-                <div class="form-group text-start small m-2 my-4 py-2">
-                    <button type="submit " class="btn btn-dark w-100 rounded rounded-3 submit_form">
-              Login
-            </button>
-                </div>
-                <!-- <div class="login-error my-3 pb-4 ">
-                    <p class="text-danger text-start p-0 m-0 px-2 small "><i class="fas fa-exclamation-circle px-2 "></i>Incorrect password or email</p>
-                </div> -->
-                <div class="text-start m-2 my-4">
-                    <p class="text-start p-0 m-0 px-2 small">
-                        Don't have an account yet?<a th:href="@{/signup}" class="text-primary px-2">Sign up</a
-              >
-            </p>
-          </div>
-        </form>
-      </div>
+            </div>
+        </div>
     </main>
-    <footer class="bg-dark p-3 rounded-top flex-shrink-0">
-      <p class="text-light text-center py-0 my-0">
-        Copyright &copy; 2022 All rights reserved | Imala
-      </p>
+
+    <footer class="bg-dark p-3 rounded-top flex-shrink-0 ">
+        <p class="text-light text-center py-0 my-0 ">
+            Copyright &copy; 2022 All rights reserved | Imala
+        </p>
     </footer>
-    <script
-      src="../static/js/login.js "
-      lang="javascript "
-      th:src="@{/js/login.js} "
-    ></script>
-    <script
-      src="../static/js/bootstrap.bundle.min.js"
-      th:src="@{/js/bootstrap.bundle.min.js}"
-    ></script>
-  </body>
+    <script src="../static/js/login.js " lang="javascript " th:src="@{/js/login.js} "></script>
+    <script src="../static/js/bootstrap.bundle.min.js " th:src="@{/js/bootstrap.bundle.min.js} "></script>
+</body>
+
+</html>
+
 </html>

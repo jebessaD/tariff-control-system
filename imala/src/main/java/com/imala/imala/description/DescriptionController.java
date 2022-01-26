@@ -42,20 +42,30 @@ public class DescriptionController {
 
     @GetMapping("/makeReport")
     public ModelAndView makeReport() {
-        ModelAndView model = new ModelAndView("report");
+        ModelAndView model=new ModelAndView("report");
         Description newdescription = new Description();
-        model.addObject("newdescription", newdescription);
-        return model;
+       model.addObject("newdescription", newdescription);
+        return model ;
     }
 
     @PostMapping("/saveReport")
     public String saveReport(@Valid @ModelAttribute("newdescription") Description newdescription,
-            BindingResult result, @AuthenticationPrincipal User user) {
+            BindingResult result,@AuthenticationPrincipal User user) {
         if (result.hasErrors()) {
             return "report";
         } else {
-
-            return descriptionService.saveReport(newdescription, user);
+            
+            return descriptionService.saveReport(newdescription,user);
         }
     }
+   @GetMapping("/admin/editReport")
+   public ModelAndView editReport(){
+       return descriptionService.editReport();
+
+   }
+   @GetMapping("/deleteReportByCode")
+   public String deleteReportByCode(@RequestParam("code") String code){
+     return descriptionService.deleteByCode(code);
+   }
+
 }
