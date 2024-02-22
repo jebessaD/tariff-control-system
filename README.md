@@ -1,38 +1,36 @@
-# Tariff-Control-System
+# Tariff Control System
+## Introduction
+The problem of transportation is common in our country. We dare to say we all face this in our daily life activities, especially those related to tariffs. In one way or another, we see people ruggedly speaking about tariff increases every day. This problem is not just a government problem; it is also a problem with the drivers, especially when the passenger onboard is a stranger. As a group, we have thought and come up with a solution: a software that controls this problem.
 
-#Introduction
+## Business Features
+This software system is a web application which:
 
-Problem of transportation is common in our country . We dare to say we all face this in our daily life activities especially those related to tariff . In one way or another we see when people ruggedly speak about tariff increasing every day . This problem is not a problem of government rather it is the problem with the driver especially when the passenger on board is strange. As a group we think and come with the solution, a software that controls this problem.
+- Will enable a passenger to check the tariff.
+- Allows users to create an account, change their profile, and delete their account.
+- Allows registered users to report when they face illegal tax increases.
+- Allows authorized personnel to check the number of records.
+- For persisting the data, we will use MySQL. It will contain:
 
-#Business feature
-This software system is a web application which-
--	will enable a passenger to check the tariff. 
--	allow user to create account, change profile,to delete account.
--	allow registered users to report when they face illegal tax raise. 
--	allow authorized person to check number of records.
+- A list of stations with their tariffs.
+- A list of cities in Ethiopia with their tariffs from Addis Ababa.
+- A list of registered users' names and passwords.
+- A list of traffic officers' names and IDs.
+- We have two interfaces: one for the user to log in and another for traffic officers to log in, so we need both authentication and authorization:
 
-For persisting the data, we will use MySQL. It will contain:
--	List of station with their tariff
--	List of cities in Ethiopia with their tariff from addis ababa.
--	list of registered users' name and password.
--	List of traffic’s name and ID
+## Authentication:
 
-we have two interface one for the user to login and other for traffic to login so we need both authentication and authorization:
+- The identity of the user has to be verified using a password and email.
+- The identity of authorized users, for example, traffic officers, is checked using an identity number (ID) in addition to a password and email.
 
-authentication
-- identity of the user has to be verified using password and email.
-- identity of authorized user for example tiraffic is checked using identity number(ID) in addition to password and email.
-              
-authorization
-- all users of the system have privilege to check tariff. In addition registered user have privilege to report illegal tariff raise scenario.
-- the system give permission to authorized user to check drivers record.
-- the system grant permission to authorized user to create,read,update and delete database.
+##Authorization:
 
+- All users of the system have the privilege to check tariffs. In addition, registered users have the privilege to report illegal tariff increase scenarios.
+- The system gives permission to authorized users to check drivers' records.
+- The system grants permission to authorized users to create, read, update, and delete databases.
 
-Group members
-   - Name______________ID _____________Section
-- Liban Abduba  --  UGR/3781/12 ------ 1
-- Jebessa Dejene --- UGR/0459/12 ----- 1
-- Naol Kecha  ---   UGR/6903/12 -----   1
-- Abel Mekonen  --- UGR/7784/12  ------  1
-- Mestnanat Asfaw  --- UGR/7631/12  ------1
+#Group Members
+- Liban Abduba - UGR/3781/12 - Section 1
+- Jebessa Dejene - UGR/0459/12 - Section 1
+- Naol Kecha - UGR/6903/12 - Section 1
+- Abel Mekonen - UGR/7784/12 - Section 1
+- Mestnanat Asfaw - UGR/7631/12 - Section 1
